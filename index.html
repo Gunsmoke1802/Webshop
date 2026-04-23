@@ -20,18 +20,14 @@
     --shadow: 0 20px 60px rgba(26,91,191,0.15);
     --shadow-red: 0 20px 60px rgba(212,43,43,0.2);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Nunito', sans-serif;
     background: var(--off-white);
     color: var(--dark);
     overflow-x: hidden;
   }
-
   /* ── NAV ── */
   nav {
     position: fixed;
@@ -47,26 +43,22 @@
     justify-content: space-between;
     box-shadow: 0 4px 24px rgba(26,91,191,0.08);
   }
-
   .nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
     text-decoration: none;
   }
-
   .nav-logo img {
     height: 42px;
     object-fit: contain;
   }
-
   .nav-links {
     display: flex;
     gap: 6px;
     list-style: none;
     align-items: center;
   }
-
   .nav-links a {
     text-decoration: none;
     color: var(--dark);
@@ -77,9 +69,7 @@
     transition: all 0.2s;
     letter-spacing: 0.02em;
   }
-
   .nav-links a:hover { background: var(--light-gray); color: var(--bingo-blue); }
-
   .nav-cta {
     background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)) !important;
     color: white !important;
@@ -88,17 +78,14 @@
     box-shadow: 0 4px 16px rgba(212,43,43,0.35);
     transition: transform 0.2s, box-shadow 0.2s !important;
   }
-
   .nav-cta:hover {
     transform: translateY(-2px) !important;
     box-shadow: 0 8px 24px rgba(212,43,43,0.45) !important;
     background: linear-gradient(135deg, var(--bingo-red-light), var(--bingo-red)) !important;
   }
-
   /* ── SECTIONS ── */
   section { display: none; }
   section.active { display: block; }
-
   /* ── HERO ── */
   #home {
     min-height: 100vh;
@@ -107,7 +94,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .hero-bg-pattern {
     position: absolute;
     inset: 0;
@@ -116,7 +102,6 @@
       radial-gradient(circle at 80% 70%, rgba(212,43,43,0.15) 0%, transparent 50%);
     pointer-events: none;
   }
-
   .hero-dots {
     position: absolute;
     inset: 0;
@@ -124,7 +109,6 @@
     background-size: 36px 36px;
     pointer-events: none;
   }
-
   .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -136,7 +120,6 @@
     position: relative;
     z-index: 2;
   }
-
   .hero-text h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3.5rem, 7vw, 6rem);
@@ -145,10 +128,8 @@
     letter-spacing: 0.03em;
     margin-bottom: 20px;
   }
-
   .hero-text h1 span.blue { color: #5da3ff; }
   .hero-text h1 span.red { color: #ff6464; }
-
   .hero-text p {
     font-size: 1.15rem;
     color: rgba(255,255,255,0.75);
@@ -156,13 +137,11 @@
     margin-bottom: 36px;
     font-weight: 600;
   }
-
   .hero-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
   }
-
   .btn-primary {
     background: linear-gradient(135deg, var(--bingo-red), #ff5252);
     color: white;
@@ -179,9 +158,7 @@
     transition: all 0.25s;
     letter-spacing: 0.03em;
   }
-
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(212,43,43,0.55); }
-
   .btn-secondary {
     background: transparent;
     color: white;
@@ -196,16 +173,13 @@
     display: inline-block;
     transition: all 0.25s;
   }
-
   .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-
   .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
   }
-
   .bingo-card-preview {
     background: white;
     border-radius: 24px;
@@ -215,7 +189,6 @@
     max-width: 340px;
     width: 100%;
   }
-
   .bingo-card-preview h3 {
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
@@ -226,13 +199,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
   .bingo-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 6px;
   }
-
   .bingo-cell {
     aspect-ratio: 1;
     border-radius: 8px;
@@ -247,20 +218,17 @@
     cursor: default;
     transition: transform 0.2s;
   }
-
   .bingo-cell:hover { transform: scale(1.05); }
   .bingo-cell.empty { background: var(--light-gray); color: var(--dark); }
   .bingo-cell.team-blue { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
   .bingo-cell.team-red { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); color: white; }
   .bingo-cell.free { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; font-size: 0.7rem; }
-
   /* ── STATS BAR ── */
   .stats-bar {
     background: white;
     padding: 40px;
     box-shadow: var(--shadow);
   }
-
   .stats-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -269,7 +237,6 @@
     gap: 20px;
     text-align: center;
   }
-
   .stat-item h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.8rem;
@@ -278,21 +245,17 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
   .stat-item p { color: var(--gray); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
-
   /* ── FEATURES ── */
   .features-section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 40px;
   }
-
   .section-header {
     text-align: center;
     margin-bottom: 60px;
   }
-
   .section-label {
     display: inline-block;
     background: var(--light-gray);
@@ -305,7 +268,6 @@
     letter-spacing: 0.1em;
     margin-bottom: 16px;
   }
-
   .section-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
@@ -314,7 +276,6 @@
     line-height: 1.1;
     margin-bottom: 16px;
   }
-
   .section-sub {
     color: var(--gray);
     font-size: 1.05rem;
@@ -323,13 +284,11 @@
     margin: 0 auto;
     line-height: 1.7;
   }
-
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
   }
-
   .feature-card {
     background: white;
     border-radius: 20px;
@@ -340,7 +299,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .feature-card::before {
     content: '';
     position: absolute;
@@ -350,10 +308,8 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
-
   .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,91,191,0.14); }
   .feature-card:hover::before { opacity: 1; }
-
   .feature-icon {
     width: 56px; height: 56px;
     border-radius: 14px;
@@ -363,20 +319,17 @@
     font-size: 1.6rem;
     margin-bottom: 20px;
   }
-
   .feature-icon.blue { background: rgba(26,91,191,0.1); }
   .feature-icon.red { background: rgba(212,43,43,0.1); }
   .feature-icon.yellow { background: rgba(245,158,11,0.12); }
-
   .feature-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); }
   .feature-card p { color: var(--gray); line-height: 1.7; font-size: 0.95rem; font-weight: 600; }
 
   /* ── OVER ONS ── */
   #over-ons {
-    background: var(--off-white);
+    background: #dce8f8;
     padding-top: 70px;
   }
-
   .over-ons-hero {
     background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
     padding: 100px 40px 80px;
@@ -384,14 +337,12 @@
     position: relative;
     overflow: hidden;
   }
-
   .over-ons-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: radial-gradient(ellipse at 50% 0%, rgba(26,91,191,0.25) 0%, transparent 70%);
   }
-
   .over-ons-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
@@ -401,7 +352,6 @@
     letter-spacing: 0.05em;
     margin-bottom: 16px;
   }
-
   .over-ons-hero p {
     color: rgba(255,255,255,0.7);
     font-size: 1.1rem;
@@ -412,7 +362,6 @@
     position: relative;
     z-index: 1;
   }
-
   .over-ons-content {
     max-width: 1100px;
     margin: 0 auto;
@@ -422,7 +371,6 @@
     gap: 60px;
     align-items: center;
   }
-
   .over-ons-text h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.8rem;
@@ -430,7 +378,6 @@
     margin-bottom: 20px;
     color: var(--dark);
   }
-
   .over-ons-text p {
     color: var(--gray);
     line-height: 1.8;
@@ -438,7 +385,6 @@
     margin-bottom: 16px;
     font-size: 1rem;
   }
-
   .over-ons-visual {
     background: white;
     border-radius: 24px;
@@ -446,27 +392,23 @@
     box-shadow: var(--shadow);
     text-align: center;
   }
-
   .over-ons-visual .big-emoji {
     font-size: 4rem;
     display: block;
     margin-bottom: 20px;
   }
-
   .mission-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     margin-top: 10px;
   }
-
   .mission-card {
-    background: var(--off-white);
+    background: #eef5fd;
     border-radius: 14px;
     padding: 24px 20px;
     border-left: 4px solid var(--bingo-blue);
   }
-
   .mission-card.red-accent { border-left-color: var(--bingo-red); }
   .mission-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; color: var(--dark); }
   .mission-card p { font-size: 0.88rem; color: var(--gray); font-weight: 600; line-height: 1.6; }
@@ -476,7 +418,6 @@
     background: var(--off-white);
     padding-top: 70px;
   }
-
   .howto-hero {
     background: linear-gradient(135deg, var(--bingo-blue) 0%, var(--bingo-blue-light) 100%);
     padding: 100px 40px 80px;
@@ -484,7 +425,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .howto-hero::after {
     content: '';
     position: absolute;
@@ -493,7 +433,6 @@
     background: var(--off-white);
     clip-path: ellipse(55% 100% at 50% 100%);
   }
-
   .howto-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
@@ -501,7 +440,6 @@
     letter-spacing: 0.05em;
     margin-bottom: 16px;
   }
-
   .howto-hero p {
     color: rgba(255,255,255,0.85);
     font-size: 1.1rem;
@@ -510,13 +448,11 @@
     margin: 0 auto;
     line-height: 1.7;
   }
-
   .steps-container {
     max-width: 900px;
     margin: 0 auto;
     padding: 80px 40px;
   }
-
   .step {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -525,7 +461,6 @@
     align-items: start;
     position: relative;
   }
-
   .step:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -536,7 +471,6 @@
     background: linear-gradient(var(--light-gray), var(--light-gray));
     border-left: 2px dashed var(--light-gray);
   }
-
   .step-number {
     width: 80px; height: 80px;
     border-radius: 20px;
@@ -551,10 +485,8 @@
     position: relative;
     z-index: 1;
   }
-
   .step-number.blue { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); }
   .step-number.red { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); }
-
   .step-content {
     background: white;
     border-radius: 20px;
@@ -562,10 +494,8 @@
     box-shadow: 0 4px 24px rgba(26,91,191,0.07);
     border: 1px solid var(--light-gray);
   }
-
   .step-content h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); }
   .step-content p { color: var(--gray); line-height: 1.7; font-weight: 600; font-size: 0.98rem; }
-
   .step-content .tip {
     margin-top: 16px;
     background: var(--light-gray);
@@ -578,13 +508,11 @@
     align-items: center;
     gap: 8px;
   }
-
   /* ── BINGOKAARTEN ── */
   #bingokaarten {
     padding-top: 70px;
     background: var(--off-white);
   }
-
   .cards-hero {
     background: linear-gradient(135deg, var(--bingo-red) 0%, #e84a4a 100%);
     padding: 100px 40px 80px;
@@ -592,7 +520,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .cards-hero::before {
     content: '';
     position: absolute;
@@ -600,7 +527,6 @@
     background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
     background-size: 24px 24px;
   }
-
   .cards-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
@@ -609,7 +535,6 @@
     margin-bottom: 16px;
     position: relative;
   }
-
   .cards-hero p {
     color: rgba(255,255,255,0.85);
     font-size: 1.1rem;
@@ -619,13 +544,11 @@
     line-height: 1.7;
     position: relative;
   }
-
   .cards-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 40px;
   }
-
   .coming-soon-banner {
     background: linear-gradient(135deg, var(--dark), var(--dark-mid));
     border-radius: 20px;
@@ -635,14 +558,12 @@
     position: relative;
     overflow: hidden;
   }
-
   .coming-soon-banner::before {
     content: '';
     position: absolute;
     inset: 0;
     background: radial-gradient(ellipse at 50% 0%, rgba(212,43,43,0.2) 0%, transparent 70%);
   }
-
   .coming-soon-banner h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.2rem;
@@ -651,20 +572,17 @@
     position: relative;
     margin-bottom: 12px;
   }
-
   .coming-soon-banner p {
     color: rgba(255,255,255,0.65);
     font-weight: 600;
     position: relative;
   }
-
   .city-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     margin-top: 40px;
   }
-
   .city-card {
     background: white;
     border-radius: 20px;
@@ -674,9 +592,7 @@
     transition: all 0.3s;
     cursor: pointer;
   }
-
   .city-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(26,91,191,0.15); }
-
   .city-card-header {
     height: 120px;
     display: flex;
@@ -686,10 +602,8 @@
     position: relative;
     overflow: hidden;
   }
-
   .city-card-header.available { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); }
   .city-card-header.soon { background: linear-gradient(135deg, #64748b, #94a3b8); filter: grayscale(0.3); }
-
   .city-badge {
     position: absolute;
     top: 12px; right: 12px;
@@ -700,14 +614,11 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
-
   .city-badge.live { background: #22c55e; color: white; }
   .city-badge.soon-badge { background: rgba(255,255,255,0.2); color: white; }
-
   .city-card-body { padding: 24px; }
   .city-card-body h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; color: var(--dark); }
   .city-card-body p { font-size: 0.9rem; color: var(--gray); font-weight: 600; margin-bottom: 20px; }
-
   .city-card-body .btn-card {
     width: 100%;
     padding: 12px;
@@ -720,16 +631,13 @@
     transition: all 0.2s;
     letter-spacing: 0.02em;
   }
-
   .btn-card.active {
     background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
     color: white;
     box-shadow: 0 4px 16px rgba(26,91,191,0.35);
   }
-
   .btn-card.active:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,91,191,0.45); }
   .btn-card.inactive { background: var(--light-gray); color: var(--gray); cursor: not-allowed; }
-
   /* Mini bingo card in city section */
   .mini-bingo {
     max-width: 800px;
@@ -740,7 +648,6 @@
     box-shadow: var(--shadow);
     text-align: center;
   }
-
   .mini-bingo h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
@@ -748,9 +655,7 @@
     margin-bottom: 6px;
     color: var(--dark);
   }
-
   .mini-bingo p { color: var(--gray); font-weight: 600; margin-bottom: 24px; font-size: 0.95rem; }
-
   .mini-bingo-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -758,7 +663,6 @@
     max-width: 460px;
     margin: 0 auto;
   }
-
   .mini-cell {
     aspect-ratio: 1;
     border-radius: 10px;
@@ -775,17 +679,14 @@
     transition: all 0.2s;
     cursor: default;
   }
-
   .mini-cell:hover { transform: scale(1.05); }
   .mini-cell.marked { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
   .mini-cell.free-center { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; font-size: 0.75rem; }
-
   /* ── CONTACT ── */
   #contact {
     background: var(--off-white);
     padding-top: 70px;
   }
-
   .contact-hero {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     padding: 100px 40px 80px;
@@ -793,7 +694,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .contact-hero::before {
     content: '';
     position: absolute;
@@ -801,7 +701,6 @@
     background: radial-gradient(ellipse at 70% 50%, rgba(212,43,43,0.15), transparent 60%),
                 radial-gradient(ellipse at 30% 50%, rgba(26,91,191,0.15), transparent 60%);
   }
-
   .contact-hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
@@ -810,7 +709,6 @@
     margin-bottom: 16px;
     position: relative;
   }
-
   .contact-hero p {
     color: rgba(255,255,255,0.7);
     font-size: 1.1rem;
@@ -820,7 +718,6 @@
     line-height: 1.7;
     position: relative;
   }
-
   .contact-grid {
     max-width: 1100px;
     margin: 0 auto;
@@ -830,7 +727,6 @@
     gap: 60px;
     align-items: start;
   }
-
   .contact-info h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
@@ -838,14 +734,12 @@
     color: var(--dark);
     margin-bottom: 28px;
   }
-
   .contact-item {
     display: flex;
     gap: 16px;
     align-items: flex-start;
     margin-bottom: 28px;
   }
-
   .contact-icon {
     width: 48px; height: 48px;
     border-radius: 12px;
@@ -856,10 +750,8 @@
     font-size: 1.3rem;
     flex-shrink: 0;
   }
-
   .contact-item h4 { font-weight: 800; font-size: 0.9rem; color: var(--dark); margin-bottom: 4px; }
   .contact-item p { color: var(--gray); font-size: 0.95rem; font-weight: 600; }
-
   .contact-form {
     background: white;
     border-radius: 24px;
@@ -867,7 +759,6 @@
     box-shadow: var(--shadow);
     border: 1px solid var(--light-gray);
   }
-
   .contact-form h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.8rem;
@@ -875,9 +766,7 @@
     color: var(--dark);
     margin-bottom: 28px;
   }
-
   .form-group { margin-bottom: 20px; }
-
   .form-group label {
     display: block;
     font-weight: 800;
@@ -887,7 +776,6 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
-
   .form-group input, .form-group textarea, .form-group select {
     width: 100%;
     padding: 14px 18px;
@@ -901,17 +789,13 @@
     transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
   }
-
   .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
     border-color: var(--bingo-blue);
     box-shadow: 0 0 0 4px rgba(26,91,191,0.1);
     background: white;
   }
-
   .form-group textarea { resize: vertical; min-height: 120px; }
-
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
   .form-submit {
     width: 100%;
     padding: 16px;
@@ -927,19 +811,15 @@
     transition: all 0.25s;
     letter-spacing: 0.03em;
   }
-
   .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(26,91,191,0.45); }
-
   .form-success {
     display: none;
     text-align: center;
     padding: 32px;
   }
-
   .form-success .big-check { font-size: 3rem; display: block; margin-bottom: 16px; }
   .form-success h3 { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
   .form-success p { color: var(--gray); font-weight: 600; }
-
   /* ── FOOTER ── */
   footer {
     background: var(--dark);
@@ -947,17 +827,14 @@
     padding: 60px 40px 32px;
     text-align: center;
   }
-
   footer .footer-logo img {
     height: 50px;
     margin-bottom: 16px;
     filter: brightness(0) invert(1);
     opacity: 0.9;
   }
-
   footer p { font-size: 0.9rem; font-weight: 600; line-height: 1.8; }
   footer .footer-links { margin-top: 20px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
-
   footer .footer-links a {
     color: rgba(255,255,255,0.5);
     text-decoration: none;
@@ -966,36 +843,28 @@
     cursor: pointer;
     transition: color 0.2s;
   }
-
   footer .footer-links a:hover { color: white; }
   footer .footer-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; }
-
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes floatCard {
     0%, 100% { transform: rotate(3deg) translateY(0); }
     50% { transform: rotate(3deg) translateY(-12px); }
   }
-
   .bingo-card-preview { animation: floatCard 4s ease-in-out infinite; }
-
   .hero-text { animation: fadeUp 0.7s ease both; }
   .hero-visual { animation: fadeUp 0.7s ease 0.2s both; }
-
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
     .nav-links { gap: 2px; }
     .nav-links a { padding: 8px 10px; font-size: 0.82rem; }
-
     .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px 40px; }
     .hero-visual { order: -1; }
     .bingo-card-preview { max-width: 280px; }
-
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: 1fr; }
     .city-cards { grid-template-columns: 1fr 1fr; }
@@ -1003,13 +872,11 @@
     .contact-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .mission-cards { grid-template-columns: 1fr; }
-
     .features-section, .steps-container, .cards-container, .contact-grid, .over-ons-content { padding-left: 20px; padding-right: 20px; }
   }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#" onclick="showPage('home')">
@@ -1023,10 +890,8 @@
     <li><a href="#" class="nav-cta" onclick="showPage('contact')">Contact</a></li>
   </ul>
 </nav>
-
 <!-- ══════════════════════════════════════ HOME ══════════════════════════════════════ -->
 <section id="home" class="active">
-
   <div style="background: linear-gradient(160deg, #0f172a 0%, #1a3a6b 55%, #0f172a 100%); position:relative; overflow:hidden; padding-top:70px;">
     <div class="hero-bg-pattern"></div>
     <div class="hero-dots"></div>
@@ -1050,7 +915,6 @@
       </div>
     </div>
   </div>
-
   <!-- Stats -->
   <div class="stats-bar">
     <div class="stats-inner">
@@ -1060,7 +924,6 @@
       <div class="stat-item"><h3>90 min</h3><p>Gemiddelde speelduur</p></div>
     </div>
   </div>
-
   <!-- Features -->
   <div class="features-section">
     <div class="section-header">
@@ -1101,7 +964,6 @@
       </div>
     </div>
   </div>
-
   <!-- CTA Banner -->
   <div style="background: linear-gradient(135deg, var(--bingo-blue) 0%, var(--bingo-blue-light) 100%); padding: 80px 40px; text-align:center; position:relative; overflow:hidden;">
     <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.07) 1px,transparent 1px);background-size:28px 28px;"></div>
@@ -1111,7 +973,6 @@
       <a class="btn-primary" href="#" onclick="showPage('bingokaarten')" style="font-size:1.05rem;padding:18px 48px;">Bekijk Bingokaarten →</a>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo">
       <img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO">
@@ -1127,14 +988,12 @@
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════════ OVER ONS ══════════════════════════════════════ -->
 <section id="over-ons">
   <div class="over-ons-hero">
     <h1 style="position:relative;">OVER ONS</h1>
     <p style="position:relative;">Wie zijn wij en waarom hebben we Bingo-GO bedacht?</p>
   </div>
-
   <div class="over-ons-content">
     <div class="over-ons-text">
       <h2>HET VERHAAL ACHTER BINGO-GO</h2>
@@ -1168,8 +1027,7 @@
       </div>
     </div>
   </div>
-
-  <div style="background:var(--light-gray);padding:80px 40px;">
+  <div style="background:#c8ddf5;padding:80px 40px;">
     <div style="max-width:900px;margin:0 auto;text-align:center;">
       <span class="section-label">Waarom Kiezen Voor Ons</span>
       <h2 class="section-title" style="margin-bottom:48px;">WAT ONS ONDERSCHEIDT</h2>
@@ -1192,7 +1050,6 @@
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1204,14 +1061,12 @@
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════════ HOE WERKT HET ══════════════════════════════════════ -->
 <section id="hoe-werkt-het">
   <div class="howto-hero">
     <h1>HOE WERKT HET?</h1>
     <p>In een paar simpele stappen staat iedereen klaar voor het ultieme stadsspel avontuur.</p>
   </div>
-
   <div class="steps-container">
     <div class="step">
       <div class="step-number blue">1</div>
@@ -1252,7 +1107,6 @@
       </div>
     </div>
   </div>
-
   <!-- Spelregels snelinfo -->
   <div style="background:var(--dark);padding:80px 40px;">
     <div style="max-width:900px;margin:0 auto;">
@@ -1284,7 +1138,6 @@
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1296,21 +1149,18 @@
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════════ BINGOKAARTEN ══════════════════════════════════════ -->
 <section id="bingokaarten">
   <div class="cards-hero">
     <h1>BINGOKAARTEN</h1>
     <p>Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.</p>
   </div>
-
   <div class="cards-container">
     <div style="text-align:center;margin-bottom:48px;">
       <span class="section-label">Beschikbare Steden</span>
       <h2 class="section-title" style="margin-top:12px;">KIES JE STAD</h2>
       <p class="section-sub">Elke stad heeft zijn eigen unieke opdrachten en locaties. Nieuw in ons aanbod? Meld je aan voor updates!</p>
     </div>
-
     <div class="city-cards">
       <div class="city-card">
         <div class="city-card-header available">
@@ -1379,14 +1229,12 @@
         </div>
       </div>
     </div>
-
     <!-- Preview Card -->
     <div class="mini-bingo">
       <h3>VOORBEELD BINGOKAART</h3>
       <p>Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad</p>
       <div class="mini-bingo-grid" id="previewGrid"></div>
     </div>
-
     <!-- Prijzen -->
     <div style="margin-top:80px;">
       <div class="section-header">
@@ -1420,7 +1268,6 @@
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1432,14 +1279,12 @@
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════════ CONTACT ══════════════════════════════════════ -->
 <section id="contact">
   <div class="contact-hero">
     <h1>CONTACT</h1>
     <p>Vragen, bestellingen of een samenwerking? We horen graag van je!</p>
   </div>
-
   <div class="contact-grid">
     <div class="contact-info">
       <h2>LATEN WE IN CONTACT KOMEN</h2>
@@ -1471,13 +1316,11 @@
           <p>Bedrijfsuitjes, teambuilding of grote groepen? We denken graag mee over maatwerk.</p>
         </div>
       </div>
-
       <div style="background:var(--light-gray);border-radius:16px;padding:28px;margin-top:8px;">
         <h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);">📣 Nieuwe Stad Aanvragen?</h4>
         <p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;">Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren. Hoe meer aanvragen, hoe sneller!</p>
       </div>
     </div>
-
     <div class="contact-form">
       <h3>STUUR ONS EEN BERICHT</h3>
       <div id="contactFormWrap">
@@ -1519,7 +1362,6 @@
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1531,7 +1373,6 @@
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-
 <script>
 // ── PAGE ROUTING ──
 function showPage(id) {
@@ -1539,7 +1380,6 @@ function showPage(id) {
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 // ── HERO BINGO GRID ──
 const heroData = [
   { label: 'Selfie bij monument', cls: 'team-blue' },
@@ -1568,7 +1408,6 @@ const heroData = [
   { label: 'Markt vondst', cls: 'empty' },
   { label: 'Zonsondergang', cls: 'team-red' },
 ];
-
 const heroGrid = document.getElementById('heroGrid');
 heroData.forEach(item => {
   const cell = document.createElement('div');
@@ -1576,7 +1415,6 @@ heroData.forEach(item => {
   cell.textContent = item.label;
   heroGrid.appendChild(cell);
 });
-
 // ── PREVIEW GRID ──
 const previewItems = [
   'Selfie monument', 'Lokale snack', 'Vintage winkel', 'Muzikant foto', 'Grachtenfoto',
@@ -1585,7 +1423,6 @@ const previewItems = [
   'Parkmoment', 'Water reflex', 'Oud gebouw', 'Fietsvondst', 'Bruin café',
   'Kerk/Tempel', 'Stadspano­rama', 'Lokale kunst', 'Marktvondst', 'Zonsonder­gang',
 ];
-
 const previewGrid = document.getElementById('previewGrid');
 previewItems.forEach((label, i) => {
   const cell = document.createElement('div');
@@ -1593,7 +1430,6 @@ previewItems.forEach((label, i) => {
   cell.textContent = label;
   previewGrid.appendChild(cell);
 });
-
 // ── CONTACT FORM ──
 function submitForm() {
   const firstName = document.getElementById('firstName').value.trim();
