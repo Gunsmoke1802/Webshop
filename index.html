@@ -22,849 +22,227 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--off-white);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
+  body { font-family: 'Nunito', sans-serif; background: var(--off-white); color: var(--dark); overflow-x: hidden; }
+
   /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(16px);
-    border-bottom: 2px solid var(--light-gray);
-    padding: 0 40px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 24px rgba(26,91,191,0.08);
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-  .nav-logo img {
-    height: 42px;
-    object-fit: contain;
-  }
-  .nav-links {
-    display: flex;
-    gap: 6px;
-    list-style: none;
-    align-items: center;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.2s;
-    letter-spacing: 0.02em;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border-bottom: 2px solid var(--light-gray); padding: 0 40px; height: 70px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 24px rgba(26,91,191,0.08); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 62px; object-fit: contain; }
+  .nav-links { display: flex; gap: 6px; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--dark); font-weight: 700; font-size: 0.95rem; padding: 8px 16px; border-radius: 8px; transition: all 0.2s; letter-spacing: 0.02em; }
   .nav-links a:hover { background: var(--light-gray); color: var(--bingo-blue); }
-  .nav-cta {
-    background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)) !important;
-    color: white !important;
-    border-radius: 10px !important;
-    padding: 10px 22px !important;
-    box-shadow: 0 4px 16px rgba(212,43,43,0.35);
-    transition: transform 0.2s, box-shadow 0.2s !important;
-  }
-  .nav-cta:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 24px rgba(212,43,43,0.45) !important;
-    background: linear-gradient(135deg, var(--bingo-red-light), var(--bingo-red)) !important;
-  }
-  /* ── SECTIONS ── */
+  .nav-cta { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)) !important; color: white !important; border-radius: 10px !important; padding: 10px 22px !important; box-shadow: 0 4px 16px rgba(212,43,43,0.35); transition: transform 0.2s, box-shadow 0.2s !important; }
+  .nav-cta:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(212,43,43,0.45) !important; }
+
   section { display: none; }
   section.active { display: block; }
+
   /* ── HERO ── */
-  #home {
-    min-height: 100vh;
-    padding-top: 70px;
-    background: linear-gradient(160deg, #0f172a 0%, #1a3a6b 55%, #0f172a 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg-pattern {
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(58,127,232,0.18) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(212,43,43,0.15) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  .hero-dots {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size: 36px 36px;
-    pointer-events: none;
-  }
-  .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-  }
-  .hero-text h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 1;
-    color: white;
-    letter-spacing: 0.03em;
-    margin-bottom: 20px;
-  }
+  #home { min-height: 100vh; padding-top: 70px; background: linear-gradient(160deg, #0f172a 0%, #1a3a6b 55%, #0f172a 100%); position: relative; overflow: hidden; }
+  .hero-bg-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 30%, rgba(58,127,232,0.18) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(212,43,43,0.15) 0%, transparent 50%); pointer-events: none; }
+  .hero-dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; padding: 80px 40px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+  .hero-text h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1; color: white; letter-spacing: 0.03em; margin-bottom: 20px; }
   .hero-text h1 span.blue { color: #5da3ff; }
-  .hero-text h1 span.red { color: #ff6464; }
-  .hero-text p {
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.7;
-    margin-bottom: 36px;
-    font-weight: 600;
-  }
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--bingo-red), #ff5252);
-    color: white;
-    padding: 16px 36px;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 8px 30px rgba(212,43,43,0.45);
-    transition: all 0.25s;
-    letter-spacing: 0.03em;
-  }
+  .hero-text h1 span.red  { color: #ff6464; }
+  .hero-text p { font-size: 1.15rem; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 36px; font-weight: 600; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: linear-gradient(135deg, var(--bingo-red), #ff5252); color: white; padding: 16px 36px; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; border: none; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 8px 30px rgba(212,43,43,0.45); transition: all 0.25s; letter-spacing: 0.03em; }
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(212,43,43,0.55); }
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    padding: 16px 36px;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    border: 2px solid rgba(255,255,255,0.35);
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.25s;
-  }
+  .btn-secondary { background: transparent; color: white; padding: 16px 36px; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; border: 2px solid rgba(255,255,255,0.35); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.25s; }
   .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  .bingo-card-preview {
-    background: white;
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
-    transform: rotate(3deg);
-    max-width: 340px;
-    width: 100%;
-  }
-  .bingo-card-preview h3 {
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.2rem;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-red));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .bingo-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-  }
-  .bingo-cell {
-    aspect-ratio: 1;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    font-weight: 800;
-    text-align: center;
-    line-height: 1.2;
-    padding: 4px;
-    cursor: default;
-    transition: transform 0.2s;
-  }
+  .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
+
+  /* ── DUAL PHONE VS SCENE (collega) ── */
+  .vs-scene { position: relative; display: flex; align-items: center; justify-content: center; gap: 0; animation: floatScene 5s ease-in-out infinite; }
+  .vs-badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 20; }
+  .vs-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.1em; color: white; text-shadow: 0 2px 12px rgba(0,0,0,0.6); background: rgba(15,23,42,0.75); padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); display: block; }
+  .phone-wrap { position: relative; width: 210px; flex-shrink: 0; }
+  .phone-wrap.left  { transform: rotate(-4deg) translateX(12px); z-index: 1; }
+  .phone-wrap.right { transform: rotate(4deg)  translateX(-12px); z-index: 2; }
+  .phone-frame { background: linear-gradient(160deg, #2e2e34, #111114); border-radius: 36px; padding: 10px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(0,0,0,0.9), 0 24px 60px rgba(0,0,0,0.7); position: relative; }
+  .phone-island { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 52px; height: 14px; background: #020204; border-radius: 10px; z-index: 5; }
+  .phone-screen { background: white; border-radius: 28px; overflow: hidden; aspect-ratio: 9 / 19.5; display: flex; flex-direction: column; padding: 32px 6px 8px; }
+  .phone-team-bar { text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; color: white; flex-shrink: 0; padding: 5px 0; border-radius: 6px; margin-bottom: 4px; }
+  .phone-team-bar.red-bar  { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); }
+  .phone-team-bar.blue-bar { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); }
+  .phone-bingo-title { text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.18em; padding: 4px 0 5px; color: #3a3a7a; flex-shrink: 0; }
+  .phone-grid { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 2px; row-gap: 0; flex: 1; background: white; }
+  .phone-cell { border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.34rem; font-weight: 800; text-align: center; line-height: 1.15; padding: 1px; overflow: hidden; }
+  .phone-cell.p-empty { background: #e8edf8; color: #0f172a; }
+  .phone-cell.p-blue  { background: linear-gradient(135deg, #1a5bbf, #3a7fe8); color: white; }
+  .phone-cell.p-red   { background: linear-gradient(135deg, #d42b2b, #f04444); color: white; }
+  .phone-cell.p-gold  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
+  .phone-btn-vol-up { position: absolute; left: -3px; top: 90px;  width: 3px; height: 28px; background: #3a3a3e; border-radius: 2px 0 0 2px; }
+  .phone-btn-vol-dn { position: absolute; left: -3px; top: 126px; width: 3px; height: 28px; background: #3a3a3e; border-radius: 2px 0 0 2px; }
+  .phone-btn-power  { position: absolute; right: -3px; top: 105px; width: 3px; height: 40px; background: #3a3a3e; border-radius: 0 2px 2px 0; }
+
+  .bingo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .bingo-cell { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; text-align: center; line-height: 1.2; padding: 4px; cursor: default; transition: transform 0.2s; }
   .bingo-cell:hover { transform: scale(1.05); }
-  .bingo-cell.empty { background: var(--light-gray); color: var(--dark); }
+  .bingo-cell.empty     { background: var(--light-gray); color: var(--dark); }
   .bingo-cell.team-blue { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
-  .bingo-cell.team-red { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); color: white; }
-  .bingo-cell.free { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; font-size: 0.7rem; }
-  /* ── STATS BAR ── */
-  .stats-bar {
-    background: white;
-    padding: 40px;
-    box-shadow: var(--shadow);
-  }
-  .stats-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    text-align: center;
-  }
-  .stat-item h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    line-height: 1;
-    background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-red));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  .bingo-cell.team-red  { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); color: white; }
+  .bingo-cell.free      { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; font-size: 0.7rem; }
+
+  @keyframes floatScene { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes floatCard  { 0%,100% { transform: rotate(3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(-12px); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-text   { animation: fadeUp 0.7s ease both; }
+  .hero-visual { animation: fadeUp 0.7s ease 0.2s both; }
+
+  /* ── STATS ── */
+  .stats-bar { background: white; padding: 40px; box-shadow: var(--shadow); }
+  .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+  .stat-item h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; line-height: 1; background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .stat-item p { color: var(--gray); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
   /* ── FEATURES ── */
-  .features-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 40px;
-  }
-  .section-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  .section-label {
-    display: inline-block;
-    background: var(--light-gray);
-    color: var(--bingo-blue);
-    padding: 6px 18px;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    letter-spacing: 0.03em;
-    color: var(--dark);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .section-sub {
-    color: var(--gray);
-    font-size: 1.05rem;
-    font-weight: 600;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .feature-card {
-    background: white;
-    border-radius: 20px;
-    padding: 36px 28px;
-    box-shadow: 0 8px 40px rgba(26,91,191,0.08);
-    border: 1px solid var(--light-gray);
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--bingo-blue), var(--bingo-red));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+  .features-section { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-label { display: inline-block; background: var(--light-gray); color: var(--bingo-blue); padding: 6px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.03em; color: var(--dark); line-height: 1.1; margin-bottom: 16px; }
+  .section-sub { color: var(--gray); font-size: 1.05rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .feature-card { background: white; border-radius: 20px; padding: 36px 28px; box-shadow: 0 8px 40px rgba(26,91,191,0.08); border: 1px solid var(--light-gray); transition: all 0.3s; position: relative; overflow: hidden; }
+  .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--bingo-blue), var(--bingo-red)); opacity: 0; transition: opacity 0.3s; }
   .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,91,191,0.14); }
   .feature-card:hover::before { opacity: 1; }
-  .feature-icon {
-    width: 56px; height: 56px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-  }
-  .feature-icon.blue { background: rgba(26,91,191,0.1); }
-  .feature-icon.red { background: rgba(212,43,43,0.1); }
+  .feature-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; }
+  .feature-icon.blue   { background: rgba(26,91,191,0.1); }
+  .feature-icon.red    { background: rgba(212,43,43,0.1); }
   .feature-icon.yellow { background: rgba(245,158,11,0.12); }
   .feature-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); }
-  .feature-card p { color: var(--gray); line-height: 1.7; font-size: 0.95rem; font-weight: 600; }
+  .feature-card p  { color: var(--gray); line-height: 1.7; font-size: 0.95rem; font-weight: 600; }
 
-  /* ── OVER ONS ── */
-  #over-ons {
-    background: #dce8f8;
-    padding-top: 70px;
-  }
-  .over-ons-hero {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
-    padding: 100px 40px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .over-ons-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(26,91,191,0.25) 0%, transparent 70%);
-  }
-  .over-ons-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    color: white;
-    position: relative;
-    z-index: 1;
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-  }
-  .over-ons-hero p {
-    color: rgba(255,255,255,0.7);
-    font-size: 1.1rem;
-    font-weight: 600;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-    position: relative;
-    z-index: 1;
-  }
-  .over-ons-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .over-ons-text h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    letter-spacing: 0.04em;
-    margin-bottom: 20px;
-    color: var(--dark);
-  }
-  .over-ons-text p {
-    color: var(--gray);
-    line-height: 1.8;
-    font-weight: 600;
-    margin-bottom: 16px;
-    font-size: 1rem;
-  }
-  .over-ons-visual {
-    background: white;
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: var(--shadow);
-    text-align: center;
-  }
-  .over-ons-visual .big-emoji {
-    font-size: 4rem;
-    display: block;
-    margin-bottom: 20px;
-  }
-  .mission-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 10px;
-  }
-  .mission-card {
-    background: #eef5fd;
-    border-radius: 14px;
-    padding: 24px 20px;
-    border-left: 4px solid var(--bingo-blue);
-  }
+  /* ── OVER ONS (jouw versie: lichtblauwe achtergrond) ── */
+  #over-ons { background: #dce8f8; padding-top: 70px; }
+  .over-ons-hero { background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%); padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden; }
+  .over-ons-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(26,91,191,0.25) 0%, transparent 70%); }
+  .over-ons-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); color: white; position: relative; z-index: 1; letter-spacing: 0.05em; margin-bottom: 16px; }
+  .over-ons-hero p  { color: rgba(255,255,255,0.7); font-size: 1.1rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 1; }
+  .over-ons-content { max-width: 1100px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .over-ons-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 0.04em; margin-bottom: 20px; color: var(--dark); }
+  .over-ons-text p  { color: var(--gray); line-height: 1.8; font-weight: 600; margin-bottom: 16px; font-size: 1rem; }
+  .over-ons-visual  { background: white; border-radius: 24px; padding: 40px; box-shadow: var(--shadow); text-align: center; }
+  .over-ons-visual .big-emoji { font-size: 4rem; display: block; margin-bottom: 20px; }
+  .mission-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+  .mission-card { background: #eef5fd; border-radius: 14px; padding: 24px 20px; border-left: 4px solid var(--bingo-blue); }
   .mission-card.red-accent { border-left-color: var(--bingo-red); }
   .mission-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; color: var(--dark); }
-  .mission-card p { font-size: 0.88rem; color: var(--gray); font-weight: 600; line-height: 1.6; }
+  .mission-card p  { font-size: 0.88rem; color: var(--gray); font-weight: 600; line-height: 1.6; }
 
   /* ── HOE WERKT HET ── */
-  #hoe-werkt-het {
-    background: var(--off-white);
-    padding-top: 70px;
-  }
-  .howto-hero {
-    background: linear-gradient(135deg, var(--bingo-blue) 0%, var(--bingo-blue-light) 100%);
-    padding: 100px 40px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .howto-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -1px; left: 0; right: 0;
-    height: 50px;
-    background: var(--off-white);
-    clip-path: ellipse(55% 100% at 50% 100%);
-  }
-  .howto-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    color: white;
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-  }
-  .howto-hero p {
-    color: rgba(255,255,255,0.85);
-    font-size: 1.1rem;
-    font-weight: 600;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-  .steps-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-  .step {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 32px;
-    margin-bottom: 48px;
-    align-items: start;
-    position: relative;
-  }
-  .step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 39px;
-    top: 80px;
-    width: 2px;
-    height: calc(100% - 20px);
-    background: linear-gradient(var(--light-gray), var(--light-gray));
-    border-left: 2px dashed var(--light-gray);
-  }
-  .step-number {
-    width: 80px; height: 80px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: white;
-    flex-shrink: 0;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    position: relative;
-    z-index: 1;
-  }
+  #hoe-werkt-het { background: var(--off-white); padding-top: 70px; }
+  .howto-hero { background: linear-gradient(135deg, var(--bingo-blue) 0%, var(--bingo-blue-light) 100%); padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden; }
+  .howto-hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 50px; background: var(--off-white); clip-path: ellipse(55% 100% at 50% 100%); }
+  .howto-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; }
+  .howto-hero p  { color: rgba(255,255,255,0.85); font-size: 1.1rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+  .steps-container { max-width: 900px; margin: 0 auto; padding: 80px 40px 40px; }
+  .step { display: grid; grid-template-columns: 80px 1fr; gap: 32px; margin-bottom: 48px; align-items: start; position: relative; }
+  .step:not(:last-child)::after { content: ''; position: absolute; left: 39px; top: 80px; width: 2px; height: calc(100% - 20px); border-left: 2px dashed var(--light-gray); }
+  .step-number { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: white; flex-shrink: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.2); position: relative; z-index: 1; }
   .step-number.blue { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); }
-  .step-number.red { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); }
-  .step-content {
-    background: white;
-    border-radius: 20px;
-    padding: 32px;
-    box-shadow: 0 4px 24px rgba(26,91,191,0.07);
-    border: 1px solid var(--light-gray);
-  }
+  .step-number.red  { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); }
+  .step-content { background: white; border-radius: 20px; padding: 32px; box-shadow: 0 4px 24px rgba(26,91,191,0.07); border: 1px solid var(--light-gray); }
   .step-content h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); }
-  .step-content p { color: var(--gray); line-height: 1.7; font-weight: 600; font-size: 0.98rem; }
-  .step-content .tip {
-    margin-top: 16px;
-    background: var(--light-gray);
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 0.88rem;
-    color: var(--bingo-blue);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .step-content p  { color: var(--gray); line-height: 1.7; font-weight: 600; font-size: 0.98rem; }
+  .step-content .tip { margin-top: 16px; background: var(--light-gray); border-radius: 10px; padding: 12px 16px; font-size: 0.88rem; color: var(--bingo-blue); font-weight: 700; }
+
+  /* ── PAUZE & STOP BLOK (collega) ── */
+  .game-controls { max-width: 900px; margin: 0 auto 60px; padding: 0 40px; }
+  .game-controls-inner { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 40px rgba(26,91,191,0.1); border: 1px solid var(--light-gray); }
+  .game-controls-header { text-align: center; margin-bottom: 28px; }
+  .game-controls-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.06em; color: var(--dark); margin-bottom: 8px; }
+  .game-controls-header p { color: var(--gray); font-weight: 600; font-size: 0.95rem; }
+  .control-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .ctrl-card { border-radius: 16px; padding: 22px 16px; font-family: 'Nunito', sans-serif; font-weight: 800; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ctrl-card .ctrl-icon  { font-size: 1.8rem; }
+  .ctrl-card .ctrl-label { font-size: 1.05rem; }
+  .ctrl-card .ctrl-sub   { font-size: 0.78rem; font-weight: 600; opacity: 0.8; }
+  .ctrl-card.pause-card { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; box-shadow: 0 6px 24px rgba(245,158,11,0.3); }
+  .ctrl-card.stop-card  { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); color: white; box-shadow: 0 6px 24px rgba(212,43,43,0.3); }
+  .ctrl-status { background: var(--off-white); border-radius: 16px; padding: 24px; border: 2px solid var(--light-gray); }
+  .ctrl-status-title { font-weight: 800; font-size: 1rem; margin-bottom: 16px; color: var(--dark); }
+  .team-accept-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .team-accept-btn { border-radius: 12px; padding: 14px 12px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .team-accept-btn.team-rood  { background: rgba(212,43,43,0.1); color: var(--bingo-red); border: 2px solid rgba(212,43,43,0.2); }
+  .team-accept-btn.team-blauw { background: rgba(26,91,191,0.1); color: var(--bingo-blue); border: 2px solid rgba(26,91,191,0.2); }
+
   /* ── BINGOKAARTEN ── */
-  #bingokaarten {
-    padding-top: 70px;
-    background: var(--off-white);
-  }
-  .cards-hero {
-    background: linear-gradient(135deg, var(--bingo-red) 0%, #e84a4a 100%);
-    padding: 100px 40px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cards-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
-  .cards-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    color: white;
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .cards-hero p {
-    color: rgba(255,255,255,0.85);
-    font-size: 1.1rem;
-    font-weight: 600;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-    position: relative;
-  }
-  .cards-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-  .coming-soon-banner {
-    background: linear-gradient(135deg, var(--dark), var(--dark-mid));
-    border-radius: 20px;
-    padding: 48px 40px;
-    text-align: center;
-    margin-bottom: 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .coming-soon-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(212,43,43,0.2) 0%, transparent 70%);
-  }
-  .coming-soon-banner h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.2rem;
-    color: white;
-    letter-spacing: 0.1em;
-    position: relative;
-    margin-bottom: 12px;
-  }
-  .coming-soon-banner p {
-    color: rgba(255,255,255,0.65);
-    font-weight: 600;
-    position: relative;
-  }
-  .city-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 40px;
-  }
-  .city-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(26,91,191,0.08);
-    border: 1px solid var(--light-gray);
-    transition: all 0.3s;
-    cursor: pointer;
-  }
+  #bingokaarten { padding-top: 70px; background: var(--off-white); }
+  .cards-hero { background: linear-gradient(135deg, var(--bingo-red) 0%, #e84a4a 100%); padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden; }
+  .cards-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 24px 24px; }
+  .cards-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; position: relative; }
+  .cards-hero p  { color: rgba(255,255,255,0.85); font-size: 1.1rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; position: relative; }
+  .cards-container { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+  .city-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
+  .city-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,91,191,0.08); border: 1px solid var(--light-gray); transition: all 0.3s; cursor: pointer; }
   .city-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(26,91,191,0.15); }
-  .city-card-header {
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    position: relative;
-    overflow: hidden;
-  }
+  .city-card-header { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
   .city-card-header.available { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); }
   .city-card-header.soon { background: linear-gradient(135deg, #64748b, #94a3b8); filter: grayscale(0.3); }
-  .city-badge {
-    position: absolute;
-    top: 12px; right: 12px;
-    padding: 4px 12px;
-    border-radius: 100px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
+  .city-badge { position: absolute; top: 12px; right: 12px; padding: 4px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
   .city-badge.live { background: #22c55e; color: white; }
   .city-badge.soon-badge { background: rgba(255,255,255,0.2); color: white; }
   .city-card-body { padding: 24px; }
   .city-card-body h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; color: var(--dark); }
-  .city-card-body p { font-size: 0.9rem; color: var(--gray); font-weight: 600; margin-bottom: 20px; }
-  .city-card-body .btn-card {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 0.02em;
-  }
-  .btn-card.active {
-    background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
-    color: white;
-    box-shadow: 0 4px 16px rgba(26,91,191,0.35);
-  }
-  .btn-card.active:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,91,191,0.45); }
+  .city-card-body p  { font-size: 0.9rem; color: var(--gray); font-weight: 600; margin-bottom: 20px; }
+  .btn-card { width: 100%; padding: 12px; border-radius: 10px; border: none; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; }
+  .btn-card.active { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; box-shadow: 0 4px 16px rgba(26,91,191,0.35); }
+  .btn-card.active:hover { transform: translateY(-2px); }
   .btn-card.inactive { background: var(--light-gray); color: var(--gray); cursor: not-allowed; }
-  /* Mini bingo card in city section */
-  .mini-bingo {
-    max-width: 800px;
-    margin: 60px auto 0;
-    background: white;
-    border-radius: 24px;
-    padding: 36px;
-    box-shadow: var(--shadow);
-    text-align: center;
-  }
-  .mini-bingo h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    letter-spacing: 0.08em;
-    margin-bottom: 6px;
-    color: var(--dark);
-  }
-  .mini-bingo p { color: var(--gray); font-weight: 600; margin-bottom: 24px; font-size: 0.95rem; }
-  .mini-bingo-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-    max-width: 460px;
-    margin: 0 auto;
-  }
-  .mini-cell {
-    aspect-ratio: 1;
-    border-radius: 10px;
-    background: var(--light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    font-weight: 800;
-    text-align: center;
-    padding: 6px;
-    color: var(--dark);
-    line-height: 1.3;
-    transition: all 0.2s;
-    cursor: default;
-  }
-  .mini-cell:hover { transform: scale(1.05); }
-  .mini-cell.marked { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
-  .mini-cell.free-center { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; font-size: 0.75rem; }
+  .mini-bingo { max-width: 800px; margin: 60px auto 0; background: white; border-radius: 24px; padding: 28px 20px; box-shadow: var(--shadow); text-align: center; }
+  .mini-bingo h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--dark); }
+  .mini-bingo p  { color: var(--gray); font-weight: 600; margin-bottom: 20px; font-size: 0.95rem; }
+  .mini-bingo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(4px,1.5vw,8px); width: 100%; max-width: 460px; margin: 0 auto; }
+  .mini-cell { aspect-ratio: 1; border-radius: 8px; background: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: clamp(0.45rem,1.6vw,0.65rem); font-weight: 800; text-align: center; padding: 4px; color: var(--dark); line-height: 1.3; overflow: hidden; }
+  .mini-cell.marked      { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
+  .mini-cell.free-center { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
+
   /* ── CONTACT ── */
-  #contact {
-    background: var(--off-white);
-    padding-top: 70px;
-  }
-  .contact-hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    padding: 100px 40px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(212,43,43,0.15), transparent 60%),
-                radial-gradient(ellipse at 30% 50%, rgba(26,91,191,0.15), transparent 60%);
-  }
-  .contact-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    color: white;
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .contact-hero p {
-    color: rgba(255,255,255,0.7);
-    font-size: 1.1rem;
-    font-weight: 600;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.7;
-    position: relative;
-  }
-  .contact-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: start;
-  }
-  .contact-info h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5rem;
-    letter-spacing: 0.04em;
-    color: var(--dark);
-    margin-bottom: 28px;
-  }
-  .contact-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    margin-bottom: 28px;
-  }
-  .contact-icon {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: var(--light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    flex-shrink: 0;
-  }
+  #contact { background: var(--off-white); padding-top: 70px; }
+  .contact-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden; }
+  .contact-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(212,43,43,0.15), transparent 60%), radial-gradient(ellipse at 30% 50%, rgba(26,91,191,0.15), transparent 60%); }
+  .contact-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; position: relative; }
+  .contact-hero p  { color: rgba(255,255,255,0.7); font-size: 1.1rem; font-weight: 600; max-width: 500px; margin: 0 auto; line-height: 1.7; position: relative; }
+  .contact-grid { max-width: 1100px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+  .contact-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.04em; color: var(--dark); margin-bottom: 28px; }
+  .contact-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px; }
+  .contact-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
   .contact-item h4 { font-weight: 800; font-size: 0.9rem; color: var(--dark); margin-bottom: 4px; }
-  .contact-item p { color: var(--gray); font-size: 0.95rem; font-weight: 600; }
-  .contact-form {
-    background: white;
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--light-gray);
-  }
-  .contact-form h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    letter-spacing: 0.05em;
-    color: var(--dark);
-    margin-bottom: 28px;
-  }
+  .contact-item p  { color: var(--gray); font-size: 0.95rem; font-weight: 600; }
+  .contact-form { background: white; border-radius: 24px; padding: 40px; box-shadow: var(--shadow); border: 1px solid var(--light-gray); }
+  .contact-form h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; color: var(--dark); margin-bottom: 28px; }
   .form-group { margin-bottom: 20px; }
-  .form-group label {
-    display: block;
-    font-weight: 800;
-    font-size: 0.88rem;
-    color: var(--dark);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .form-group input, .form-group textarea, .form-group select {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid var(--light-gray);
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--dark);
-    background: var(--off-white);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--bingo-blue);
-    box-shadow: 0 0 0 4px rgba(26,91,191,0.1);
-    background: white;
-  }
+  .form-group label { display: block; font-weight: 800; font-size: 0.88rem; color: var(--dark); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid var(--light-gray); border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--dark); background: var(--off-white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--bingo-blue); box-shadow: 0 0 0 4px rgba(26,91,191,0.1); background: white; }
   .form-group textarea { resize: vertical; min-height: 120px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-submit {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgba(26,91,191,0.35);
-    transition: all 0.25s;
-    letter-spacing: 0.03em;
-  }
+  .form-submit { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; border: none; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 8px 24px rgba(26,91,191,0.35); transition: all 0.25s; }
   .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(26,91,191,0.45); }
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 32px;
-  }
+  .form-success { display: none; text-align: center; padding: 32px; }
   .form-success .big-check { font-size: 3rem; display: block; margin-bottom: 16px; }
   .form-success h3 { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-  .form-success p { color: var(--gray); font-weight: 600; }
+  .form-success p  { color: var(--gray); font-weight: 600; }
+
   /* ── FOOTER ── */
-  footer {
-    background: var(--dark);
-    color: rgba(255,255,255,0.6);
-    padding: 60px 40px 32px;
-    text-align: center;
-  }
-  footer .footer-logo img {
-    height: 50px;
-    margin-bottom: 16px;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-  }
+  footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 60px 40px 32px; text-align: center; }
+  footer .footer-logo img { height: 80px; margin-bottom: 16px; opacity: 0.95; }
   footer p { font-size: 0.9rem; font-weight: 600; line-height: 1.8; }
   footer .footer-links { margin-top: 20px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
-  footer .footer-links a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
+  footer .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: color 0.2s; }
   footer .footer-links a:hover { color: white; }
   footer .footer-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; }
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes floatCard {
-    0%, 100% { transform: rotate(3deg) translateY(0); }
-    50% { transform: rotate(3deg) translateY(-12px); }
-  }
-  .bingo-card-preview { animation: floatCard 4s ease-in-out infinite; }
-  .hero-text { animation: fadeUp 0.7s ease both; }
-  .hero-visual { animation: fadeUp 0.7s ease 0.2s both; }
+
   /* ── MOBILE ── */
   @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-links { gap: 2px; }
-    .nav-links a { padding: 8px 10px; font-size: 0.82rem; }
+    nav { padding: 0 16px; }
+    .nav-links a { padding: 7px 8px; font-size: 0.78rem; }
     .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px 40px; }
     .hero-visual { order: -1; }
-    .bingo-card-preview { max-width: 280px; }
+    .phone-wrap { width: 140px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: 1fr; }
     .city-cards { grid-template-columns: 1fr 1fr; }
@@ -872,15 +250,20 @@
     .contact-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .mission-cards { grid-template-columns: 1fr; }
-    .features-section, .steps-container, .cards-container, .contact-grid, .over-ons-content { padding-left: 20px; padding-right: 20px; }
+    .features-section, .steps-container, .cards-container, .contact-grid, .over-ons-content { padding-left: 16px; padding-right: 16px; }
+    .mini-bingo { padding: 20px 12px; }
+    .control-buttons { grid-template-columns: 1fr; }
+    .team-accept-row { grid-template-columns: 1fr; }
+    .game-controls { padding: 0 16px; }
   }
 </style>
 </head>
 <body>
+
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#" onclick="showPage('home')">
-    <img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO">
+    <img src="Bingo-GO_logo.png" alt="Bingo-GO">
   </a>
   <ul class="nav-links">
     <li><a href="#" onclick="showPage('home')">Home</a></li>
@@ -890,105 +273,91 @@
     <li><a href="#" class="nav-cta" onclick="showPage('contact')">Contact</a></li>
   </ul>
 </nav>
-<!-- ══════════════════════════════════════ HOME ══════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════ HOME (collega) ══════════════════════════════════════ -->
 <section id="home" class="active">
-  <div style="background: linear-gradient(160deg, #0f172a 0%, #1a3a6b 55%, #0f172a 100%); position:relative; overflow:hidden; padding-top:70px;">
+  <div style="background:linear-gradient(160deg,#0f172a 0%,#1a3a6b 55%,#0f172a 100%);position:relative;overflow:hidden;padding-top:70px;">
     <div class="hero-bg-pattern"></div>
     <div class="hero-dots"></div>
     <div class="hero-inner">
       <div class="hero-text">
         <div class="section-label" style="background:rgba(255,255,255,0.1);color:#5da3ff;">🎯 Het Ultieme Stadsspel</div>
-        <h1 style="margin-top:12px">
-          ONTDEK<br>DE STAD,<br><span class="red">WIN</span> HET <span class="blue">SPEL</span>
-        </h1>
-        <p>Bingo-GO combineert teamwork, strategie en stadsavontuur in één explosief spel. Claim je vakjes, voltooi opdrachten en roep als eerste BINGO!</p>
+        <h1 style="margin-top:12px">ONTDEK<br>DE STAD,<br><span class="red">WIN</span> HET <span class="blue">SPEL</span></h1>
+        <p>Bingo-GO combineert teamwork, competitie en strategie in één stadsspel. Voer opdrachten uit, claim vakjes en blokkeer je tegenstander. Behaal als eerste een rij BINGO! Of win met de meeste vakjes.</p>
         <div class="hero-buttons">
           <a class="btn-primary" href="#" onclick="showPage('bingokaarten')">Bekijk de Kaarten</a>
           <a class="btn-secondary" href="#" onclick="showPage('hoe-werkt-het')">Hoe Werkt Het?</a>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="bingo-card-preview">
-          <h3>B·I·N·G·O</h3>
-          <div class="bingo-grid" id="heroGrid"></div>
+        <div class="vs-scene">
+          <div class="phone-wrap left">
+            <div class="phone-btn-vol-up"></div><div class="phone-btn-vol-dn"></div><div class="phone-btn-power"></div>
+            <div class="phone-frame">
+              <div class="phone-island"></div>
+              <div class="phone-screen">
+                <div class="phone-team-bar red-bar">TEAM ROOD</div>
+                <div class="phone-bingo-title">B · I · N · G · O</div>
+                <div class="phone-grid" id="gridRood"></div>
+              </div>
+            </div>
+          </div>
+          <div class="vs-badge"><span class="vs-text">VS</span></div>
+          <div class="phone-wrap right">
+            <div class="phone-btn-vol-up"></div><div class="phone-btn-vol-dn"></div><div class="phone-btn-power"></div>
+            <div class="phone-frame">
+              <div class="phone-island"></div>
+              <div class="phone-screen">
+                <div class="phone-team-bar blue-bar">TEAM BLAUW</div>
+                <div class="phone-bingo-title">B · I · N · G · O</div>
+                <div class="phone-grid" id="gridBlauw"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Stats -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat-item"><h3>5v5</h3><p>Teams per spel</p></div>
-      <div class="stat-item"><h3>25+</h3><p>Unieke opdrachten</p></div>
+      <div class="stat-item"><h3>4-12</h3><p>Aantal spelers</p></div>
+      <div class="stat-item"><h3>25</h3><p>Unieke opdrachten</p></div>
       <div class="stat-item"><h3>5+</h3><p>Steden beschikbaar</p></div>
-      <div class="stat-item"><h3>90 min</h3><p>Gemiddelde speelduur</p></div>
+      <div class="stat-item"><h3>3 uur</h3><p>Gemiddelde speelduur</p></div>
     </div>
   </div>
-  <!-- Features -->
   <div class="features-section">
     <div class="section-header">
       <span class="section-label">Waarom Bingo-GO?</span>
       <h2 class="section-title">EEN SPEL DAT<br>ALLES HEEFT</h2>
-      <p class="section-sub">Samenwerking, competitie en stadsverkenning in één unieke ervaring die iedereen bijblijft.</p>
+      <p class="section-sub">Samenwerking, competitie en stadsverkenning in één uniek spel.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon blue">🗺️</div>
-        <h3>Verken Je Stad</h3>
-        <p>Ontdek verborgen hoekjes en iconische plekken in je eigen stad op een manier die je nooit eerder hebt gedaan. Elke bingokaart is anders!</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon red">⚔️</div>
-        <h3>Strategisch Spelen</h3>
-        <p>Zodra een team een vakje claimt, is het weg voor de rest. Kies slim welke opdrachten je aanpakt en blokkeer je tegenstanders.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon yellow">🏆</div>
-        <h3>Twee Winstmogelijkheden</h3>
-        <p>Behaal als eerste een rij en roep BINGO! Of domineer het bord en win op punten als de tijd om is. Altijd spannend tot het einde.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon blue">👥</div>
-        <h3>Perfect voor Teams</h3>
-        <p>Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit. Geschikt voor alle leeftijden.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon red">📱</div>
-        <h3>Makkelijk te Starten</h3>
-        <p>Geen ingewikkelde installaties. Download de kaart, verdeel de teams en ga! De spelregels zijn in vijf minuten uitgelegd.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon yellow">🌆</div>
-        <h3>Groeiend Steden Netwerk</h3>
-        <p>We breiden continu uit met nieuwe steden en kaarten. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p>
-      </div>
+      <div class="feature-card"><div class="feature-icon blue">📍</div><h3>Verken je stad</h3><p>Ontdek de stad terwijl je speelt. Elke opdracht brengt je naar een nieuwe plek en dichter bij de winst.</p></div>
+      <div class="feature-card"><div class="feature-icon red">🎯</div><h3>Strategisch spelen</h3><p>Zodra een vakje is geclaimd, is het weg voor het andere team. Kies slim en blokkeer je tegenstanders.</p></div>
+      <div class="feature-card"><div class="feature-icon yellow">🏆</div><h3>Winstmogelijkheden</h3><p>Behaal als eerste een rij BINGO of claim de meeste vakjes. Spannend tot de laatste minuut.</p></div>
+      <div class="feature-card"><div class="feature-icon blue">👥</div><h3>Perfect voor teams</h3><p>Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit.</p></div>
+      <div class="feature-card"><div class="feature-icon red">📱</div><h3>Makkelijk te starten</h3><p>Geen installatie nodig. Open de link, verdeel de teams en GO! Binnen een minuut ben je klaar om te beginnen.</p></div>
+      <div class="feature-card"><div class="feature-icon yellow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="#1a5bbf"/></svg></div><h3>Groeiend steden netwerk</h3><p>We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p></div>
     </div>
   </div>
-  <!-- CTA Banner -->
-  <div style="background: linear-gradient(135deg, var(--bingo-blue) 0%, var(--bingo-blue-light) 100%); padding: 80px 40px; text-align:center; position:relative; overflow:hidden;">
+  <div style="background:linear-gradient(135deg,var(--bingo-blue) 0%,var(--bingo-blue-light) 100%);padding:80px 40px;text-align:center;position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.07) 1px,transparent 1px);background-size:28px 28px;"></div>
     <div style="position:relative;max-width:600px;margin:0 auto;">
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:white;letter-spacing:0.05em;margin-bottom:16px;">KLAAR VOOR HET AVONTUUR?</h2>
-      <p style="color:rgba(255,255,255,0.8);font-weight:600;font-size:1.05rem;line-height:1.7;margin-bottom:32px;">Bestel nu jouw Bingo-GO kaart en maak van je volgende uitje een onvergetelijke ervaring.</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:white;letter-spacing:0.05em;margin-bottom:16px;">KLAAR OM TE SPELEN?</h2>
+      <p style="color:rgba(255,255,255,0.8);font-weight:600;font-size:1.05rem;line-height:1.7;margin-bottom:32px;">Bestel je Bingo-GO kaart en ga de stad in. Voer opdrachten uit, claim vakjes en versla het andere team.</p>
       <a class="btn-primary" href="#" onclick="showPage('bingokaarten')" style="font-size:1.05rem;padding:18px 48px;">Bekijk Bingokaarten →</a>
     </div>
   </div>
   <footer>
-    <div class="footer-logo">
-      <img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO">
-    </div>
+    <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a>
-      <a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
-    </div>
+    <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a><a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a><a onclick="showPage('contact')">Contact</a></div>
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-<!-- ══════════════════════════════════════ OVER ONS ══════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════ OVER ONS (jouw versie) ══════════════════════════════════════ -->
 <section id="over-ons">
   <div class="over-ons-hero">
     <h1 style="position:relative;">OVER ONS</h1>
@@ -1008,22 +377,10 @@
         <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;margin-bottom:24px;">Mensen verbinden door middel van spel, avontuur en stadsverkenning.</p>
       </div>
       <div class="mission-cards" style="margin-top:20px;">
-        <div class="mission-card">
-          <h4>🏙️ Stadsliefde</h4>
-          <p>Elke kaart is met zorg samengesteld voor de specifieke stad. Van iconische landmarks tot verborgen parels.</p>
-        </div>
-        <div class="mission-card red-accent">
-          <h4>🤝 Verbinding</h4>
-          <p>Bingo-GO brengt mensen samen. Of je nu collega's, vrienden of familie bent — iedereen doet mee.</p>
-        </div>
-        <div class="mission-card">
-          <h4>⚡ Energie</h4>
-          <p>Een dag Bingo-GO spelen zit je vol met herinneringen, gelach en onverwachte avonturen.</p>
-        </div>
-        <div class="mission-card red-accent">
-          <h4>🌱 Groei</h4>
-          <p>We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.</p>
-        </div>
+        <div class="mission-card"><h4>🏙️ Stadsliefde</h4><p>Elke kaart is met zorg samengesteld voor de specifieke stad. Van iconische landmarks tot verborgen parels.</p></div>
+        <div class="mission-card red-accent"><h4>🤝 Verbinding</h4><p>Bingo-GO brengt mensen samen. Of je nu collega's, vrienden of familie bent — iedereen doet mee.</p></div>
+        <div class="mission-card"><h4>⚡ Energie</h4><p>Een dag Bingo-GO spelen zit je vol met herinneringen, gelach en onverwachte avonturen.</p></div>
+        <div class="mission-card red-accent"><h4>🌱 Groei</h4><p>We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.</p></div>
       </div>
     </div>
   </div>
@@ -1032,129 +389,73 @@
       <span class="section-label">Waarom Kiezen Voor Ons</span>
       <h2 class="section-title" style="margin-bottom:48px;">WAT ONS ONDERSCHEIDT</h2>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
-        <div style="text-align:center;">
-          <div style="font-size:3rem;margin-bottom:16px;">🗂️</div>
-          <h3 style="font-weight:800;margin-bottom:10px;color:var(--dark);">Lokaal Gemaakt</h3>
-          <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;">Elke kaart is speciaal ontworpen voor de stad, met locaties en opdrachten die écht passen.</p>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:3rem;margin-bottom:16px;">🔄</div>
-          <h3 style="font-weight:800;margin-bottom:10px;color:var(--dark);">Altijd Vernieuwend</h3>
-          <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;">We voegen regelmatig nieuwe opdrachten en locaties toe, zodat geen twee potjes hetzelfde zijn.</p>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:3rem;margin-bottom:16px;">💬</div>
-          <h3 style="font-weight:800;margin-bottom:10px;color:var(--dark);">Persoonlijk Contact</h3>
-          <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;">Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over jouw ideale speeldag.</p>
-        </div>
+        <div style="text-align:center;"><div style="font-size:3rem;margin-bottom:16px;">🗂️</div><h3 style="font-weight:800;margin-bottom:10px;color:var(--dark);">Lokaal Gemaakt</h3><p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;">Elke kaart is speciaal ontworpen voor de stad, met locaties en opdrachten die écht passen.</p></div>
+        <div style="text-align:center;"><div style="font-size:3rem;margin-bottom:16px;">🔄</div><h3 style="font-weight:800;margin-bottom:10px;color:var(--dark);">Altijd Vernieuwend</h3><p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;">We voegen regelmatig nieuwe opdrachten en locaties toe, zodat geen twee potjes hetzelfde zijn.</p></div>
+        <div style="text-align:center;"><div style="font-size:3rem;margin-bottom:16px;">💬</div><h3 style="font-weight:800;margin-bottom:10px;color:var(--dark);">Persoonlijk Contact</h3><p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;">Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over jouw ideale speeldag.</p></div>
       </div>
     </div>
   </div>
   <footer>
-    <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
+    <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
-    </div>
+    <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a><a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a><a onclick="showPage('contact')">Contact</a></div>
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
-<!-- ══════════════════════════════════════ HOE WERKT HET ══════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════ HOE WERKT HET (collega) ══════════════════════════════════════ -->
 <section id="hoe-werkt-het">
-  <div class="howto-hero">
-    <h1>HOE WERKT HET?</h1>
-    <p>In een paar simpele stappen staat iedereen klaar voor het ultieme stadsspel avontuur.</p>
-  </div>
+  <div class="howto-hero"><h1>HOE WERKT HET?</h1><p>Binnen een paar simpele stappen start jouw ultieme stadsspel.</p></div>
   <div class="steps-container">
-    <div class="step">
-      <div class="step-number blue">1</div>
-      <div class="step-content">
-        <h3>📋 Bestel je Bingokaart</h3>
-        <p>Kies de stad waar jij wilt spelen en bestel de bijbehorende Bingo-GO kaart. Je ontvangt een digitale kaart met 25 unieke opdrachten verspreid over de stad.</p>
-        <div class="tip">💡 Tip: Bestel meerdere kaarten tegelijk voor grotere groepen!</div>
+    <div class="step"><div class="step-number blue">1</div><div class="step-content"><h3>🛒 Bestel je bingokaart</h3><p>Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.</p></div></div>
+    <div class="step"><div class="step-number red">2</div><div class="step-content"><h3>👥 Verdeel de Teams</h3><p>Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).</p></div></div>
+    <div class="step"><div class="step-number blue">3</div><div class="step-content"><h3>🎯 Kies je vakjes slim</h3><p>Bedenk een strategie en kies welke opdrachten je als eerste aanpakt. Let op: zodra een vakje is geclaimd, kan het andere team deze niet meer pakken.</p></div></div>
+    <div class="step"><div class="step-number red">4</div><div class="step-content"><h3>📸 Voer de opdrachten uit</h3><p>Ga naar de locatie, voer de opdracht uit en stuur een foto of video (max. 30 seconden) als bewijs.</p></div></div>
+    <div class="step"><div class="step-number blue">5</div><div class="step-content"><h3>✅ Bewijs goedkeuren</h3><p>Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.</p></div></div>
+    <div class="step"><div class="step-number red">6</div><div class="step-content"><h3>🏆 Win op twee manieren</h3><p>Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.</p><div class="tip">🎉 Spannend tot het einde!</div></div></div>
+  </div>
+  <!-- PAUZE & STOP BLOK -->
+  <div class="game-controls">
+    <div class="game-controls-inner">
+      <div class="game-controls-header">
+        <h3>⏸ PAUZE &amp; STOP</h3>
+        <p>Wil je het spel onderbreken of stoppen? Beide teams moeten akkoord gaan.</p>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-number red">2</div>
-      <div class="step-content">
-        <h3>👥 Verdeel de Teams</h3>
-        <p>Verdeel je groep in twee teams. Elk team krijgt dezelfde bingokaart maar speelt op een eigen scoreblad. Bepaal samen de starttijd en de maximale speelduur.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-number blue">3</div>
-      <div class="step-content">
-        <h3>🎯 Kies je Vakjes Slim</h3>
-        <p>Teams kiezen strategisch welke vakjes ze willen aanpakken. Let op: zodra één team een vakje claimt, kunnen de anderen dat vakje niet meer pakken! Denk goed na over je strategie.</p>
-        <div class="tip">⚔️ Strategie: Blokkeer cruciale vakjes van je tegenstander om hun bingorij te verbreken!</div>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-number red">4</div>
-      <div class="step-content">
-        <h3>🏃 Voer de Opdrachten Uit</h3>
-        <p>Ga naar de locatie, voer de opdracht uit en documenteer dit met een foto of video als bewijs. Opdrachten variëren van creatief tot sportief en van cultureel tot hilarisch.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-number blue">5</div>
-      <div class="step-content">
-        <h3>🏆 Win op Twee Manieren</h3>
-        <p>Het eerste team dat een volledige rij (horizontaal, verticaal of diagonaal) vult, roept BINGO en wint! Als de tijd op is zonder BINGO, wint het team met de meeste geclaimed vakjes.</p>
-        <div class="tip">🎉 Spannend tot het einde — nek aan nek gaat door tot het laatste moment!</div>
+      <div class="control-buttons">
+        <div class="ctrl-card pause-card">
+          <span class="ctrl-icon">⏸</span>
+          <span class="ctrl-label">PAUZE</span>
+          <span class="ctrl-sub">Spel tijdelijk onderbreken</span>
+        </div>
+        <div class="ctrl-card stop-card">
+          <span class="ctrl-icon">⏹</span>
+          <span class="ctrl-label">STOP</span>
+          <span class="ctrl-sub">Spel definitief beëindigen</span>
+        </div>
       </div>
     </div>
   </div>
-  <!-- Spelregels snelinfo -->
   <div style="background:var(--dark);padding:80px 40px;">
     <div style="max-width:900px;margin:0 auto;">
-      <div class="section-header" style="margin-bottom:48px;">
-        <h2 class="section-title" style="color:white;">DE SPELREGELS IN HET KORT</h2>
-      </div>
+      <div class="section-header" style="margin-bottom:48px;"><h2 class="section-title" style="color:white;">DE SPELREGELS IN HET KORT</h2></div>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
-        <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.1);">
-          <h4 style="color:white;font-weight:800;margin-bottom:12px;font-size:1rem;">✅ Dit Mag Wel</h4>
-          <ul style="list-style:none;color:rgba(255,255,255,0.65);font-weight:600;font-size:0.92rem;line-height:2;">
-            <li>→ Vakjes in willekeurige volgorde aanpakken</li>
-            <li>→ Meerdere vakjes tegelijk proberen</li>
-            <li>→ Het bord strategisch afsluiten</li>
-            <li>→ Samen als team opdrachten uitvoeren</li>
-          </ul>
-        </div>
-        <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.1);">
-          <h4 style="color:white;font-weight:800;margin-bottom:12px;font-size:1rem;">❌ Dit Mag Niet</h4>
-          <ul style="list-style:none;color:rgba(255,255,255,0.65);font-weight:600;font-size:0.92rem;line-height:2;">
-            <li>→ Een al geclaimd vakje overnemen</li>
-            <li>→ Valse bewijzen indienen</li>
-            <li>→ De ander actief hinderen bij opdrachten</li>
-            <li>→ Verder spelen na BINGO-roep</li>
-          </ul>
-        </div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.1);"><h4 style="color:white;font-weight:800;margin-bottom:12px;">✅ Dit mag wel</h4><ul style="list-style:none;color:rgba(255,255,255,0.65);font-weight:600;font-size:0.92rem;line-height:2;"><li>→ Vakjes in elke volgorde spelen</li><li>→ Strategisch kiezen en je tegenstander blokkeren</li><li>→ Als team opdrachten uitvoeren</li><li>→ Bewijs indienen met foto of video (max. 30 sec)</li><li>→ Opdrachten opnieuw uitvoeren bij afkeuring</li><li>→ Het spel pauzeren of stoppen met goedkeuring van het andere team</li></ul></div>
+        <div style="background:rgba(255,255,255,0.06);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.1);"><h4 style="color:white;font-weight:800;margin-bottom:12px;">❌ Dit Mag Niet</h4><ul style="list-style:none;color:rgba(255,255,255,0.65);font-weight:600;font-size:0.92rem;line-height:2;"><li>→ Een geclaimd vakje overnemen</li><li>→ Binnen team opsplitsen om sneller te zijn</li><li>→ Valse bewijzen indienen</li><li>→ Mensen fotograferen of filmen zonder toestemming</li><li>→ Vakje claimen zonder bewijs</li><li>→ Regels of lokale wetten negeren</li></ul></div>
       </div>
-      <div style="text-align:center;margin-top:40px;">
-        <a class="btn-primary" href="#" onclick="showPage('bingokaarten')" style="font-size:1rem;padding:16px 40px;">Speel Nu Mee →</a>
-      </div>
+      <div style="text-align:center;margin-top:40px;"><a class="btn-primary" href="#" onclick="showPage('bingokaarten')" style="font-size:1rem;padding:16px 40px;">Speel Nu Mee →</a></div>
     </div>
   </div>
   <footer>
-    <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
+    <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
-    </div>
+    <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a><a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a><a onclick="showPage('contact')">Contact</a></div>
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
+
 <!-- ══════════════════════════════════════ BINGOKAARTEN ══════════════════════════════════════ -->
 <section id="bingokaarten">
-  <div class="cards-hero">
-    <h1>BINGOKAARTEN</h1>
-    <p>Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.</p>
-  </div>
+  <div class="cards-hero"><h1>BINGOKAARTEN</h1><p>Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.</p></div>
   <div class="cards-container">
     <div style="text-align:center;margin-bottom:48px;">
       <span class="section-label">Beschikbare Steden</span>
@@ -1162,197 +463,54 @@
       <p class="section-sub">Elke stad heeft zijn eigen unieke opdrachten en locaties. Nieuw in ons aanbod? Meld je aan voor updates!</p>
     </div>
     <div class="city-cards">
-      <div class="city-card">
-        <div class="city-card-header available">
-          <span style="font-size:2.8rem;">🏛️</span>
-          <span class="city-badge live">Live</span>
-        </div>
-        <div class="city-card-body">
-          <h3>Den Haag</h3>
-          <p>Ontdek de hofstad: van de Binnenhof tot de Hofvijver, van Scheveningen tot de Passage.</p>
-          <button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-header available">
-          <span style="font-size:2.8rem;">🌉</span>
-          <span class="city-badge live">Live</span>
-        </div>
-        <div class="city-card-body">
-          <h3>Rotterdam</h3>
-          <p>De havenstad in een nieuw jasje. Van de Erasmusbrug tot Markthal en de Witte de Withstraat.</p>
-          <button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-header available">
-          <span style="font-size:2.8rem;">🚲</span>
-          <span class="city-badge live">Live</span>
-        </div>
-        <div class="city-card-body">
-          <h3>Amsterdam</h3>
-          <p>De grachtenstad als speelterrein. Van de Jordaan tot het Vondelpark en het Centraal Station.</p>
-          <button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-header soon">
-          <span style="font-size:2.8rem;">🎓</span>
-          <span class="city-badge soon-badge">Binnenkort</span>
-        </div>
-        <div class="city-card-body">
-          <h3>Utrecht</h3>
-          <p>De domstad met haar unieke grachten en gezellige binnenstad. Binnenkort beschikbaar!</p>
-          <button class="btn-card inactive" disabled>Binnenkort</button>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-header soon">
-          <span style="font-size:2.8rem;">💡</span>
-          <span class="city-badge soon-badge">Binnenkort</span>
-        </div>
-        <div class="city-card-body">
-          <h3>Eindhoven</h3>
-          <p>Design en technologie in een bruisende stad. De kaart is in ontwikkeling!</p>
-          <button class="btn-card inactive" disabled>Binnenkort</button>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-header soon" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);">
-          <span style="font-size:2.8rem;opacity:0.5;">🏙️</span>
-          <span class="city-badge soon-badge">Jouw Stad?</span>
-        </div>
-        <div class="city-card-body">
-          <h3>Nieuwe Stad</h3>
-          <p>Wil jij Bingo-GO in jouw stad? Laat het ons weten en wij gaan aan de slag!</p>
-          <button class="btn-card active" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);" onclick="showPage('contact')">Stel voor!</button>
-        </div>
-      </div>
+      <div class="city-card"><div class="city-card-header available"><span style="font-size:2.8rem;">🏛️</span><span class="city-badge live">Live</span></div><div class="city-card-body"><h3>Den Haag</h3><p>Ontdek de hofstad: van de Binnenhof tot de Hofvijver, van Scheveningen tot de Passage.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div></div>
+      <div class="city-card"><div class="city-card-header available"><span style="font-size:2.8rem;">🌉</span><span class="city-badge live">Live</span></div><div class="city-card-body"><h3>Rotterdam</h3><p>De havenstad in een nieuw jasje. Van de Erasmusbrug tot Markthal en de Witte de Withstraat.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div></div>
+      <div class="city-card"><div class="city-card-header available"><span style="font-size:2.8rem;">🚲</span><span class="city-badge live">Live</span></div><div class="city-card-body"><h3>Amsterdam</h3><p>De grachtenstad als speelterrein. Van de Jordaan tot het Vondelpark en het Centraal Station.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div></div>
+      <div class="city-card"><div class="city-card-header soon"><span style="font-size:2.8rem;">🎓</span><span class="city-badge soon-badge">Binnenkort</span></div><div class="city-card-body"><h3>Utrecht</h3><p>De domstad met haar unieke grachten en gezellige binnenstad. Binnenkort beschikbaar!</p><button class="btn-card inactive" disabled>Binnenkort</button></div></div>
+      <div class="city-card"><div class="city-card-header soon"><span style="font-size:2.8rem;">💡</span><span class="city-badge soon-badge">Binnenkort</span></div><div class="city-card-body"><h3>Eindhoven</h3><p>Design en technologie in een bruisende stad. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled>Binnenkort</button></div></div>
+      <div class="city-card"><div class="city-card-header soon" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);"><span style="font-size:2.8rem;opacity:0.5;">🏙️</span><span class="city-badge soon-badge">Jouw Stad?</span></div><div class="city-card-body"><h3>Nieuwe Stad</h3><p>Wil jij Bingo-GO in jouw stad? Laat het ons weten en wij gaan aan de slag!</p><button class="btn-card active" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);" onclick="showPage('contact')">Stel voor!</button></div></div>
     </div>
-    <!-- Preview Card -->
     <div class="mini-bingo">
       <h3>VOORBEELD BINGOKAART</h3>
       <p>Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad</p>
       <div class="mini-bingo-grid" id="previewGrid"></div>
     </div>
-    <!-- Prijzen -->
     <div style="margin-top:80px;">
-      <div class="section-header">
-        <span class="section-label">Tarieven</span>
-        <h2 class="section-title">EENVOUDIGE PRIJZEN</h2>
-        <p class="section-sub">Transparant en eerlijk. Geen verborgen kosten.</p>
-      </div>
+      <div class="section-header"><span class="section-label">Tarieven</span><h2 class="section-title">EENVOUDIGE PRIJZEN</h2><p class="section-sub">Transparant en eerlijk. Geen verborgen kosten.</p></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:0 auto;">
-        <div style="background:white;border-radius:20px;padding:36px 28px;box-shadow:0 8px 40px rgba(26,91,191,0.08);border:1px solid var(--light-gray);text-align:center;">
-          <div style="font-size:2.5rem;margin-bottom:12px;">🎲</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;margin-bottom:8px;">Duo</h3>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--bingo-blue);line-height:1;margin-bottom:8px;">€12</div>
-          <p style="color:var(--gray);font-size:0.85rem;font-weight:700;margin-bottom:24px;">per kaart (2 teams)</p>
-          <button class="btn-primary" style="width:100%;padding:14px;" onclick="showPage('contact')">Bestel Nu</button>
-        </div>
-        <div style="background:linear-gradient(135deg,var(--bingo-blue),var(--bingo-blue-light));border-radius:20px;padding:36px 28px;box-shadow:0 20px 60px rgba(26,91,191,0.35);text-align:center;transform:scale(1.05);">
-          <div style="font-size:2.5rem;margin-bottom:12px;">🏆</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;margin-bottom:8px;color:white;">Groep</h3>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:white;line-height:1;margin-bottom:8px;">€28</div>
-          <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:700;margin-bottom:24px;">3+ kaarten bundel</p>
-          <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:4px 12px;font-size:0.78rem;font-weight:800;color:white;margin-bottom:20px;display:inline-block;">MEEST GEKOZEN</div>
-          <button class="btn-primary" style="width:100%;padding:14px;background:white;color:var(--bingo-blue);" onclick="showPage('contact')">Bestel Nu</button>
-        </div>
-        <div style="background:white;border-radius:20px;padding:36px 28px;box-shadow:0 8px 40px rgba(26,91,191,0.08);border:1px solid var(--light-gray);text-align:center;">
-          <div style="font-size:2.5rem;margin-bottom:12px;">🏢</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;margin-bottom:8px;">Zakelijk</h3>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--bingo-red);line-height:1;margin-bottom:8px;">Op maat</div>
-          <p style="color:var(--gray);font-size:0.85rem;font-weight:700;margin-bottom:24px;">voor bedrijven & events</p>
-          <button class="btn-primary" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--bingo-red),var(--bingo-red-light));" onclick="showPage('contact')">Neem Contact Op</button>
-        </div>
+        <div style="background:white;border-radius:20px;padding:36px 28px;box-shadow:0 8px 40px rgba(26,91,191,0.08);border:1px solid var(--light-gray);text-align:center;"><div style="font-size:2.5rem;margin-bottom:12px;">🎲</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;margin-bottom:8px;">Duo</h3><div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--bingo-blue);line-height:1;margin-bottom:8px;">€12</div><p style="color:var(--gray);font-size:0.85rem;font-weight:700;margin-bottom:24px;">per kaart (2 teams)</p><button class="btn-primary" style="width:100%;padding:14px;" onclick="showPage('contact')">Bestel Nu</button></div>
+        <div style="background:linear-gradient(135deg,var(--bingo-blue),var(--bingo-blue-light));border-radius:20px;padding:36px 28px;box-shadow:0 20px 60px rgba(26,91,191,0.35);text-align:center;transform:scale(1.05);"><div style="font-size:2.5rem;margin-bottom:12px;">🏆</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;margin-bottom:8px;color:white;">Groep</h3><div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:white;line-height:1;margin-bottom:8px;">€28</div><p style="color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:700;margin-bottom:24px;">3+ kaarten bundel</p><div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:4px 12px;font-size:0.78rem;font-weight:800;color:white;margin-bottom:20px;display:inline-block;">MEEST GEKOZEN</div><button class="btn-primary" style="width:100%;padding:14px;background:white;color:var(--bingo-blue);" onclick="showPage('contact')">Bestel Nu</button></div>
+        <div style="background:white;border-radius:20px;padding:36px 28px;box-shadow:0 8px 40px rgba(26,91,191,0.08);border:1px solid var(--light-gray);text-align:center;"><div style="font-size:2.5rem;margin-bottom:12px;">🏢</div><h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;margin-bottom:8px;">Zakelijk</h3><div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--bingo-red);line-height:1;margin-bottom:8px;">Op maat</div><p style="color:var(--gray);font-size:0.85rem;font-weight:700;margin-bottom:24px;">voor bedrijven &amp; events</p><button class="btn-primary" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--bingo-red),var(--bingo-red-light));" onclick="showPage('contact')">Neem Contact Op</button></div>
       </div>
     </div>
   </div>
   <footer>
-    <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
+    <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
-    </div>
+    <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a><a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a><a onclick="showPage('contact')">Contact</a></div>
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
+
 <!-- ══════════════════════════════════════ CONTACT ══════════════════════════════════════ -->
 <section id="contact">
-  <div class="contact-hero">
-    <h1>CONTACT</h1>
-    <p>Vragen, bestellingen of een samenwerking? We horen graag van je!</p>
-  </div>
+  <div class="contact-hero"><h1>CONTACT</h1><p>Vragen, bestellingen of een samenwerking? We horen graag van je!</p></div>
   <div class="contact-grid">
     <div class="contact-info">
       <h2>LATEN WE IN CONTACT KOMEN</h2>
-      <div class="contact-item">
-        <div class="contact-icon">📧</div>
-        <div>
-          <h4>E-mail</h4>
-          <p>info@bingo-go.nl</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <div>
-          <h4>Telefoon / WhatsApp</h4>
-          <p>+31 (0)6 00 000 000</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🕐</div>
-        <div>
-          <h4>Reactietijd</h4>
-          <p>Binnen 24 uur reageren we op elk bericht.</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🏢</div>
-        <div>
-          <h4>Zakelijke Aanvragen</h4>
-          <p>Bedrijfsuitjes, teambuilding of grote groepen? We denken graag mee over maatwerk.</p>
-        </div>
-      </div>
-      <div style="background:var(--light-gray);border-radius:16px;padding:28px;margin-top:8px;">
-        <h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);">📣 Nieuwe Stad Aanvragen?</h4>
-        <p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;">Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren. Hoe meer aanvragen, hoe sneller!</p>
-      </div>
+      <div class="contact-item"><div class="contact-icon">📧</div><div><h4>E-mail</h4><p>info@bingo-go.nl</p></div></div>
+      <div class="contact-item"><div class="contact-icon">📱</div><div><h4>Telefoon / WhatsApp</h4><p>+31 (0)6 00 000 000</p></div></div>
+      <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>Reactietijd</h4><p>Binnen 24 uur reageren we op elk bericht.</p></div></div>
+      <div class="contact-item"><div class="contact-icon">🏢</div><div><h4>Zakelijke Aanvragen</h4><p>Bedrijfsuitjes, teambuilding of grote groepen? We denken graag mee over maatwerk.</p></div></div>
+      <div style="background:var(--light-gray);border-radius:16px;padding:28px;margin-top:8px;"><h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);">📣 Nieuwe Stad Aanvragen?</h4><p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;">Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren.</p></div>
     </div>
     <div class="contact-form">
       <h3>STUUR ONS EEN BERICHT</h3>
       <div id="contactFormWrap">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Voornaam</label>
-            <input type="text" id="firstName" placeholder="Jan">
-          </div>
-          <div class="form-group">
-            <label>Achternaam</label>
-            <input type="text" id="lastName" placeholder="Jansen">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>E-mailadres</label>
-          <input type="email" id="email" placeholder="jan@voorbeeld.nl">
-        </div>
-        <div class="form-group">
-          <label>Onderwerp</label>
-          <select id="subject">
-            <option value="">Selecteer een onderwerp</option>
-            <option>Bestelling plaatsen</option>
-            <option>Vraag over het spel</option>
-            <option>Zakelijke samenwerking</option>
-            <option>Nieuwe stad aanvragen</option>
-            <option>Overig</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Bericht</label>
-          <textarea id="message" placeholder="Schrijf hier jouw bericht..."></textarea>
-        </div>
+        <div class="form-row"><div class="form-group"><label>Voornaam</label><input type="text" id="firstName" placeholder="Jan"></div><div class="form-group"><label>Achternaam</label><input type="text" id="lastName" placeholder="Jansen"></div></div>
+        <div class="form-group"><label>E-mailadres</label><input type="email" id="email" placeholder="jan@voorbeeld.nl"></div>
+        <div class="form-group"><label>Onderwerp</label><select id="subject"><option value="">Selecteer een onderwerp</option><option>Bestelling plaatsen</option><option>Vraag over het spel</option><option>Zakelijke samenwerking</option><option>Nieuwe stad aanvragen</option><option>Overig</option></select></div>
+        <div class="form-group"><label>Bericht</label><textarea id="message" placeholder="Schrijf hier jouw bericht..."></textarea></div>
         <button class="form-submit" onclick="submitForm()">Verstuur Bericht →</button>
       </div>
       <div class="form-success" id="formSuccess">
@@ -1363,16 +521,13 @@
     </div>
   </div>
   <footer>
-    <div class="footer-logo"><img src="/mnt/user-data/uploads/Bingo-GO_logo.png" alt="Bingo-GO"></div>
+    <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p>Het sociale en competitieve stadsspel voor iedereen.</p>
-    <div class="footer-links">
-      <a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
-    </div>
+    <div class="footer-links"><a onclick="showPage('home')">Home</a><a onclick="showPage('over-ons')">Over Ons</a><a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a><a onclick="showPage('bingokaarten')">Bingokaarten</a><a onclick="showPage('contact')">Contact</a></div>
     <div class="footer-bottom">© 2025 Bingo-GO. Alle rechten voorbehouden.</div>
   </footer>
 </section>
+
 <script>
 // ── PAGE ROUTING ──
 function showPage(id) {
@@ -1380,48 +535,55 @@ function showPage(id) {
   document.getElementById(id).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-// ── HERO BINGO GRID ──
-const heroData = [
-  { label: 'Selfie bij monument', cls: 'team-blue' },
-  { label: 'Lokale snack proeven', cls: 'empty' },
-  { label: 'Vintage winkel vinden', cls: 'team-red' },
-  { label: 'Straatmuzikant foto', cls: 'empty' },
-  { label: 'Canal view', cls: 'team-blue' },
-  { label: 'Graffiti spotten', cls: 'empty' },
-  { label: 'Café terrasse', cls: 'team-red' },
-  { label: 'Historisch gebouw', cls: 'team-blue' },
-  { label: 'Lokale markt', cls: 'empty' },
-  { label: 'Stadsdier foto', cls: 'empty' },
-  { label: 'Hoog punt vinden', cls: 'team-blue' },
-  { label: 'Straatart vinden', cls: 'empty' },
-  { label: 'VRIJ', cls: 'free' },
-  { label: 'Lokale held', cls: 'empty' },
-  { label: 'Brug foto', cls: 'team-red' },
-  { label: 'Parkbank moment', cls: 'empty' },
-  { label: 'Water reflectie', cls: 'team-red' },
-  { label: 'Oud gebouw', cls: 'team-blue' },
-  { label: 'Fiets opsporen', cls: 'empty' },
-  { label: 'Lokale kroeg', cls: 'empty' },
-  { label: 'Kerk of tempel', cls: 'team-red' },
-  { label: 'Panorama shot', cls: 'empty' },
-  { label: 'Lokale kunst', cls: 'team-blue' },
-  { label: 'Markt vondst', cls: 'empty' },
-  { label: 'Zonsondergang', cls: 'team-red' },
+
+// ── PHONE GRIDS (collega) ──
+const cells = [
+  { label: 'Selfie bij monument',   cls: 'p-blue'  },
+  { label: 'Lokale snack proeven',  cls: 'p-empty' },
+  { label: 'Vintage winkel vinden', cls: 'p-red'   },
+  { label: 'Straatmuzikant foto',   cls: 'p-empty' },
+  { label: 'Canal view',            cls: 'p-blue'  },
+  { label: 'Graffiti spotten',      cls: 'p-empty' },
+  { label: 'Café terrasse',         cls: 'p-red'   },
+  { label: 'Historisch gebouw',     cls: 'p-blue'  },
+  { label: 'Lokale markt',          cls: 'p-empty' },
+  { label: 'Stadsdier foto',        cls: 'p-empty' },
+  { label: 'Hoog punt vinden',      cls: 'p-blue'  },
+  { label: 'Straatart vinden',      cls: 'p-empty' },
+  { label: 'Lokale held',           cls: 'p-empty' },
+  { label: 'Panorama shot',         cls: 'p-empty' },
+  { label: 'Brug foto',             cls: 'p-red'   },
+  { label: 'Parkbank moment',       cls: 'p-empty' },
+  { label: 'Water reflectie',       cls: 'p-red'   },
+  { label: 'Oud gebouw',            cls: 'p-blue'  },
+  { label: 'Fiets opsporen',        cls: 'p-empty' },
+  { label: 'Lokale kroeg',          cls: 'p-empty' },
+  { label: 'Kerk of tempel',        cls: 'p-red'   },
+  { label: 'Panorama shot',         cls: 'p-empty' },
+  { label: 'Lokale kunst',          cls: 'p-blue'  },
+  { label: 'Markt vondst',          cls: 'p-empty' },
+  { label: 'Zonsondergang',         cls: 'p-red'   },
 ];
-const heroGrid = document.getElementById('heroGrid');
-heroData.forEach(item => {
-  const cell = document.createElement('div');
-  cell.className = 'bingo-cell ' + item.cls;
-  cell.textContent = item.label;
-  heroGrid.appendChild(cell);
-});
+function buildGrid(id) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  cells.forEach(item => {
+    const d = document.createElement('div');
+    d.className = 'phone-cell ' + item.cls;
+    d.textContent = item.label;
+    c.appendChild(d);
+  });
+}
+buildGrid('gridRood');
+buildGrid('gridBlauw');
+
 // ── PREVIEW GRID ──
 const previewItems = [
-  'Selfie monument', 'Lokale snack', 'Vintage winkel', 'Muzikant foto', 'Grachtenfoto',
-  'Graffiti spot', 'Café terrasse', 'Historisch pand', 'Lokale markt', 'Stads­dier',
-  'Hoogste punt', 'Straatart', 'VRIJ 🌟', 'Lokale held', 'Brugfoto',
-  'Parkmoment', 'Water reflex', 'Oud gebouw', 'Fietsvondst', 'Bruin café',
-  'Kerk/Tempel', 'Stadspano­rama', 'Lokale kunst', 'Marktvondst', 'Zonsonder­gang',
+  'Selfie monument','Lokale snack','Vintage winkel','Muzikant foto','Grachtenfoto',
+  'Graffiti spot','Café terrasse','Historisch pand','Lokale markt','Stadsdier',
+  'Hoogste punt','Straatart','VRIJ 🌟','Lokale held','Brugfoto',
+  'Parkmoment','Water reflex','Oud gebouw','Fietsvondst','Bruin café',
+  'Kerk/Tempel','Stadspanorama','Lokale kunst','Marktvondst','Zonsondergang',
 ];
 const previewGrid = document.getElementById('previewGrid');
 previewItems.forEach((label, i) => {
@@ -1430,17 +592,56 @@ previewItems.forEach((label, i) => {
   cell.textContent = label;
   previewGrid.appendChild(cell);
 });
+
 // ── CONTACT FORM ──
 function submitForm() {
   const firstName = document.getElementById('firstName').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  if (!firstName || !email || !message) {
-    alert('Vul alstublieft minimaal je naam, e-mailadres en bericht in.');
-    return;
-  }
+  const email     = document.getElementById('email').value.trim();
+  const message   = document.getElementById('message').value.trim();
+  if (!firstName || !email || !message) { alert('Vul alstublieft minimaal je naam, e-mailadres en bericht in.'); return; }
   document.getElementById('contactFormWrap').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
+}
+
+// ── PAUZE & STOP LOGICA (collega) ──
+let currentTeam   = null;
+let currentAction = null;
+function selectTeam(team) {
+  currentTeam = team;
+  document.getElementById('selectRood').className  = 'team-select-btn' + (team === 'rood'  ? ' selected-rood'  : '');
+  document.getElementById('selectBlauw').className = 'team-select-btn' + (team === 'blauw' ? ' selected-blauw' : '');
+  document.getElementById('actionButtons').style.display = 'grid';
+  document.getElementById('ctrlFeedback').style.display  = 'none';
+}
+function triggerAction(type) {
+  if (!currentTeam) { alert('Selecteer eerst welk team jij bent.'); return; }
+  currentAction = type;
+  const otherTeam = currentTeam === 'rood' ? 'Team Blauw 🔵' : 'Team Rood 🔴';
+  const myTeam    = currentTeam === 'rood' ? 'Team Rood 🔴'  : 'Team Blauw 🔵';
+  document.getElementById('popupIcon').textContent  = type === 'pause' ? '⏸' : '⏹';
+  document.getElementById('popupTitle').textContent = type === 'pause' ? 'PAUZE AANGEVRAAGD' : 'STOP AANGEVRAAGD';
+  document.getElementById('popupMsg').innerHTML     =
+    '<strong>' + myTeam + '</strong> wil het spel ' +
+    (type === 'pause' ? '<strong>pauzeren</strong>' : '<strong>stoppen</strong>') +
+    '.<br><br>' + otherTeam + ', ga jij akkoord?';
+  document.getElementById('popupOverlay').classList.add('visible');
+}
+function respondAction(accepted) {
+  document.getElementById('popupOverlay').classList.remove('visible');
+  const fb = document.getElementById('ctrlFeedback');
+  fb.style.display = 'block';
+  if (accepted) {
+    fb.className   = 'ctrl-feedback accepted';
+    fb.textContent = currentAction === 'pause'
+      ? '✅ Beide teams akkoord — het spel is gepauzeerd!'
+      : '✅ Beide teams akkoord — het spel is beëindigd. Bedankt voor het spelen!';
+  } else {
+    fb.className   = 'ctrl-feedback declined';
+    fb.textContent = currentAction === 'pause'
+      ? '❌ Geweigerd — het andere team wil nog niet pauzeren. Het spel gaat door!'
+      : '❌ Geweigerd — het andere team wil nog niet stoppen. Het spel gaat door!';
+  }
+  currentAction = null;
 }
 </script>
 </body>
