@@ -208,7 +208,10 @@
   .hero-visual { animation: fadeUp 0.7s ease 0.2s both; }
 
   /* ── STATS ── */
-  .stats-bar { background: #dce8f8; padding: 40px; box-shadow: var(--shadow); }
+  .stats-bar {
+    background: #dce8f8;
+    padding: 40px;
+  }
   .stats-inner {
     max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: repeat(4, 1fr);
@@ -977,12 +980,24 @@
 
 <script>
   /* ── PAGE NAVIGATION ── */
-  function showPage(id) {
+  function showPage(id, pushToHistory = true) {
     document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeMobileMenu();
+    if (pushToHistory) {
+      history.pushState({ page: id }, '', '#' + id);
+    }
   }
+
+  // Zet de beginpagina in de history zodat back ook daar naartoe werkt
+  history.replaceState({ page: 'home' }, '', '#home');
+
+  // Luister naar de browser back/forward knoppen
+  window.addEventListener('popstate', (e) => {
+    const id = (e.state && e.state.page) ? e.state.page : 'home';
+    showPage(id, false); // false = niet nogmaals pushen
+  });
 
   /* ── HAMBURGER ── */
   const hamburger   = document.getElementById('hamburger');
