@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bingo-GO | Het Ultieme Stadsspel</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 <style>
   :root {
     --bingo-blue: #1a5bbf;
@@ -20,6 +21,20 @@
     --shadow: 0 20px 60px rgba(26,91,191,0.15);
     --shadow-red: 0 20px 60px rgba(212,43,43,0.2);
   }
+  /* ── PHOSPHOR ICONS SIZING ── */
+  .feature-icon i       { font-size: 1.7rem; }
+  .ctrl-icon i          { font-size: 2rem; }
+  .contact-icon i       { font-size: 1.4rem; }
+  .big-emoji i          { font-size: 4rem; display: block; margin-bottom: 20px; }
+  .onderscheidt-item .icon i { font-size: 3rem; }
+  .city-card-header i   { font-size: 2.8rem; color: white; }
+  .mobile-menu a i      { font-size: 1.1rem; vertical-align: middle; margin-right: 6px; }
+  .section-label i      { font-size: 0.9rem; vertical-align: middle; margin-right: 4px; }
+  .step-content h3 i    { font-size: 1.1rem; vertical-align: middle; margin-right: 6px; }
+  .mission-card h4 i    { font-size: 1rem; vertical-align: middle; margin-right: 4px; }
+  .spelregel-card h4 i  { font-size: 1rem; vertical-align: middle; margin-right: 4px; }
+  .tip i                { font-size: 0.9rem; vertical-align: middle; margin-right: 4px; }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Nunito', sans-serif; background: var(--off-white); color: var(--dark); overflow-x: hidden; }
@@ -584,11 +599,11 @@
 
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()">🏠 Home</a>
-  <a href="javascript:void(0)" onclick="showPage('over-ons');closeMobileMenu()">👥 Over Ons</a>
-  <a href="javascript:void(0)" onclick="showPage('hoe-werkt-het');closeMobileMenu()">📖 Hoe Werkt Het</a>
-  <a href="javascript:void(0)" onclick="showPage('bingokaarten');closeMobileMenu()">🗺️ Bingokaarten</a>
-  <a href="#" class="mob-cta" onclick="showPage('contact');closeMobileMenu()">📩 Contact</a>
+  <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()"><ph-house size="x" color="x"></ph-house> Home</a>
+  <a href="javascript:void(0)" onclick="showPage('over-ons');closeMobileMenu()"><ph-users size="x" color="x"></ph-users> Over Ons</a>
+  <a href="javascript:void(0)" onclick="showPage('hoe-werkt-het');closeMobileMenu()"><ph-book-open size="x" color="x"></ph-book-open> Hoe Werkt Het</a>
+  <a href="javascript:void(0)" onclick="showPage('bingokaarten');closeMobileMenu()"><ph-map-trifold size="x" color="x"></ph-map-trifold> Bingokaarten</a>
+  <a href="javascript:void(0)" class="mob-cta" onclick="showPage('contact');closeMobileMenu()"><ph-envelope size="x" color="x"></ph-envelope> Contact</a>
 </div>
 
 <!-- ══════════════════════════════════
@@ -600,7 +615,7 @@
     <div class="hero-dots"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="section-label" style="background:rgba(255,255,255,0.1);color:#5da3ff;">🎯 Het Ultieme Stadsspel</div>
+        <div class="section-label" style="background:rgba(255,255,255,0.1);color:#5da3ff;"><ph-crosshair size="16" color="#00034d"></ph-crosshair> Het Ultieme Stadsspel</div>
         <h1 style="margin-top:12px">ONTDEK<br>DE STAD,<br><span class="red">WIN</span> HET <span class="blue">SPEL</span></h1>
         <p>Bingo-GO combineert teamwork, competitie en strategie in één stadsspel. Voer opdrachten uit, claim vakjes en blokkeer je tegenstander. Behaal als eerste een rij BINGO! Of win met de meeste vakjes.</p>
         <div class="hero-buttons">
@@ -654,12 +669,12 @@
       <p class="section-sub">Samenwerking, competitie en stadsverkenning in één uniek spel.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon blue">📍</div><h3>Verken je stad</h3><p>Ontdek de stad terwijl je speelt. Elke opdracht brengt je naar een nieuwe plek en dichter bij de winst.</p></div>
-      <div class="feature-card"><div class="feature-icon red">🎯</div><h3>Strategisch spelen</h3><p>Zodra een vakje is geclaimd, is het weg voor het andere team. Kies slim en blokkeer je tegenstanders.</p></div>
-      <div class="feature-card"><div class="feature-icon yellow">🏆</div><h3>Winstmogelijkheden</h3><p>Behaal als eerste een rij BINGO of claim de meeste vakjes. Spannend tot de laatste minuut.</p></div>
-      <div class="feature-card"><div class="feature-icon blue">👥</div><h3>Perfect voor teams</h3><p>Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit.</p></div>
-      <div class="feature-card"><div class="feature-icon red">📱</div><h3>Makkelijk te starten</h3><p>Geen installatie nodig. Open de link, verdeel de teams en GO! Binnen een minuut ben je klaar om te beginnen.</p></div>
-      <div class="feature-card"><div class="feature-icon yellow">🗺️</div><h3>Groeiend steden netwerk</h3><p>We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p></div>
+      <div class="feature-card"><div class="feature-icon blue"><ph-map-pin size="x" color="x"></ph-map-pin></div><h3>Verken je stad</h3><p>Ontdek de stad terwijl je speelt. Elke opdracht brengt je naar een nieuwe plek en dichter bij de winst.</p></div>
+      <div class="feature-card"><div class="feature-icon red"><ph-crosshair size="x" color="x"></ph-crosshair></div><h3>Strategisch spelen</h3><p>Zodra een vakje is geclaimd, is het weg voor het andere team. Kies slim en blokkeer je tegenstanders.</p></div>
+      <div class="feature-card"><div class="feature-icon yellow"><ph-trophy size="x" color="x"></ph-trophy></div><h3>Winstmogelijkheden</h3><p>Behaal als eerste een rij BINGO of claim de meeste vakjes. Spannend tot de laatste minuut.</p></div>
+      <div class="feature-card"><div class="feature-icon blue"><ph-users size="x" color="x"></ph-users></div><h3>Perfect voor teams</h3><p>Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit.</p></div>
+      <div class="feature-card"><div class="feature-icon red"><ph-device-mobile size="x" color="x"></ph-device-mobile></div><h3>Makkelijk te starten</h3><p>Geen installatie nodig. Open de link, verdeel de teams en GO! Binnen een minuut ben je klaar om te beginnen.</p></div>
+      <div class="feature-card"><div class="feature-icon yellow"><ph-map-trifold size="x" color="x"></ph-map-trifold></div><h3>Groeiend steden netwerk</h3><p>We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p></div>
     </div>
   </div>
 
@@ -706,15 +721,15 @@
     </div>
     <div>
       <div class="over-ons-visual">
-        <span class="big-emoji">🎯</span>
+        <span class="big-emoji"><ph-crosshair size="x" color="x"></ph-crosshair></span>
         <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;margin-bottom:8px;">ONZE MISSIE</h3>
         <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;margin-bottom:24px;">Mensen op een leuke en originele manier samenbrengen door middel van een toegankelijk spel dat draait om ontdekking, plezier, interactie en samenwerking.</p>
       </div>
       <div class="mission-cards">
-        <div class="mission-card"><h4>🏙️ Stadsliefde</h4><p>Bingokaarten afgestemd op elke stad. Ontdek nieuwe plekken terwijl je speelt.</p></div>
-        <div class="mission-card red-accent"><h4>🤝 Verbinding</h4><p>Bingo-GO speel je samen. Ga de strijd aan met vrienden, familie of collega's en verken de stad op een nieuwe manier.</p></div>
-        <div class="mission-card"><h4>🏃‍♂️ Actief</h4><p>Ga op pad, blijf in beweging en verken de stad terwijl je opdrachten uitvoert.</p></div>
-        <div class="mission-card red-accent"><h4>🌱 Groei</h4><p>We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.</p></div>
+        <div class="mission-card"><h4><ph-buildings size="x" color="x"></ph-buildings> Stadsliefde</h4><p>Bingokaarten afgestemd op elke stad. Ontdek nieuwe plekken terwijl je speelt.</p></div>
+        <div class="mission-card red-accent"><h4><ph-handshake size="x" color="x"></ph-handshake> Verbinding</h4><p>Bingo-GO speel je samen. Ga de strijd aan met vrienden, familie of collega's en verken de stad op een nieuwe manier.</p></div>
+        <div class="mission-card"><h4><ph-person-simple-run size="x" color="x"></ph-person-simple-run> Actief</h4><p>Ga op pad, blijf in beweging en verken de stad terwijl je opdrachten uitvoert.</p></div>
+        <div class="mission-card red-accent"><h4><ph-plant size="x" color="x"></ph-plant> Groei</h4><p>We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.</p></div>
       </div>
     </div>
   </div>
@@ -726,17 +741,17 @@
     </div>
     <div class="onderscheidt-grid" style="margin-top:40px;">
       <div class="onderscheidt-item">
-        <div class="icon">🗂️</div>
+        <div class="icon"><ph-files size="x" color="x"></ph-files></div>
         <h3>Lokaal Gemaakt</h3>
         <p>Elke kaart is speciaal ontworpen voor de stad, met locaties en opdrachten die écht passen.</p>
       </div>
       <div class="onderscheidt-item">
-        <div class="icon">🔄</div>
+        <div class="icon"><ph-arrows-clockwise size="x" color="x"></ph-arrows-clockwise></div>
         <h3>Strategie &amp; Competitie</h3>
         <p>Kies slim welke vakjes je claimt en blokkeer je tegenstanders. Door de unieke lock-out functie wordt elk spel een tactische strijd.</p>
       </div>
       <div class="onderscheidt-item">
-        <div class="icon">💬</div>
+        <div class="icon"><ph-chat-circle size="x" color="x"></ph-chat-circle></div>
         <h3>Persoonlijk Contact</h3>
         <p>Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over het ideale spel voor jou.</p>
       </div>
@@ -767,28 +782,28 @@
   </div>
 
   <div class="steps-container">
-    <div class="step"><div class="step-number blue">1</div><div class="step-content"><h3>🛒 Bestel je bingokaart</h3><p>Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.</p><div class="tip">⚠️ Let op: Na bestellen is de kaart 72 uur geldig!</div></div></div>
-    <div class="step"><div class="step-number red">2</div><div class="step-content"><h3>👥 Verdeel de Teams</h3><p>Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).</p></div></div>
-    <div class="step"><div class="step-number blue">3</div><div class="step-content"><h3>🎯 Kies je vakjes slim</h3><p>Bedenk een strategie en kies welke opdrachten je als eerste aanpakt. Let op: zodra een vakje is geclaimd, kan het andere team deze niet meer pakken.</p></div></div>
-    <div class="step"><div class="step-number red">4</div><div class="step-content"><h3>📸 Voer de opdrachten uit</h3><p>Ga naar de locatie, voer de opdracht uit en stuur een foto of video (max. 30 seconden) als bewijs.</p></div></div>
-    <div class="step"><div class="step-number blue">5</div><div class="step-content"><h3>✅ Bewijs goedkeuren</h3><p>Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.</p></div></div>
-    <div class="step"><div class="step-number red">6</div><div class="step-content"><h3>🏆 Win op twee manieren</h3><p>Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.</p><div class="tip">🎉 Spannend tot het einde!</div></div></div>
+    <div class="step"><div class="step-number blue">1</div><div class="step-content"><h3><ph-shopping-cart size="x" color="x"></ph-shopping-cart> Bestel je bingokaart</h3><p>Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.</p><div class="tip"><ph-warning size="x" color="x"></ph-warning> Let op: Na bestellen is de kaart 72 uur geldig!</div></div></div>
+    <div class="step"><div class="step-number red">2</div><div class="step-content"><h3><ph-users size="x" color="x"></ph-users> Verdeel de Teams</h3><p>Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).</p></div></div>
+    <div class="step"><div class="step-number blue">3</div><div class="step-content"><h3><ph-crosshair size="x" color="x"></ph-crosshair> Kies je vakjes slim</h3><p>Bedenk een strategie en kies welke opdrachten je als eerste aanpakt. Let op: zodra een vakje is geclaimd, kan het andere team deze niet meer pakken.</p></div></div>
+    <div class="step"><div class="step-number red">4</div><div class="step-content"><h3><ph-camera size="x" color="x"></ph-camera> Voer de opdrachten uit</h3><p>Ga naar de locatie, voer de opdracht uit en stuur een foto of video (max. 30 seconden) als bewijs.</p></div></div>
+    <div class="step"><div class="step-number blue">5</div><div class="step-content"><h3><ph-check-circle size="x" color="x"></ph-check-circle> Bewijs goedkeuren</h3><p>Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.</p></div></div>
+    <div class="step"><div class="step-number red">6</div><div class="step-content"><h3><ph-trophy size="x" color="x"></ph-trophy> Win op twee manieren</h3><p>Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.</p><div class="tip">🎉 Spannend tot het einde!</div></div></div>
   </div>
 
   <div class="game-controls">
     <div class="game-controls-inner">
       <div class="game-controls-header">
-        <h3>⏸ PAUZE &amp; STOP</h3>
+        <h3><ph-pause size="x" color="x"></ph-pause> PAUZE &amp; STOP</h3>
         <p>Wil je het spel onderbreken of stoppen? Beide teams moeten akkoord gaan.</p>
       </div>
       <div class="control-buttons">
         <div class="ctrl-card pause-card">
-          <span class="ctrl-icon">⏸</span>
+          <span class="ctrl-icon"><ph-pause size="x" color="x"></ph-pause></span>
           <span class="ctrl-label">PAUZE</span>
           <span class="ctrl-sub">Spel tijdelijk onderbreken</span>
         </div>
         <div class="ctrl-card stop-card">
-          <span class="ctrl-icon">⏹</span>
+          <span class="ctrl-icon"><ph-stop size="x" color="x"></ph-stop></span>
           <span class="ctrl-label">STOP</span>
           <span class="ctrl-sub">Spel definitief beëindigen</span>
         </div>
@@ -803,7 +818,7 @@
       </div>
       <div class="spelregels-grid">
         <div class="spelregel-card">
-          <h4>✅ Dit mag wel</h4>
+          <h4><ph-check-circle size="x" color="x"></ph-check-circle> Dit mag wel</h4>
           <ul>
             <li>→ Vakjes in elke volgorde spelen</li>
             <li>→ Strategisch kiezen en je tegenstander blokkeren</li>
@@ -814,7 +829,7 @@
           </ul>
         </div>
         <div class="spelregel-card">
-          <h4>❌ Dit Mag Niet</h4>
+          <h4><ph-x-circle size="x" color="x"></ph-x-circle> Dit Mag Niet</h4>
           <ul>
             <li>→ Een geclaimd vakje overnemen</li>
             <li>→ Binnen team opsplitsen om sneller te zijn</li>
@@ -862,27 +877,27 @@
     </div>
     <div class="city-cards">
       <div class="city-card">
-        <div class="city-card-header available"><span>🏛️</span><span class="city-badge live">Live</span></div>
+        <div class="city-card-header available"><ph-bank size="x" color="x"></ph-bank><span class="city-badge live">Live</span></div>
         <div class="city-card-body"><h3>Delft</h3><p>Ontdek de historische stad: van de grachten tot de Markt en de Oude Kerk.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header available"><span>🌉</span><span class="city-badge live">Live</span></div>
+        <div class="city-card-header available"><ph-anchor size="x" color="x"></ph-anchor><span class="city-badge live">Live</span></div>
         <div class="city-card-body"><h3>Rotterdam</h3><p>De havenstad in een nieuw jasje. Van de Erasmusbrug tot Markthal en de Witte de Withstraat.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header available"><span>🚲</span><span class="city-badge live">Live</span></div>
+        <div class="city-card-header available"><ph-bicycle size="x" color="x"></ph-bicycle><span class="city-badge live">Live</span></div>
         <div class="city-card-body"><h3>Amsterdam</h3><p>De grachtenstad als speelterrein. Van de Jordaan tot het Vondelpark en het Centraal Station.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header soon"><span>🎓</span><span class="city-badge soon-badge">Binnenkort</span></div>
+        <div class="city-card-header soon"><ph-graduation-cap size="x" color="x"></ph-graduation-cap><span class="city-badge soon-badge">Binnenkort</span></div>
         <div class="city-card-body"><h3>Utrecht</h3><p>De domstad met haar unieke grachten en gezellige binnenstad. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled>Binnenkort</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header soon"><span>💡</span><span class="city-badge soon-badge">Binnenkort</span></div>
+        <div class="city-card-header soon"><ph-lightbulb size="x" color="x"></ph-lightbulb><span class="city-badge soon-badge">Binnenkort</span></div>
         <div class="city-card-body"><h3>Den Haag</h3><p>Ontdek Den Haag: van het Binnenhof en de Hofvijver tot de gezellige winkelstraten. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled>Binnenkort</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header soon" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);"><span style="opacity:0.5;">🏙️</span><span class="city-badge soon-badge">Jouw Stad?</span></div>
+        <div class="city-card-header soon" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);"><ph-buildings size="x" color="x" style="opacity:0.5;"></ph-buildings><span class="city-badge soon-badge">Jouw Stad?</span></div>
         <div class="city-card-body"><h3>Nieuwe Stad</h3><p>Wil jij Bingo-GO in jouw stad? Laat het ons weten en wij gaan aan de slag!</p><button class="btn-card active" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);" onclick="showPage('contact')">Stel voor!</button></div>
       </div>
     </div>
@@ -921,15 +936,15 @@
     <div class="contact-info">
       <h2>LATEN WE IN CONTACT KOMEN</h2>
       <div class="contact-item">
-        <div class="contact-icon">📧</div>
+        <div class="contact-icon"><ph-envelope size="x" color="x"></ph-envelope></div>
         <div><h4>E-mail</h4><p>info@bingo-go.nl</p></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon">🕐</div>
+        <div class="contact-icon"><ph-clock size="x" color="x"></ph-clock></div>
         <div><h4>Reactietijd</h4><p>Binnen 48 uur reageren we op elk bericht.</p></div>
       </div>
       <div style="background:var(--light-gray);border-radius:16px;padding:24px;margin-top:8px;">
-        <h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);">📣 Nieuwe Stad Aanvragen?</h4>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);"><ph-megaphone size="x" color="x"></ph-megaphone> Nieuwe Stad Aanvragen?</h4>
         <p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;">Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren.</p>
       </div>
     </div>
