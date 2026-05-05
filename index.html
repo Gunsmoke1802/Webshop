@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bingo-GO | Het Ultieme Stadsspel</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/index.umd.js"></script>
 <style>
   :root {
     --bingo-blue: #1a5bbf;
@@ -21,20 +20,6 @@
     --shadow: 0 20px 60px rgba(26,91,191,0.15);
     --shadow-red: 0 20px 60px rgba(212,43,43,0.2);
   }
-  /* ── PHOSPHOR ICONS SIZING ── */
-  .feature-icon i       { font-size: 1.7rem; }
-  .ctrl-icon i          { font-size: 2rem; }
-  .contact-icon i       { font-size: 1.4rem; }
-  .big-emoji i          { font-size: 4rem; display: block; margin-bottom: 20px; }
-  .onderscheidt-item .icon i { font-size: 3rem; }
-  .city-card-header i   { font-size: 2.8rem; color: white; }
-  .mobile-menu a i      { font-size: 1.1rem; vertical-align: middle; margin-right: 6px; }
-  .section-label i      { font-size: 0.9rem; vertical-align: middle; margin-right: 4px; }
-  .step-content h3 i    { font-size: 1.1rem; vertical-align: middle; margin-right: 6px; }
-  .mission-card h4 i    { font-size: 1rem; vertical-align: middle; margin-right: 4px; }
-  .spelregel-card h4 i  { font-size: 1rem; vertical-align: middle; margin-right: 4px; }
-  .tip i                { font-size: 0.9rem; vertical-align: middle; margin-right: 4px; }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Nunito', sans-serif; background: var(--off-white); color: var(--dark); overflow-x: hidden; }
@@ -223,10 +208,7 @@
   .hero-visual { animation: fadeUp 0.7s ease 0.2s both; }
 
   /* ── STATS ── */
-  .stats-bar {
-    background: #dce8f8;
-    padding: 40px;
-  }
+  .stats-bar { background: #dce8f8; padding: 40px; }
   .stats-inner {
     max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: repeat(4, 1fr);
@@ -254,7 +236,7 @@
   .section-sub { color: var(--gray); font-size: 1.05rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; }
   .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
   .feature-card {
-    background: white; border-radius: 20px; padding: 36px 28px;
+    background: white; border-radius: 20px; padding: 24px 36px;
     box-shadow: 0 8px 40px rgba(26,91,191,0.08); border: 1px solid var(--light-gray);
     transition: all 0.3s; position: relative; overflow: hidden;
   }
@@ -266,9 +248,17 @@
   .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,91,191,0.14); }
   .feature-card:hover::before { opacity: 1; }
   .feature-icon {
-    width: 56px; height: 56px; border-radius: 14px;
+    width: 64px; height: 64px; border-radius: 16px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; margin-bottom: 20px;
+    margin-bottom: 24px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(26,91,191,0.10);
+    border: 1px solid rgba(26,91,191,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .feature-card:hover .feature-icon {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(26,91,191,0.15);
   }
   .feature-icon.blue   { background: rgba(26,91,191,0.1); }
   .feature-icon.red    { background: rgba(212,43,43,0.1); }
@@ -313,18 +303,28 @@
   .mission-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
   .mission-card { background: #eef5fd; border-radius: 14px; padding: 24px 20px; border-left: 4px solid var(--bingo-blue); }
   .mission-card.red-accent { border-left-color: var(--bingo-red); }
-  .mission-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; color: var(--dark); }
+  .mission-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; color: var(--dark); display: flex; align-items: center; gap: 7px; } .mission-card h4 svg { stroke: var(--bingo-blue); flex-shrink: 0; } .mission-card.red-accent h4 svg { stroke: var(--bingo-red); }
   .mission-card p  { font-size: 0.88rem; color: var(--gray); font-weight: 600; line-height: 1.6; }
 
   /* Onderscheidt grid */
   .onderscheidt-section { background: #c8ddf5; padding: 80px 40px; }
   .onderscheidt-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 32px; max-width: 900px; margin: 0 auto;
+    gap: 32px; max-width: 1200px; margin: 0 auto;
   }
-  .onderscheidt-item { text-align: center; }
-  .onderscheidt-item .icon { font-size: 3rem; margin-bottom: 16px; }
-  .onderscheidt-item h3 { font-weight: 800; margin-bottom: 10px; color: var(--dark); }
+  .onderscheidt-item {
+    background: white; border-radius: 20px; padding: 24px 36px;
+    box-shadow: 0 8px 40px rgba(26,91,191,0.08); border: 1px solid var(--light-gray);
+    transition: all 0.3s; position: relative; overflow: hidden; text-align: center;
+  }
+  .onderscheidt-item::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--bingo-blue), var(--bingo-red));
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .onderscheidt-item:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,91,191,0.14); }
+  .onderscheidt-item:hover::before { opacity: 1; }
+  .onderscheidt-item h3 { font-weight: 800; margin-bottom: 10px; color: var(--dark); font-size: 1.15rem; }
   .onderscheidt-item p  { color: var(--gray); font-weight: 600; font-size: 0.95rem; line-height: 1.7; }
 
   /* ── HOE WERKT HET ── */
@@ -379,7 +379,6 @@
   .spelregels-section { background: var(--dark); padding: 80px 40px; }
   .spelregels-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 48px auto 0; }
   .spelregel-card { background: rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; border: 1px solid rgba(255,255,255,0.1); }
-  .spelregel-card h4 { color: white; font-weight: 800; margin-bottom: 12px; }
   .spelregel-card ul { list-style: none; color: rgba(255,255,255,0.65); font-weight: 600; font-size: 0.92rem; line-height: 2; }
 
   /* ── BINGOKAARTEN ── */
@@ -397,7 +396,7 @@
   .cards-hero p  { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; position: relative; }
   .cards-container { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
   .city-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
-  .city-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,91,191,0.08); border: 1px solid var(--light-gray); transition: all 0.3s; cursor: pointer; }
+  .city-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,91,191,0.08); border: 1px solid var(--light-gray); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; }
   .city-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(26,91,191,0.15); }
   .city-card-header { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; overflow: hidden; }
   .city-card-header.available { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); }
@@ -405,9 +404,9 @@
   .city-badge { position: absolute; top: 12px; right: 12px; padding: 4px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
   .city-badge.live { background: #22c55e; color: white; }
   .city-badge.soon-badge { background: rgba(255,255,255,0.2); color: white; }
-  .city-card-body { padding: 24px; }
+  .city-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
   .city-card-body h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; color: var(--dark); }
-  .city-card-body p  { font-size: 0.9rem; color: var(--gray); font-weight: 600; margin-bottom: 20px; }
+  .city-card-body p  { font-size: 0.9rem; color: var(--gray); font-weight: 600; margin-bottom: 20px; flex: 1; }
   .btn-card { width: 100%; padding: 12px; border-radius: 10px; border: none; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; }
   .btn-card.active   { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; box-shadow: 0 4px 16px rgba(26,91,191,0.35); }
   .btn-card.active:hover { transform: translateY(-2px); }
@@ -480,6 +479,89 @@
   .footer-links a:hover { color: white; }
   .footer-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; }
 
+  /* ── SVG ICON STYLES ── */
+  .feature-icon svg { display: block; }
+  .feature-icon.blue svg  { stroke: var(--bingo-blue); }
+  .feature-icon.red svg   { stroke: var(--bingo-red); }
+  .feature-icon.yellow svg { stroke: #d97706; }
+
+  .onderscheidt-item .icon {
+    margin-bottom: 20px; display: flex; justify-content: center;
+  }
+  .onderscheidt-item .icon-box {
+    width: 64px; height: 64px;
+    background: var(--light-gray);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+    transition: transform 0.25s;
+  }
+  .onderscheidt-item:hover .icon-box {
+    transform: scale(1.08);
+  }
+  .onderscheidt-item .icon-box svg { stroke: var(--bingo-blue); width: 36px; height: 36px; }
+
+  .ctrl-icon svg { stroke: white; width: 36px; height: 36px; display: block; }
+
+  .contact-icon svg { stroke: var(--bingo-blue); width: 24px; height: 24px; display: block; }
+
+  .big-emoji svg { stroke: var(--bingo-blue); display: block; margin: 0 auto 20px; }
+  .big-check { display: flex; justify-content: center; margin-bottom: 16px; }
+  .big-check svg { stroke: #22c55e; }
+
+  .city-header-icon { display: flex; align-items: center; justify-content: center; }
+  .city-header-icon svg { stroke: white; width: 52px; height: 52px; stroke-width: 1.5; }
+  .city-card-header.soon .city-header-icon svg { opacity: 0.7; }
+
+  .step-content h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); display: flex; align-items: center; gap: 10px; }
+  .step-content h3 svg { stroke: var(--bingo-blue); flex-shrink: 0; width: 22px; height: 22px; }
+
+  .spelregel-card h4 { color: white; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .spelregel-card h4 svg { stroke: white; opacity: 0.9; flex-shrink: 0; }
+
+  /* Rules section - add inline icons for ✅ ❌ */
+  .rule-icon-allow { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; background: rgba(34,197,94,0.25); border-radius: 50%; flex-shrink: 0; }
+  .rule-icon-deny  { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; background: rgba(212,43,43,0.25); border-radius: 50%; flex-shrink: 0; }
+  .lang-switcher {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; margin-top: 20px;
+  }
+  .lang-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.2);
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.22s;
+    display: flex; align-items: center; justify-content: center;
+    filter: grayscale(0.5) opacity(0.6);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+  }
+  .lang-btn svg {
+    width: 100%; height: 100%;
+    display: block;
+    border-radius: 50%;
+  }
+  .lang-btn:hover {
+    filter: grayscale(0) opacity(0.9);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-1px) scale(1.08);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  }
+  .lang-btn.active {
+    filter: grayscale(0) opacity(1);
+    border-color: white;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+    transform: scale(1.1);
+  }
+  .lang-divider {
+    width: 1px; height: 22px;
+    background: rgba(255,255,255,0.2);
+  }
+
   /* ═══════════════════════════════════════════
      RESPONSIVE — tablet: ≤ 900px
   ═══════════════════════════════════════════ */
@@ -494,45 +576,28 @@
      RESPONSIVE — mobile: ≤ 768px
   ═══════════════════════════════════════════ */
   @media (max-width: 768px) {
-    /* Nav */
     nav { padding: 0 16px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-
-    /* Hero */
-    .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 32px; padding: 48px 20px 40px;
-    }
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; padding: 48px 20px 40px; }
     .hero-visual { order: -1; }
     .phone-wrap { width: 150px; }
     .vs-text { font-size: 1.1rem; padding: 3px 10px; }
-
     .hero-buttons { flex-direction: column; }
     .btn-primary, .btn-secondary { text-align: center; padding: 14px 28px; }
-
-    /* Stats */
     .stats-bar { padding: 28px 16px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .stat-item h3 { font-size: 2.2rem; }
-
-    /* Features */
     .features-section { padding: 60px 16px; }
     .features-grid { grid-template-columns: 1fr; gap: 16px; }
     .feature-card { padding: 24px 20px; }
-
-    /* CTA banner */
     .cta-banner { padding: 60px 20px; }
-
-    /* Over Ons */
     .over-ons-hero { padding: 70px 20px 60px; }
     .over-ons-content { grid-template-columns: 1fr; padding: 48px 20px; gap: 32px; }
     .over-ons-visual { padding: 28px 20px; }
     .mission-cards { grid-template-columns: 1fr; gap: 12px; }
     .onderscheidt-section { padding: 60px 20px; }
     .onderscheidt-grid { grid-template-columns: 1fr; gap: 24px; }
-
-    /* Hoe werkt het */
     .howto-hero { padding: 70px 20px 60px; }
     .steps-container { padding: 60px 16px 32px; }
     .step { grid-template-columns: 60px 1fr; gap: 16px; margin-bottom: 32px; }
@@ -544,29 +609,20 @@
     .control-buttons { grid-template-columns: 1fr; gap: 12px; }
     .spelregels-section { padding: 60px 20px; }
     .spelregels-grid { grid-template-columns: 1fr; gap: 16px; }
-
-    /* Bingokaarten */
     .cards-hero { padding: 70px 20px 60px; }
     .cards-container { padding: 48px 16px; }
     .city-cards { grid-template-columns: 1fr; gap: 16px; }
     .city-card-header { height: 100px; }
     .mini-bingo { padding: 20px 12px; margin-top: 32px; }
     .mini-bingo h3 { font-size: 1.5rem; }
-
-    /* Contact */
     .contact-hero { padding: 70px 20px 60px; }
     .contact-grid { grid-template-columns: 1fr; padding: 48px 16px; gap: 32px; }
     .contact-form { padding: 24px 16px; }
     .form-row { grid-template-columns: 1fr; }
-
-    /* Footer */
     footer { padding: 40px 20px 24px; }
     .footer-links { gap: 12px; }
   }
 
-  /* ═══════════════════════════════════════════
-     RESPONSIVE — small phones: ≤ 420px
-  ═══════════════════════════════════════════ */
   @media (max-width: 420px) {
     .phone-wrap { width: 120px; }
     .vs-scene { gap: 0; }
@@ -586,11 +642,11 @@
     <img src="Bingo-GO_logo.png" alt="Bingo-GO">
   </a>
   <ul class="nav-links">
-    <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('over-ons')">Over Ons</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a></li>
-    <li><a href="javascript:void(0)" onclick="showPage('bingokaarten')">Bingokaarten</a></li>
-    <li><a href="javascript:void(0)" class="nav-cta" onclick="showPage('contact')">Contact</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('home')" data-i18n="nav.home">Home</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('over-ons')" data-i18n="nav.about">Over Ons</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a></li>
+    <li><a href="javascript:void(0)" onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a></li>
+    <li><a href="javascript:void(0)" class="nav-cta" onclick="showPage('contact')" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu openen">
     <span></span><span></span><span></span>
@@ -599,11 +655,11 @@
 
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()"><ph-house size="x" color="x"></ph-house> Home</a>
-  <a href="javascript:void(0)" onclick="showPage('over-ons');closeMobileMenu()"><ph-users size="x" color="x"></ph-users> Over Ons</a>
-  <a href="javascript:void(0)" onclick="showPage('hoe-werkt-het');closeMobileMenu()"><ph-book-open size="x" color="x"></ph-book-open> Hoe Werkt Het</a>
-  <a href="javascript:void(0)" onclick="showPage('bingokaarten');closeMobileMenu()"><ph-map-trifold size="x" color="x"></ph-map-trifold> Bingokaarten</a>
-  <a href="javascript:void(0)" class="mob-cta" onclick="showPage('contact');closeMobileMenu()"><ph-envelope size="x" color="x"></ph-envelope> Contact</a>
+  <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()" data-i18n="mob.home">Home</a>
+  <a href="javascript:void(0)" onclick="showPage('over-ons');closeMobileMenu()" data-i18n="mob.about">Over Ons</a>
+  <a href="javascript:void(0)" onclick="showPage('hoe-werkt-het');closeMobileMenu()" data-i18n="mob.howto">Hoe Werkt Het</a>
+  <a href="javascript:void(0)" onclick="showPage('bingokaarten');closeMobileMenu()" data-i18n="mob.cards">Bingokaarten</a>
+  <a href="#" class="mob-cta" onclick="showPage('contact');closeMobileMenu()" data-i18n="mob.contact">Contact</a>
 </div>
 
 <!-- ══════════════════════════════════
@@ -615,12 +671,12 @@
     <div class="hero-dots"></div>
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="section-label" style="background:rgba(255,255,255,0.1);color:#5da3ff;"><ph-target size="16" color="#00034d" weight="duotone"></ph-target> Het Ultieme Stadsspel</div>
-        <h1 style="margin-top:12px">ONTDEK<br>DE STAD,<br><span class="red">WIN</span> HET <span class="blue">SPEL</span></h1>
-        <p>Bingo-GO combineert teamwork, competitie en strategie in één stadsspel. Voer opdrachten uit, claim vakjes en blokkeer je tegenstander. Behaal als eerste een rij BINGO! Of win met de meeste vakjes.</p>
+        <div class="section-label" style="background:rgba(255,255,255,0.1);color:#5da3ff;" data-i18n="home.badge">Het Ultieme Stadsspel</div>
+        <h1 style="margin-top:12px" data-i18n-html="home.h1">ONTDEK<br>DE STAD,<br><span class="red">WIN</span> HET <span class="blue">SPEL</span></h1>
+        <p data-i18n="home.intro">Bingo-GO combineert teamwork, competitie en strategie in één stadsspel. Voer opdrachten uit, claim vakjes en blokkeer je tegenstander. Behaal als eerste een rij BINGO! Of win met de meeste vakjes.</p>
         <div class="hero-buttons">
-          <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')">Bekijk de Kaarten</a>
-          <a class="btn-secondary" href="javascript:void(0)" onclick="showPage('hoe-werkt-het')">Hoe Werkt Het?</a>
+          <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')" data-i18n="home.btn1">Bekijk de Kaarten</a>
+          <a class="btn-secondary" href="javascript:void(0)" onclick="showPage('hoe-werkt-het')" data-i18n="home.btn2">Hoe Werkt Het?</a>
         </div>
       </div>
       <div class="hero-visual">
@@ -630,7 +686,7 @@
             <div class="phone-frame">
               <div class="phone-island"></div>
               <div class="phone-screen">
-                <div class="phone-team-bar red-bar">TEAM ROOD</div>
+                <div class="phone-team-bar red-bar" data-i18n="phone.red">TEAM ROOD</div>
                 <div class="phone-bingo-title">B · I · N · G · O</div>
                 <div class="phone-grid" id="gridRood"></div>
               </div>
@@ -642,7 +698,7 @@
             <div class="phone-frame">
               <div class="phone-island"></div>
               <div class="phone-screen">
-                <div class="phone-team-bar blue-bar">TEAM BLAUW</div>
+                <div class="phone-team-bar blue-bar" data-i18n="phone.blue">TEAM BLAUW</div>
                 <div class="phone-bingo-title">B · I · N · G · O</div>
                 <div class="phone-grid" id="gridBlauw"></div>
               </div>
@@ -655,49 +711,54 @@
 
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat-item"><h3>4-12</h3><p>Aantal spelers</p></div>
-      <div class="stat-item"><h3>25</h3><p>Unieke opdrachten</p></div>
-      <div class="stat-item"><h3>5+</h3><p>Steden beschikbaar</p></div>
-      <div class="stat-item"><h3>3 uur</h3><p>Gemiddelde speelduur</p></div>
+      <div class="stat-item"><h3>4-12</h3><p data-i18n="stats.players">Aantal spelers</p></div>
+      <div class="stat-item"><h3>25</h3><p data-i18n="stats.challenges">Unieke opdrachten</p></div>
+      <div class="stat-item"><h3>5+</h3><p data-i18n="stats.cities">Steden beschikbaar</p></div>
+      <div class="stat-item"><h3>3 uur</h3><p data-i18n="stats.duration">Gemiddelde speelduur</p></div>
     </div>
   </div>
 
   <div class="features-section">
     <div class="section-header">
-      <span class="section-label">Waarom Bingo-GO?</span>
-      <h2 class="section-title">EEN SPEL DAT<br>ALLES HEEFT</h2>
-      <p class="section-sub">Samenwerking, competitie en stadsverkenning in één uniek spel.</p>
+      <span class="section-label" data-i18n="features.label">Waarom Bingo-GO?</span>
+      <h2 class="section-title" data-i18n-html="features.title">EEN SPEL DAT<br>ALLES HEEFT</h2>
+      <p class="section-sub" data-i18n="features.sub">Samenwerking, competitie en stadsverkenning in één uniek spel.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon blue"><ph-map-pin size="x" color="x"></ph-map-pin></div><h3>Verken je stad</h3><p>Ontdek de stad terwijl je speelt. Elke opdracht brengt je naar een nieuwe plek en dichter bij de winst.</p></div>
-      <div class="feature-card"><div class="feature-icon red"><ph-crosshair size="x" color="x"></ph-crosshair></div><h3>Strategisch spelen</h3><p>Zodra een vakje is geclaimd, is het weg voor het andere team. Kies slim en blokkeer je tegenstanders.</p></div>
-      <div class="feature-card"><div class="feature-icon yellow"><ph-trophy size="x" color="x"></ph-trophy></div><h3>Winstmogelijkheden</h3><p>Behaal als eerste een rij BINGO of claim de meeste vakjes. Spannend tot de laatste minuut.</p></div>
-      <div class="feature-card"><div class="feature-icon blue"><ph-users size="x" color="x"></ph-users></div><h3>Perfect voor teams</h3><p>Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit.</p></div>
-      <div class="feature-card"><div class="feature-icon red"><ph-device-mobile size="x" color="x"></ph-device-mobile></div><h3>Makkelijk te starten</h3><p>Geen installatie nodig. Open de link, verdeel de teams en GO! Binnen een minuut ben je klaar om te beginnen.</p></div>
-      <div class="feature-card"><div class="feature-icon yellow"><ph-map-trifold size="x" color="x"></ph-map-trifold></div><h3>Groeiend steden netwerk</h3><p>We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p></div>
+      <div class="feature-card"><div class="feature-icon blue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3 data-i18n="feat1.title">Verken je stad</h3><p data-i18n="feat1.body">Ontdek de stad terwijl je speelt. Elke opdracht brengt je naar een nieuwe plek en dichter bij de winst.</p></div>
+      <div class="feature-card"><div class="feature-icon red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3 data-i18n="feat2.title">Strategisch spelen</h3><p data-i18n="feat2.body">Zodra een vakje is geclaimd, is het weg voor het andere team. Kies slim en blokkeer je tegenstanders.</p></div>
+      <div class="feature-card"><div class="feature-icon yellow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 9H3V5h3"/><path d="M18 9h3V5h-3"/><path d="M6 9c0 4.97 4 8 6 9 2-1 6-4.03 6-9"/><path d="M9 22h6"/><path d="M12 18v4"/><rect x="6" y="2" width="12" height="7" rx="1"/></svg></div><h3 data-i18n="feat3.title">Winstmogelijkheden</h3><p data-i18n="feat3.body">Behaal als eerste een rij BINGO of claim de meeste vakjes. Spannend tot de laatste minuut.</p></div>
+      <div class="feature-card"><div class="feature-icon blue"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-i18n="feat4.title">Perfect voor teams</h3><p data-i18n="feat4.body">Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit.</p></div>
+      <div class="feature-card"><div class="feature-icon red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><h3 data-i18n="feat5.title">Makkelijk te starten</h3><p data-i18n="feat5.body">Geen installatie nodig. Open de link, verdeel de teams en GO! Binnen een minuut ben je klaar om te beginnen.</p></div>
+      <div class="feature-card"><div class="feature-icon yellow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><h3 data-i18n="feat6.title">Groeiend steden netwerk</h3><p data-i18n="feat6.body">We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p></div>
     </div>
   </div>
 
   <div class="cta-banner">
     <div class="cta-banner-dots"></div>
     <div class="cta-banner-inner">
-      <h2>KLAAR OM TE SPELEN?</h2>
-      <p>Bestel je Bingo-GO kaart en ga de stad in. Voer opdrachten uit, claim vakjes en versla het andere team.</p>
-      <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')" style="font-size:1.05rem;padding:18px 48px;">Bekijk Bingokaarten →</a>
+      <h2 data-i18n="cta.title">KLAAR OM TE SPELEN?</h2>
+      <p data-i18n="cta.body">Bestel je Bingo-GO kaart en ga de stad in. Voer opdrachten uit, claim vakjes en versla het andere team.</p>
+      <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')" style="font-size:1.05rem;padding:18px 48px;" data-i18n="cta.btn">Bekijk Bingokaarten →</a>
     </div>
   </div>
 
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
-    <p>Het sociale en competitieve stadsspel voor iedereen.</p>
+    <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
     <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a>
-      <a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('home')" data-i18n="nav.home">Home</a>
+      <a onclick="showPage('over-ons')" data-i18n="nav.about">Over Ons</a>
+      <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
+      <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
+      <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-nl-1" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" id="btn-en-1" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+    </div>
   </footer>
 </section>
 
@@ -706,69 +767,62 @@
 ══════════════════════════════════ -->
 <section id="over-ons">
   <div class="over-ons-hero">
-    <h1>OVER ONS</h1>
-    <p>Wie zijn wij en waarom hebben we Bingo-GO bedacht?</p>
+    <h1 data-i18n="about.hero.h1">OVER ONS</h1>
+    <p data-i18n="about.hero.sub">Wie zijn wij en waarom hebben we Bingo-GO bedacht?</p>
   </div>
 
   <div class="over-ons-content">
     <div class="over-ons-text">
-      <h2>HET VERHAAL ACHTER BINGO-GO</h2>
-      <p>Bingo-Go is ontstaan vanuit één duidelijke missie: mensen op een leuke en originele manier samenbrengen. In een tijd waarin steeds meer mensen naar binnen trekken, willen wij een toegankelijk spel bieden dat draait om ontdekking, plezier, interactie en echte samenwerking.</p>
-      <p>Hoewel er al veel stadsspellen bestaan, vinden wij dat die vaak iets missen wat online games juist zo aantrekkelijk maakt: strategie, spanning en actie. Daarom hebben wij Bingo-Go ontwikkeld met extra focus op dat competitieve en tactische aspect. Vanuit die visie is onder andere de lock-out feature ontstaan, waarmee het spel een unieke strategische laag krijgt.</p>
-      <p>Met Bingo-Go combineren we de beleving van samen eropuit gaan met de spanning van een slim en interactief spel. Zo creëren we een ervaring die sociaal, actief en verrassend strategisch is.</p>
-      <h2 style="margin-top:30px;">WIE ZIJN WIJ?</h2>
-      <p>Wij zijn vijf studenten Technische Bedrijfskunde aan De Haagse Hogeschool. Binnen onze studie werken wij aan het opzetten van een eigen concept dat bijdraagt aan de maatschappij. Met Bingo-GO willen wij mensen stimuleren om actief naar buiten te gaan, samen te werken en de stad op een nieuwe manier te beleven.</p>
+      <h2 data-i18n="about.story.h2">HET VERHAAL ACHTER BINGO-GO</h2>
+      <p data-i18n="about.story.p1">Bingo-Go is ontstaan vanuit één duidelijke missie: mensen op een leuke en originele manier samenbrengen. In een tijd waarin steeds meer mensen naar binnen trekken, willen wij een toegankelijk spel bieden dat draait om ontdekking, plezier, interactie en echte samenwerking.</p>
+      <p data-i18n="about.story.p2">Hoewel er al veel stadsspellen bestaan, vinden wij dat die vaak iets missen wat online games juist zo aantrekkelijk maakt: strategie, spanning en actie. Daarom hebben wij Bingo-Go ontwikkeld met extra focus op dat competitieve en tactische aspect. Vanuit die visie is onder andere de lock-out feature ontstaan, waarmee het spel een unieke strategische laag krijgt.</p>
+      <p data-i18n="about.story.p3">Met Bingo-Go combineren we de beleving van samen eropuit gaan met de spanning van een slim en interactief spel. Zo creëren we een ervaring die sociaal, actief en verrassend strategisch is.</p>
+      <h2 style="margin-top:30px;" data-i18n="about.who.h2">WIE ZIJN WIJ?</h2>
+      <p data-i18n="about.who.p1">Wij zijn vijf studenten Technische Bedrijfskunde aan De Haagse Hogeschool. Binnen onze studie werken wij aan het opzetten van een eigen concept dat bijdraagt aan de maatschappij. Met Bingo-GO willen wij mensen stimuleren om actief naar buiten te gaan, samen te werken en de stad op een nieuwe manier te beleven.</p>
     </div>
     <div>
       <div class="over-ons-visual">
-        <span class="big-emoji"><ph-crosshair size="x" color="x"></ph-crosshair></span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;margin-bottom:8px;">ONZE MISSIE</h3>
-        <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;margin-bottom:24px;">Mensen op een leuke en originele manier samenbrengen door middel van een toegankelijk spel dat draait om ontdekking, plezier, interactie en samenwerking.</p>
+        <span class="big-emoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;margin-bottom:8px;" data-i18n="about.mission.h3">ONZE MISSIE</h3>
+        <p style="color:var(--gray);font-weight:600;font-size:0.95rem;line-height:1.7;margin-bottom:24px;" data-i18n="about.mission.p">Mensen op een leuke en originele manier samenbrengen door middel van een toegankelijk spel dat draait om ontdekking, plezier, interactie en samenwerking.</p>
       </div>
       <div class="mission-cards">
-        <div class="mission-card"><h4><ph-buildings size="x" color="x"></ph-buildings> Stadsliefde</h4><p>Bingokaarten afgestemd op elke stad. Ontdek nieuwe plekken terwijl je speelt.</p></div>
-        <div class="mission-card red-accent"><h4><ph-handshake size="x" color="x"></ph-handshake> Verbinding</h4><p>Bingo-GO speel je samen. Ga de strijd aan met vrienden, familie of collega's en verken de stad op een nieuwe manier.</p></div>
-        <div class="mission-card"><h4><ph-person-simple-run size="x" color="x"></ph-person-simple-run> Actief</h4><p>Ga op pad, blijf in beweging en verken de stad terwijl je opdrachten uitvoert.</p></div>
-        <div class="mission-card red-accent"><h4><ph-plant size="x" color="x"></ph-plant> Groei</h4><p>We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.</p></div>
+        <div class="mission-card"><h4 data-i18n-html="mission1.title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="18" rx="1"/><rect x="16" y="8" width="7" height="13" rx="1"/></svg> Stadsliefde</h4><p data-i18n="mission1.body">Bingokaarten afgestemd op elke stad. Ontdek nieuwe plekken terwijl je speelt.</p></div>
+        <div class="mission-card red-accent"><h4 data-i18n-html="mission2.title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Verbinding</h4><p data-i18n="mission2.body">Bingo-GO speel je samen. Ga de strijd aan met vrienden, familie of collega's en verken de stad op een nieuwe manier.</p></div>
+        <div class="mission-card"><h4 data-i18n-html="mission3.title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M9 12h6"/><path d="M12 7v5"/><path d="M9 17l-2 4"/><path d="M15 17l2 4"/><path d="M10 12l-2 5"/><path d="M14 12l2 5"/></svg> Actief</h4><p data-i18n="mission3.body">Ga op pad, blijf in beweging en verken de stad terwijl je opdrachten uitvoert.</p></div>
+        <div class="mission-card red-accent"><h4 data-i18n-html="mission4.title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Groei</h4><p data-i18n="mission4.body">We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.</p></div>
       </div>
     </div>
   </div>
 
   <div class="onderscheidt-section">
     <div style="max-width:900px;margin:0 auto;text-align:center;">
-      <span class="section-label">Waarom Kiezen Voor Ons</span>
-      <h2 class="section-title" style="margin-bottom:0;">WAT ONS ONDERSCHEIDT</h2>
+      <span class="section-label" data-i18n="distinguish.label">Waarom Kiezen Voor Ons</span>
+      <h2 class="section-title" style="margin-bottom:0;" data-i18n="distinguish.title">WAT ONS ONDERSCHEIDT</h2>
     </div>
     <div class="onderscheidt-grid" style="margin-top:40px;">
-      <div class="onderscheidt-item">
-        <div class="icon"><ph-files size="x" color="x"></ph-files></div>
-        <h3>Lokaal Gemaakt</h3>
-        <p>Elke kaart is speciaal ontworpen voor de stad, met locaties en opdrachten die écht passen.</p>
-      </div>
-      <div class="onderscheidt-item">
-        <div class="icon"><ph-arrows-clockwise size="x" color="x"></ph-arrows-clockwise></div>
-        <h3>Strategie &amp; Competitie</h3>
-        <p>Kies slim welke vakjes je claimt en blokkeer je tegenstanders. Door de unieke lock-out functie wordt elk spel een tactische strijd.</p>
-      </div>
-      <div class="onderscheidt-item">
-        <div class="icon"><ph-chat-circle size="x" color="x"></ph-chat-circle></div>
-        <h3>Persoonlijk Contact</h3>
-        <p>Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over het ideale spel voor jou.</p>
-      </div>
+      <div class="onderscheidt-item"><div class="icon"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div></div><h3 data-i18n="dist1.title">Lokaal Gemaakt</h3><p data-i18n="dist1.body">Elke kaart is speciaal ontworpen voor de stad, met locaties en opdrachten die écht passen.</p></div>
+      <div class="onderscheidt-item"><div class="icon"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div></div><h3 data-i18n="dist2.title">Strategie &amp; Competitie</h3><p data-i18n="dist2.body">Kies slim welke vakjes je claimt en blokkeer je tegenstanders. Door de unieke lock-out functie wordt elk spel een tactische strijd.</p></div>
+      <div class="onderscheidt-item"><div class="icon"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div></div><h3 data-i18n="dist3.title">Persoonlijk Contact</h3><p data-i18n="dist3.body">Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over het ideale spel voor jou.</p></div>
     </div>
   </div>
 
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
-    <p>Het sociale en competitieve stadsspel voor iedereen.</p>
+    <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
     <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a>
-      <a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('home')" data-i18n="nav.home">Home</a>
+      <a onclick="showPage('over-ons')" data-i18n="nav.about">Over Ons</a>
+      <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
+      <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
+      <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="btn-nl-2" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" id="btn-en-2" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+    </div>
   </footer>
 </section>
 
@@ -777,35 +831,35 @@
 ══════════════════════════════════ -->
 <section id="hoe-werkt-het">
   <div class="howto-hero">
-    <h1>HOE WERKT HET?</h1>
-    <p>Binnen een paar simpele stappen start jouw ultieme stadsspel.</p>
+    <h1 data-i18n="howto.hero.h1">HOE WERKT HET?</h1>
+    <p data-i18n="howto.hero.sub">Binnen een paar simpele stappen start jouw ultieme stadsspel.</p>
   </div>
 
   <div class="steps-container">
-    <div class="step"><div class="step-number blue">1</div><div class="step-content"><h3><ph-shopping-cart size="x" color="x"></ph-shopping-cart> Bestel je bingokaart</h3><p>Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.</p><div class="tip"><ph-warning size="x" color="x"></ph-warning> Let op: Na bestellen is de kaart 72 uur geldig!</div></div></div>
-    <div class="step"><div class="step-number red">2</div><div class="step-content"><h3><ph-users size="x" color="x"></ph-users> Verdeel de Teams</h3><p>Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).</p></div></div>
-    <div class="step"><div class="step-number blue">3</div><div class="step-content"><h3><ph-crosshair size="x" color="x"></ph-crosshair> Kies je vakjes slim</h3><p>Bedenk een strategie en kies welke opdrachten je als eerste aanpakt. Let op: zodra een vakje is geclaimd, kan het andere team deze niet meer pakken.</p></div></div>
-    <div class="step"><div class="step-number red">4</div><div class="step-content"><h3><ph-camera size="x" color="x"></ph-camera> Voer de opdrachten uit</h3><p>Ga naar de locatie, voer de opdracht uit en stuur een foto of video (max. 30 seconden) als bewijs.</p></div></div>
-    <div class="step"><div class="step-number blue">5</div><div class="step-content"><h3><ph-check-circle size="x" color="x"></ph-check-circle> Bewijs goedkeuren</h3><p>Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.</p></div></div>
-    <div class="step"><div class="step-number red">6</div><div class="step-content"><h3><ph-trophy size="x" color="x"></ph-trophy> Win op twee manieren</h3><p>Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.</p><div class="tip">🎉 Spannend tot het einde!</div></div></div>
+    <div class="step"><div class="step-number blue">1</div><div class="step-content"><h3 data-i18n-html="step1.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Bestel je bingokaart</h3><p data-i18n="step1.p">Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.</p><div class="tip" data-i18n="step1.tip">Let op: Na bestellen is de kaart 72 uur geldig!</div></div></div>
+    <div class="step"><div class="step-number red">2</div><div class="step-content"><h3 data-i18n-html="step2.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg> Verdeel de Teams</h3><p data-i18n="step2.p">Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).</p></div></div>
+    <div class="step"><div class="step-number blue">3</div><div class="step-content"><h3 data-i18n-html="step3.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-7 1-3 7z"/></svg> Kies je vakjes slim</h3><p data-i18n="step3.p">Bedenk een strategie en kies welke opdrachten je als eerste aanpakt.</p><div class="tip" data-i18n="step3.tip">Let op: zodra een vakje is geclaimd, kan het andere team deze niet meer pakken.</div></div></div>
+    <div class="step"><div class="step-number red">4</div><div class="step-content"><h3 data-i18n-html="step4.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Voer de opdrachten uit</h3><p data-i18n="step4.p">Ga naar de locatie, voer de opdracht uit en stuur een foto of video (max. 30 seconden) als bewijs.</p></div></div>
+    <div class="step"><div class="step-number blue">5</div><div class="step-content"><h3 data-i18n-html="step5.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Bewijs goedkeuren</h3><p data-i18n="step5.p">Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.</p></div></div>
+    <div class="step"><div class="step-number red">6</div><div class="step-content"><h3 data-i18n-html="step6.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Win op twee manieren</h3><p data-i18n="step6.p">Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.</p><div class="tip" data-i18n="step6.tip">Spannend tot het einde!</div></div></div>
   </div>
 
   <div class="game-controls">
     <div class="game-controls-inner">
       <div class="game-controls-header">
-        <h3><ph-pause size="x" color="x"></ph-pause> PAUZE &amp; STOP</h3>
-        <p>Wil je het spel onderbreken of stoppen? Beide teams moeten akkoord gaan.</p>
+        <h3 data-i18n="controls.title">⏸ PAUZE &amp; STOP</h3>
+        <p data-i18n="controls.sub">Wil je het spel onderbreken of stoppen? Beide teams moeten akkoord gaan.</p>
       </div>
       <div class="control-buttons">
         <div class="ctrl-card pause-card">
-          <span class="ctrl-icon"><ph-pause size="x" color="x"></ph-pause></span>
-          <span class="ctrl-label">PAUZE</span>
-          <span class="ctrl-sub">Spel tijdelijk onderbreken</span>
+          <span class="ctrl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></span>
+          <span class="ctrl-label" data-i18n="pause.label">PAUZE</span>
+          <span class="ctrl-sub" data-i18n="pause.sub">Spel tijdelijk onderbreken</span>
         </div>
         <div class="ctrl-card stop-card">
-          <span class="ctrl-icon"><ph-stop size="x" color="x"></ph-stop></span>
-          <span class="ctrl-label">STOP</span>
-          <span class="ctrl-sub">Spel definitief beëindigen</span>
+          <span class="ctrl-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg></span>
+          <span class="ctrl-label" data-i18n="stop.label">STOP</span>
+          <span class="ctrl-sub" data-i18n="stop.sub">Spel definitief beëindigen</span>
         </div>
       </div>
     </div>
@@ -814,49 +868,54 @@
   <div class="spelregels-section">
     <div style="max-width:900px;margin:0 auto;">
       <div class="section-header" style="margin-bottom:0;">
-        <h2 class="section-title" style="color:white;">DE SPELREGELS IN HET KORT</h2>
+        <h2 class="section-title" style="color:white;" data-i18n="rules.title">DE SPELREGELS IN HET KORT</h2>
       </div>
       <div class="spelregels-grid">
         <div class="spelregel-card">
-          <h4><ph-check-circle size="x" color="x"></ph-check-circle> Dit mag wel</h4>
+          <h4 data-i18n-html="rules.allowed.title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dit mag wel</h4>
           <ul>
-            <li>→ Vakjes in elke volgorde spelen</li>
-            <li>→ Strategisch kiezen en je tegenstander blokkeren</li>
-            <li>→ Als team opdrachten uitvoeren</li>
-            <li>→ Bewijs indienen met foto of video (max. 30 sec)</li>
-            <li>→ Opdrachten opnieuw uitvoeren bij afkeuring</li>
-            <li>→ Het spel pauzeren of stoppen met goedkeuring van het andere team</li>
+            <li data-i18n="rule.a1">→ Vakjes in elke volgorde spelen</li>
+            <li data-i18n="rule.a2">→ Strategisch kiezen en je tegenstander blokkeren</li>
+            <li data-i18n="rule.a3">→ Als team opdrachten uitvoeren</li>
+            <li data-i18n="rule.a4">→ Bewijs indienen met foto of video (max. 30 sec)</li>
+            <li data-i18n="rule.a5">→ Opdrachten opnieuw uitvoeren bij afkeuring</li>
+            <li data-i18n="rule.a6">→ Het spel pauzeren of stoppen met goedkeuring van het andere team</li>
           </ul>
         </div>
         <div class="spelregel-card">
-          <h4><ph-x-circle size="x" color="x"></ph-x-circle> Dit Mag Niet</h4>
+          <h4 data-i18n-html="rules.notallowed.title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#f04444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Dit Mag Niet</h4>
           <ul>
-            <li>→ Een geclaimd vakje overnemen</li>
-            <li>→ Binnen team opsplitsen om sneller te zijn</li>
-            <li>→ Valse bewijzen indienen</li>
-            <li>→ Mensen fotograferen of filmen zonder toestemming</li>
-            <li>→ Vakje claimen zonder bewijs</li>
-            <li>→ Regels of lokale wetten negeren</li>
+            <li data-i18n="rule.n1">→ Een geclaimd vakje overnemen</li>
+            <li data-i18n="rule.n2">→ Binnen team opsplitsen om sneller te zijn</li>
+            <li data-i18n="rule.n3">→ Valse bewijzen indienen</li>
+            <li data-i18n="rule.n4">→ Mensen fotograferen of filmen zonder toestemming</li>
+            <li data-i18n="rule.n5">→ Vakje claimen zonder bewijs</li>
+            <li data-i18n="rule.n6">→ Regels of lokale wetten negeren</li>
           </ul>
         </div>
       </div>
       <div style="text-align:center;margin-top:40px;">
-        <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')" style="font-size:1rem;padding:16px 40px;">Speel Nu Mee →</a>
+        <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')" style="font-size:1rem;padding:16px 40px;" data-i18n="rules.cta">Speel Nu Mee →</a>
       </div>
     </div>
   </div>
 
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
-    <p>Het sociale en competitieve stadsspel voor iedereen.</p>
+    <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
     <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a>
-      <a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('home')" data-i18n="nav.home">Home</a>
+      <a onclick="showPage('over-ons')" data-i18n="nav.about">Over Ons</a>
+      <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
+      <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
+      <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="btn-nl-3" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" id="btn-en-3" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+    </div>
   </footer>
 </section>
 
@@ -865,61 +924,66 @@
 ══════════════════════════════════ -->
 <section id="bingokaarten">
   <div class="cards-hero">
-    <h1>BINGOKAARTEN</h1>
-    <p>Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.</p>
+    <h1 data-i18n="bingo.hero.h1">BINGOKAARTEN</h1>
+    <p data-i18n="bingo.hero.sub">Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.</p>
   </div>
 
   <div class="cards-container">
     <div style="text-align:center;margin-bottom:48px;">
-      <span class="section-label">Beschikbare Steden</span>
-      <h2 class="section-title" style="margin-top:12px;">KIES JE STAD</h2>
-      <p class="section-sub">Elke stad heeft zijn eigen unieke opdrachten en locaties.</p>
+      <span class="section-label" data-i18n="bingo.label">Beschikbare Steden</span>
+      <h2 class="section-title" style="margin-top:12px;" data-i18n="bingo.title">KIES JE STAD</h2>
+      <p class="section-sub" data-i18n="bingo.sub">Elke stad heeft zijn eigen unieke opdrachten en locaties.</p>
     </div>
     <div class="city-cards">
       <div class="city-card">
-        <div class="city-card-header available"><ph-bank size="x" color="x"></ph-bank><span class="city-badge live">Live</span></div>
-        <div class="city-card-body"><h3>Delft</h3><p>Ontdek de historische stad: van de grachten tot de Markt en de Oude Kerk.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div>
+        <div class="city-card-header available"><span class="city-header-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span><span class="city-badge live" data-i18n="badge.live">Live</span></div>
+        <div class="city-card-body"><h3>Delft</h3><p data-i18n="city.delft">Ontdek de historische stad: van de grachten tot de Markt en de Oude Kerk.</p><button class="btn-card active" onclick="showPage('contact')" data-i18n="btn.order">Bestel Nu</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header available"><ph-anchor size="x" color="x"></ph-anchor><span class="city-badge live">Live</span></div>
-        <div class="city-card-body"><h3>Rotterdam</h3><p>De havenstad in een nieuw jasje. Van de Erasmusbrug tot Markthal en de Witte de Withstraat.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div>
+        <div class="city-card-header available"><span class="city-header-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 16 C2 10 6 6 12 6 C18 6 22 10 22 16"/><line x1="2" y1="16" x2="2" y2="22"/><line x1="22" y1="16" x2="22" y2="22"/><line x1="12" y1="6" x2="12" y2="22"/><line x1="7" y1="11" x2="7" y2="22"/><line x1="17" y1="11" x2="17" y2="22"/></svg></span><span class="city-badge live" data-i18n="badge.live">Live</span></div>
+        <div class="city-card-body"><h3>Rotterdam</h3><p data-i18n="city.rotterdam">De havenstad in een nieuw jasje. Van de Erasmusbrug tot Markthal en de Witte de Withstraat.</p><button class="btn-card active" onclick="showPage('contact')" data-i18n="btn.order">Bestel Nu</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header available"><ph-bicycle size="x" color="x"></ph-bicycle><span class="city-badge live">Live</span></div>
-        <div class="city-card-body"><h3>Amsterdam</h3><p>De grachtenstad als speelterrein. Van de Jordaan tot het Vondelpark en het Centraal Station.</p><button class="btn-card active" onclick="showPage('contact')">Bestel Nu</button></div>
+        <div class="city-card-header available"><span class="city-header-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg></span><span class="city-badge live" data-i18n="badge.live">Live</span></div>
+        <div class="city-card-body"><h3>Amsterdam</h3><p data-i18n="city.amsterdam">De grachtenstad als speelterrein. Van de Jordaan tot het Vondelpark en het Centraal Station.</p><button class="btn-card active" onclick="showPage('contact')" data-i18n="btn.order">Bestel Nu</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header soon"><ph-graduation-cap size="x" color="x"></ph-graduation-cap><span class="city-badge soon-badge">Binnenkort</span></div>
-        <div class="city-card-body"><h3>Utrecht</h3><p>De domstad met haar unieke grachten en gezellige binnenstad. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled>Binnenkort</button></div>
+        <div class="city-card-header soon"><span class="city-header-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><span class="city-badge soon-badge" data-i18n="badge.soon">Binnenkort</span></div>
+        <div class="city-card-body"><h3>Utrecht</h3><p data-i18n="city.utrecht">De domstad met haar unieke grachten en gezellige binnenstad. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled data-i18n="badge.soon">Binnenkort</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header soon"><ph-lightbulb size="x" color="x"></ph-lightbulb><span class="city-badge soon-badge">Binnenkort</span></div>
-        <div class="city-card-body"><h3>Den Haag</h3><p>Ontdek Den Haag: van het Binnenhof en de Hofvijver tot de gezellige winkelstraten. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled>Binnenkort</button></div>
+        <div class="city-card-header soon"><span class="city-header-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span><span class="city-badge soon-badge" data-i18n="badge.soon">Binnenkort</span></div>
+        <div class="city-card-body"><h3>Den Haag</h3><p data-i18n="city.denhaag">Ontdek Den Haag: van het Binnenhof en de Hofvijver tot de gezellige winkelstraten. De kaart is in ontwikkeling!</p><button class="btn-card inactive" disabled data-i18n="badge.soon">Binnenkort</button></div>
       </div>
       <div class="city-card">
-        <div class="city-card-header soon" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);"><ph-buildings size="x" color="x" style="opacity:0.5;"></ph-buildings><span class="city-badge soon-badge">Jouw Stad?</span></div>
-        <div class="city-card-body"><h3>Nieuwe Stad</h3><p>Wil jij Bingo-GO in jouw stad? Laat het ons weten en wij gaan aan de slag!</p><button class="btn-card active" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);" onclick="showPage('contact')">Stel voor!</button></div>
+        <div class="city-card-header soon" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);"><span class="city-header-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="city-badge soon-badge" data-i18n="badge.yourcity">Jouw Stad?</span></div>
+        <div class="city-card-body"><h3 data-i18n="city.new.title">Nieuwe Stad</h3><p data-i18n="city.new.body">Wil jij Bingo-GO in jouw stad? Laat het ons weten en wij gaan aan de slag!</p><button class="btn-card active" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);" onclick="showPage('contact')" data-i18n="btn.suggest">Stel voor!</button></div>
       </div>
     </div>
 
     <div class="mini-bingo">
-      <h3>VOORBEELD BINGOKAART</h3>
-      <p>Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad</p>
+      <h3 data-i18n="preview.title">VOORBEELD BINGOKAART</h3>
+      <p data-i18n="preview.sub">Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad</p>
       <div class="mini-bingo-grid" id="previewGrid"></div>
     </div>
   </div>
 
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
-    <p>Het sociale en competitieve stadsspel voor iedereen.</p>
+    <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
     <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a>
-      <a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('home')" data-i18n="nav.home">Home</a>
+      <a onclick="showPage('over-ons')" data-i18n="nav.about">Over Ons</a>
+      <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
+      <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
+      <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="btn-nl-4" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" id="btn-en-4" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+    </div>
   </footer>
 </section>
 
@@ -928,110 +992,468 @@
 ══════════════════════════════════ -->
 <section id="contact">
   <div class="contact-hero">
-    <h1>CONTACT</h1>
-    <p>Vragen, bestellingen of een samenwerking? We horen graag van je!</p>
+    <h1 data-i18n="contact.hero.h1">CONTACT</h1>
+    <p data-i18n="contact.hero.sub">Vragen, bestellingen of een samenwerking? We horen graag van je!</p>
   </div>
 
   <div class="contact-grid">
     <div class="contact-info">
-      <h2>LATEN WE IN CONTACT KOMEN</h2>
+      <h2 data-i18n="contact.info.h2">LATEN WE IN CONTACT KOMEN</h2>
       <div class="contact-item">
-        <div class="contact-icon"><ph-envelope size="x" color="x"></ph-envelope></div>
-        <div><h4>E-mail</h4><p>info@bingo-go.nl</p></div>
+        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><h4 data-i18n="contact.email.label">E-mail</h4><p>info@bingo-go.nl</p></div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon"><ph-clock size="x" color="x"></ph-clock></div>
-        <div><h4>Reactietijd</h4><p>Binnen 48 uur reageren we op elk bericht.</p></div>
+        <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><h4 data-i18n="contact.response.label">Reactietijd</h4><p data-i18n="contact.response.body">Binnen 48 uur reageren we op elk bericht.</p></div>
       </div>
       <div style="background:var(--light-gray);border-radius:16px;padding:24px;margin-top:8px;">
-        <h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);"><ph-megaphone size="x" color="x"></ph-megaphone> Nieuwe Stad Aanvragen?</h4>
-        <p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;">Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren.</p>
+        <h4 style="font-weight:800;font-size:1rem;margin-bottom:12px;color:var(--dark);" data-i18n="contact.newcity.title">Nieuwe Stad Aanvragen?</h4>
+        <p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;" data-i18n="contact.newcity.body">Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren.</p>
       </div>
     </div>
 
     <div class="contact-form">
-      <h3>STUUR ONS EEN BERICHT</h3>
+      <h3 data-i18n="form.title">STUUR ONS EEN BERICHT</h3>
       <div id="contactFormWrap">
         <div class="form-row">
-          <div class="form-group"><label>Voornaam</label><input type="text" id="firstName" placeholder="Jan"></div>
-          <div class="form-group"><label>Achternaam</label><input type="text" id="lastName" placeholder="Jansen"></div>
+          <div class="form-group"><label data-i18n="form.firstname">Voornaam</label><input type="text" id="firstName" data-i18n-placeholder="form.firstname.ph" placeholder="Jan"></div>
+          <div class="form-group"><label data-i18n="form.lastname">Achternaam</label><input type="text" id="lastName" data-i18n-placeholder="form.lastname.ph" placeholder="Jansen"></div>
         </div>
-        <div class="form-group"><label>E-mailadres</label><input type="email" id="email" placeholder="jan@voorbeeld.nl"></div>
+        <div class="form-group"><label data-i18n="form.email">E-mailadres</label><input type="email" id="email" data-i18n-placeholder="form.email.ph" placeholder="jan@voorbeeld.nl"></div>
         <div class="form-group">
-          <label>Onderwerp</label>
+          <label data-i18n="form.subject">Onderwerp</label>
           <select id="subject">
-            <option value="">Selecteer een onderwerp</option>
-            <option>Bestelling plaatsen</option>
-            <option>Vraag over het spel</option>
-            <option>Zakelijke samenwerking</option>
-            <option>Nieuwe stad aanvragen</option>
-            <option>Overig</option>
+            <option value="" data-i18n="form.subject.pick">Selecteer een onderwerp</option>
+            <option data-i18n="form.subject.order">Bestelling plaatsen</option>
+            <option data-i18n="form.subject.question">Vraag over het spel</option>
+            <option data-i18n="form.subject.collab">Zakelijke samenwerking</option>
+            <option data-i18n="form.subject.newcity">Nieuwe stad aanvragen</option>
+            <option data-i18n="form.subject.other">Overig</option>
           </select>
         </div>
-        <div class="form-group"><label>Bericht</label><textarea id="message" placeholder="Schrijf hier jouw bericht..."></textarea></div>
-        <button class="form-submit" onclick="submitForm()">Verstuur Bericht →</button>
+        <div class="form-group"><label data-i18n="form.message">Bericht</label><textarea id="message" data-i18n-placeholder="form.message.ph" placeholder="Schrijf hier jouw bericht..."></textarea></div>
+        <button class="form-submit" onclick="submitForm()" data-i18n="form.submit">Verstuur Bericht →</button>
       </div>
       <div class="form-success" id="formSuccess">
-        <span class="big-check">🎉</span>
-        <h3>Bericht Verstuurd!</h3>
-        <p>Bedankt voor je bericht. We reageren zo snel mogelijk, binnen 24 uur.</p>
+        <span class="big-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="48" height="48" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg></span>
+        <h3 data-i18n="form.success.title">Bericht Verstuurd!</h3>
+        <p data-i18n="form.success.body">Bedankt voor je bericht. We reageren zo snel mogelijk, binnen 24 uur.</p>
       </div>
     </div>
   </div>
 
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
-    <p>Het sociale en competitieve stadsspel voor iedereen.</p>
+    <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
     <div class="footer-links">
-      <a onclick="showPage('home')">Home</a>
-      <a onclick="showPage('over-ons')">Over Ons</a>
-      <a onclick="showPage('hoe-werkt-het')">Hoe Werkt Het</a>
-      <a onclick="showPage('bingokaarten')">Bingokaarten</a>
-      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('home')" data-i18n="nav.home">Home</a>
+      <a onclick="showPage('over-ons')" data-i18n="nav.about">Over Ons</a>
+      <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
+      <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
+      <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="btn-nl-5" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" id="btn-en-5" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+    </div>
   </footer>
 </section>
 
 <script>
-  /* ── PAGE NAVIGATION ── */
-  function showPage(id, pushToHistory = true) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMobileMenu();
-    if (pushToHistory) {
-      history.pushState({ page: id }, '', '#' + id);
-    }
+/* ═══════════════════════════════════════════
+   TRANSLATIONS
+═══════════════════════════════════════════ */
+const translations = {
+  nl: {
+    'nav.home': 'Home',
+    'nav.about': 'Over Ons',
+    'nav.howto': 'Hoe Werkt Het',
+    'nav.cards': 'Bingokaarten',
+    'nav.contact': 'Contact',
+    'mob.home': 'Home',
+    'mob.about': 'Over Ons',
+    'mob.howto': 'Hoe Werkt Het',
+    'mob.cards': 'Bingokaarten',
+    'mob.contact': 'Contact',
+    'home.badge': 'Het Ultieme Stadsspel',
+    'home.h1': 'ONTDEK<br>DE STAD,<br><span class="red">WIN</span> HET <span class="blue">SPEL</span>',
+    'home.intro': 'Bingo-GO combineert teamwork, competitie en strategie in één stadsspel. Voer opdrachten uit, claim vakjes en blokkeer je tegenstander. Behaal als eerste een rij BINGO! Of win met de meeste vakjes.',
+    'home.btn1': 'Bekijk de Kaarten',
+    'home.btn2': 'Hoe Werkt Het?',
+    'phone.red': 'TEAM ROOD',
+    'phone.blue': 'TEAM BLAUW',
+    'stats.players': 'Aantal spelers',
+    'stats.challenges': 'Unieke opdrachten',
+    'stats.cities': 'Steden beschikbaar',
+    'stats.duration': 'Gemiddelde speelduur',
+    'features.label': 'Waarom Bingo-GO?',
+    'features.title': 'EEN SPEL DAT<br>ALLES HEEFT',
+    'features.sub': 'Samenwerking, competitie en stadsverkenning in één uniek spel.',
+    'feat1.title': 'Verken je stad',
+    'feat1.body': 'Ontdek de stad terwijl je speelt. Elke opdracht brengt je naar een nieuwe plek en dichter bij de winst.',
+    'feat2.title': 'Strategisch spelen',
+    'feat2.body': 'Zodra een vakje is geclaimd, is het weg voor het andere team. Kies slim en blokkeer je tegenstanders.',
+    'feat3.title': 'Winstmogelijkheden',
+    'feat3.body': 'Behaal als eerste een rij BINGO of claim de meeste vakjes. Spannend tot de laatste minuut.',
+    'feat4.title': 'Perfect voor teams',
+    'feat4.body': 'Ideaal voor bedrijfsuitjes, vriendengroepen, vrijgezellenfeesten of gewoon een leuke middag uit.',
+    'feat5.title': 'Makkelijk te starten',
+    'feat5.body': 'Geen installatie nodig. Open de link, verdeel de teams en GO! Binnen een minuut ben je klaar om te beginnen.',
+    'feat6.title': 'Groeiend steden netwerk',
+    'feat6.body': 'We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.',
+    'cta.title': 'KLAAR OM TE SPELEN?',
+    'cta.body': 'Bestel je Bingo-GO kaart en ga de stad in. Voer opdrachten uit, claim vakjes en versla het andere team.',
+    'cta.btn': 'Bekijk Bingokaarten →',
+    'footer.tagline': 'Het sociale en competitieve stadsspel voor iedereen.',
+    'about.hero.h1': 'OVER ONS',
+    'about.hero.sub': 'Wie zijn wij en waarom hebben we Bingo-GO bedacht?',
+    'about.story.h2': 'HET VERHAAL ACHTER BINGO-GO',
+    'about.story.p1': 'Bingo-Go is ontstaan vanuit één duidelijke missie: mensen op een leuke en originele manier samenbrengen. In een tijd waarin steeds meer mensen naar binnen trekken, willen wij een toegankelijk spel bieden dat draait om ontdekking, plezier, interactie en echte samenwerking.',
+    'about.story.p2': 'Hoewel er al veel stadsspellen bestaan, vinden wij dat die vaak iets missen wat online games juist zo aantrekkelijk maakt: strategie, spanning en actie. Daarom hebben wij Bingo-Go ontwikkeld met extra focus op dat competitieve en tactische aspect. Vanuit die visie is onder andere de lock-out feature ontstaan, waarmee het spel een unieke strategische laag krijgt.',
+    'about.story.p3': 'Met Bingo-Go combineren we de beleving van samen eropuit gaan met de spanning van een slim en interactief spel. Zo creëren we een ervaring die sociaal, actief en verrassend strategisch is.',
+    'about.who.h2': 'WIE ZIJN WIJ?',
+    'about.who.p1': 'Wij zijn vijf studenten Technische Bedrijfskunde aan De Haagse Hogeschool. Binnen onze studie werken wij aan het opzetten van een eigen concept dat bijdraagt aan de maatschappij. Met Bingo-GO willen wij mensen stimuleren om actief naar buiten te gaan, samen te werken en de stad op een nieuwe manier te beleven.',
+    'about.mission.h3': 'ONZE MISSIE',
+    'about.mission.p': 'Mensen op een leuke en originele manier samenbrengen door middel van een toegankelijk spel dat draait om ontdekking, plezier, interactie en samenwerking.',
+    'mission1.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="18" rx="1"/><rect x="16" y="8" width="7" height="13" rx="1"/></svg> Stadsliefde',
+    'mission1.body': 'Bingokaarten afgestemd op elke stad. Ontdek nieuwe plekken terwijl je speelt.',
+    'mission2.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Verbinding',
+    'mission2.body': 'Bingo-GO speel je samen. Ga de strijd aan met vrienden, familie of collega\'s en verken de stad op een nieuwe manier.',
+    'mission3.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M9 12h6"/><path d="M12 7v5"/><path d="M9 17l-2 4"/><path d="M15 17l2 4"/><path d="M10 12l-2 5"/><path d="M14 12l2 5"/></svg> Actief',
+    'mission3.body': 'Ga op pad, blijf in beweging en verken de stad terwijl je opdrachten uitvoert.',
+    'mission4.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Groei',
+    'mission4.body': 'We breiden continu uit met nieuwe steden, kaarten en opdrachten. Het avontuur stopt nooit.',
+    'distinguish.label': 'Waarom Kiezen Voor Ons',
+    'distinguish.title': 'WAT ONS ONDERSCHEIDT',
+    'dist1.title': 'Lokaal Gemaakt',
+    'dist1.body': 'Elke kaart is speciaal ontworpen voor de stad, met locaties en opdrachten die écht passen.',
+    'dist2.title': 'Strategie & Competitie',
+    'dist2.body': 'Kies slim welke vakjes je claimt en blokkeer je tegenstanders. Door de unieke lock-out functie wordt elk spel een tactische strijd.',
+    'dist3.title': 'Persoonlijk Contact',
+    'dist3.body': 'Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over het ideale spel voor jou.',
+    'howto.hero.h1': 'HOE WERKT HET?',
+    'howto.hero.sub': 'Binnen een paar simpele stappen start jouw ultieme stadsspel.',
+    'step1.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Bestel je bingokaart',
+    'step1.p': 'Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.',
+    'step1.tip': 'Let op: Na bestellen is de kaart 72 uur geldig!',
+    'step2.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg> Verdeel de Teams',
+    'step2.p': 'Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).',
+    'step3.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-7 1-3 7z"/></svg> Kies je vakjes slim',
+    'step3.p': 'Bedenk een strategie en kies welke opdrachten je als eerste aanpakt.',
+    'step3.tip': 'Let op: zodra een vakje is geclaimd, kan het andere team deze niet meer pakken.',
+    'step4.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Voer de opdrachten uit',
+    'step4.p': 'Ga naar de locatie, voer de opdracht uit en stuur een foto of video (max. 30 seconden) als bewijs.',
+    'step5.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Bewijs goedkeuren',
+    'step5.p': 'Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.',
+    'step6.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Win op twee manieren',
+    'step6.p': 'Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.',
+    'step6.tip': 'Spannend tot het einde!',
+    'controls.title': '⏸ PAUZE & STOP',
+    'controls.sub': 'Wil je het spel onderbreken of stoppen? Beide teams moeten akkoord gaan.',
+    'pause.label': 'PAUZE',
+    'pause.sub': 'Spel tijdelijk onderbreken',
+    'stop.label': 'STOP',
+    'stop.sub': 'Spel definitief beëindigen',
+    'rules.title': 'DE SPELREGELS IN HET KORT',
+    'rules.allowed.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dit mag wel',
+    'rules.notallowed.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#f04444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Dit Mag Niet',
+    'rule.a1': '→ Vakjes in elke volgorde spelen',
+    'rule.a2': '→ Strategisch kiezen en je tegenstander blokkeren',
+    'rule.a3': '→ Als team opdrachten uitvoeren',
+    'rule.a4': '→ Bewijs indienen met foto of video (max. 30 sec)',
+    'rule.a5': '→ Opdrachten opnieuw uitvoeren bij afkeuring',
+    'rule.a6': '→ Het spel pauzeren of stoppen met goedkeuring van het andere team',
+    'rule.n1': '→ Een geclaimd vakje overnemen',
+    'rule.n2': '→ Binnen team opsplitsen om sneller te zijn',
+    'rule.n3': '→ Valse bewijzen indienen',
+    'rule.n4': '→ Mensen fotograferen of filmen zonder toestemming',
+    'rule.n5': '→ Vakje claimen zonder bewijs',
+    'rule.n6': '→ Regels of lokale wetten negeren',
+    'rules.cta': 'Speel Nu Mee →',
+    'bingo.hero.h1': 'BINGOKAARTEN',
+    'bingo.hero.sub': 'Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.',
+    'bingo.label': 'Beschikbare Steden',
+    'bingo.title': 'KIES JE STAD',
+    'bingo.sub': 'Elke stad heeft zijn eigen unieke opdrachten en locaties.',
+    'badge.live': 'Live',
+    'badge.soon': 'Binnenkort',
+    'badge.yourcity': 'Jouw Stad?',
+    'city.delft': 'Ontdek de historische stad: van de grachten tot de Markt en de Oude Kerk.',
+    'city.rotterdam': 'De havenstad in een nieuw jasje. Van de Erasmusbrug tot Markthal en de Witte de Withstraat.',
+    'city.amsterdam': 'De grachtenstad als speelterrein. Van de Jordaan tot het Vondelpark en het Centraal Station.',
+    'city.utrecht': 'De domstad met haar unieke grachten en gezellige binnenstad. De kaart is in ontwikkeling!',
+    'city.denhaag': 'Ontdek Den Haag: van het Binnenhof en de Hofvijver tot de gezellige winkelstraten. De kaart is in ontwikkeling!',
+    'city.new.title': 'Nieuwe Stad',
+    'city.new.body': 'Wil jij Bingo-GO in jouw stad? Laat het ons weten en wij gaan aan de slag!',
+    'btn.order': 'Bestel Nu',
+    'btn.suggest': 'Stel voor!',
+    'preview.title': 'VOORBEELD BINGOKAART',
+    'preview.sub': 'Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad',
+    'contact.hero.h1': 'CONTACT',
+    'contact.hero.sub': 'Vragen, bestellingen of een samenwerking? We horen graag van je!',
+    'contact.info.h2': 'LATEN WE IN CONTACT KOMEN',
+    'contact.email.label': 'E-mail',
+    'contact.response.label': 'Reactietijd',
+    'contact.response.body': 'Binnen 48 uur reageren we op elk bericht.',
+    'contact.newcity.title': 'Nieuwe Stad Aanvragen?',
+    'contact.newcity.body': 'Wil je Bingo-GO in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren.',
+    'form.title': 'STUUR ONS EEN BERICHT',
+    'form.firstname': 'Voornaam',
+    'form.firstname.ph': 'Jan',
+    'form.lastname': 'Achternaam',
+    'form.lastname.ph': 'Jansen',
+    'form.email': 'E-mailadres',
+    'form.email.ph': 'jan@voorbeeld.nl',
+    'form.subject': 'Onderwerp',
+    'form.subject.pick': 'Selecteer een onderwerp',
+    'form.subject.order': 'Bestelling plaatsen',
+    'form.subject.question': 'Vraag over het spel',
+    'form.subject.collab': 'Zakelijke samenwerking',
+    'form.subject.newcity': 'Nieuwe stad aanvragen',
+    'form.subject.other': 'Overig',
+    'form.message': 'Bericht',
+    'form.message.ph': 'Schrijf hier jouw bericht...',
+    'form.submit': 'Verstuur Bericht →',
+    'form.success.title': 'Bericht Verstuurd!',
+    'form.success.body': 'Bedankt voor je bericht. We reageren zo snel mogelijk, binnen 24 uur.',
+    'form.validation': 'Vul alstublieft minimaal je naam, e-mailadres en bericht in.',
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.about': 'About Us',
+    'nav.howto': 'How It Works',
+    'nav.cards': 'Bingo Cards',
+    'nav.contact': 'Contact',
+    'mob.home': 'Home',
+    'mob.about': 'About Us',
+    'mob.howto': 'How It Works',
+    'mob.cards': 'Bingo Cards',
+    'mob.contact': 'Contact',
+    'home.badge': 'The Ultimate City Game',
+    'home.h1': 'DISCOVER<br>THE CITY,<br><span class="red">WIN</span> THE <span class="blue">GAME</span>',
+    'home.intro': 'Bingo-GO combines teamwork, competition and strategy in one city game. Complete challenges, claim squares and block your opponent. Be the first to get a row of BINGO! Or win with the most squares.',
+    'home.btn1': 'View the Cards',
+    'home.btn2': 'How Does It Work?',
+    'phone.red': 'TEAM RED',
+    'phone.blue': 'TEAM BLUE',
+    'stats.players': 'Number of players',
+    'stats.challenges': 'Unique challenges',
+    'stats.cities': 'Cities available',
+    'stats.duration': 'Average play time',
+    'features.label': 'Why Bingo-GO?',
+    'features.title': 'A GAME THAT<br>HAS IT ALL',
+    'features.sub': 'Teamwork, competition and city exploration in one unique game.',
+    'feat1.title': 'Explore your city',
+    'feat1.body': 'Discover the city while you play. Each challenge takes you to a new spot and closer to victory.',
+    'feat2.title': 'Strategic play',
+    'feat2.body': 'Once a square is claimed, it\'s gone for the other team. Choose wisely and block your opponents.',
+    'feat3.title': 'Win conditions',
+    'feat3.body': 'Be the first to complete a row of BINGO or claim the most squares. Exciting until the last minute.',
+    'feat4.title': 'Perfect for teams',
+    'feat4.body': 'Ideal for corporate outings, friend groups, bachelor parties or just a fun afternoon out.',
+    'feat5.title': 'Easy to start',
+    'feat5.body': 'No installation needed. Open the link, divide the teams and GO! Within a minute you\'re ready to play.',
+    'feat6.title': 'Growing city network',
+    'feat6.body': 'We continuously expand with new cities. Each city has its own unique challenges and locations tailored to the area.',
+    'cta.title': 'READY TO PLAY?',
+    'cta.body': 'Order your Bingo-GO card and head into the city. Complete challenges, claim squares and beat the other team.',
+    'cta.btn': 'View Bingo Cards →',
+    'footer.tagline': 'The social and competitive city game for everyone.',
+    'about.hero.h1': 'ABOUT US',
+    'about.hero.sub': 'Who are we and why did we create Bingo-GO?',
+    'about.story.h2': 'THE STORY BEHIND BINGO-GO',
+    'about.story.p1': 'Bingo-Go was born from one clear mission: to bring people together in a fun and original way. In a time when more and more people are staying indoors, we want to offer an accessible game centred around discovery, fun, interaction and real teamwork.',
+    'about.story.p2': 'Although many city games already exist, we feel they often lack what makes online games so appealing: strategy, tension and action. That\'s why we developed Bingo-Go with extra focus on the competitive and tactical aspect. From this vision, the lock-out feature was born, giving the game a unique strategic layer.',
+    'about.story.p3': 'With Bingo-Go we combine the experience of going out together with the excitement of a clever and interactive game. This creates an experience that is social, active and surprisingly strategic.',
+    'about.who.h2': 'WHO ARE WE?',
+    'about.who.p1': 'We are five students of Industrial Engineering & Management at The Hague University of Applied Sciences. Within our studies we work on setting up our own concept that contributes to society. With Bingo-GO we want to encourage people to actively go outside, work together and experience the city in a new way.',
+    'about.mission.h3': 'OUR MISSION',
+    'about.mission.p': 'To bring people together in a fun and original way through an accessible game centred around discovery, fun, interaction and collaboration.',
+    'mission1.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="18" rx="1"/><rect x="16" y="8" width="7" height="13" rx="1"/></svg> City Love',
+    'mission1.body': 'Bingo cards tailored to each city. Discover new places while you play.',
+    'mission2.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Connection',
+    'mission2.body': 'Bingo-GO is played together. Challenge friends, family or colleagues and explore the city in a new way.',
+    'mission3.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M9 12h6"/><path d="M12 7v5"/><path d="M9 17l-2 4"/><path d="M15 17l2 4"/><path d="M10 12l-2 5"/><path d="M14 12l2 5"/></svg> Active',
+    'mission3.body': 'Head out, keep moving and explore the city while completing challenges.',
+    'mission4.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Growth',
+    'mission4.body': 'We continuously expand with new cities, cards and challenges. The adventure never stops.',
+    'distinguish.label': 'Why Choose Us',
+    'distinguish.title': 'WHAT SETS US APART',
+    'dist1.title': 'Locally Made',
+    'dist1.body': 'Each card is specially designed for the city, with locations and challenges that truly fit.',
+    'dist2.title': 'Strategy & Competition',
+    'dist2.body': 'Choose wisely which squares to claim and block your opponents. The unique lock-out feature turns every game into a tactical battle.',
+    'dist3.title': 'Personal Contact',
+    'dist3.body': 'Questions? Our team is always ready to help and think along about the ideal game for you.',
+    'howto.hero.h1': 'HOW DOES IT WORK?',
+    'howto.hero.sub': 'Start your ultimate city game in a few simple steps.',
+    'step1.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Order your bingo card',
+    'step1.p': 'Choose a city and immediately receive the digital bingo card with 25 unique challenges spread across the city.',
+    'step1.tip': 'Note: After ordering, the card is valid for 72 hours!',
+    'step2.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg> Divide the Teams',
+    'step2.p': 'Split your group into two teams and play against each other on the same card. Agree on the playing time together (2–6 hours).',
+    'step3.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-7 1-3 7z"/></svg> Choose your squares wisely',
+    'step3.p': 'Plan a strategy and choose which challenges to tackle first.',
+    'step3.tip': 'Note: once a square is claimed, the other team can no longer take it.',
+    'step4.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Complete the challenges',
+    'step4.p': 'Go to the location, complete the challenge and send a photo or video (max. 30 seconds) as proof.',
+    'step5.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Approve the proof',
+    'step5.p': 'The other team reviews your submitted proof. If approved, the square is claimed and gets your team colour. If rejected, the challenge must be completed again.',
+    'step6.h3': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Win in two ways',
+    'step6.p': 'The first team to complete a full row has BINGO and wins the game! No BINGO within the time limit? Then the team with the most squares wins.',
+    'step6.tip': 'Exciting until the very end!',
+    'controls.title': '⏸ PAUSE & STOP',
+    'controls.sub': 'Want to pause or stop the game? Both teams must agree.',
+    'pause.label': 'PAUSE',
+    'pause.sub': 'Temporarily pause the game',
+    'stop.label': 'STOP',
+    'stop.sub': 'Permanently end the game',
+    'rules.title': 'THE RULES IN BRIEF',
+    'rules.allowed.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> What is allowed',
+    'rules.notallowed.title': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#f04444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> What is not allowed',
+    'rule.a1': '→ Play squares in any order',
+    'rule.a2': '→ Choose strategically and block your opponent',
+    'rule.a3': '→ Complete challenges as a team',
+    'rule.a4': '→ Submit proof via photo or video (max. 30 sec)',
+    'rule.a5': '→ Redo challenges if rejected',
+    'rule.a6': '→ Pause or stop the game with approval from the other team',
+    'rule.n1': '→ Take over a claimed square',
+    'rule.n2': '→ Split within the team to go faster',
+    'rule.n3': '→ Submit false proof',
+    'rule.n4': '→ Photograph or film people without consent',
+    'rule.n5': '→ Claim a square without proof',
+    'rule.n6': '→ Ignore rules or local laws',
+    'rules.cta': 'Play Now →',
+    'bingo.hero.h1': 'BINGO CARDS',
+    'bingo.hero.sub': 'Choose your city and start the adventure. Each card is uniquely compiled for the area.',
+    'bingo.label': 'Available Cities',
+    'bingo.title': 'CHOOSE YOUR CITY',
+    'bingo.sub': 'Each city has its own unique challenges and locations.',
+    'badge.live': 'Live',
+    'badge.soon': 'Coming Soon',
+    'badge.yourcity': 'Your City?',
+    'city.delft': 'Discover the historic city: from the canals to the Market Square and the Old Church.',
+    'city.rotterdam': 'The port city in a new light. From the Erasmus Bridge to Markthal and the Witte de Withstraat.',
+    'city.amsterdam': 'The canal city as your playground. From the Jordaan to Vondelpark and Central Station.',
+    'city.utrecht': 'The cathedral city with its unique canals and charming city centre. The card is under development!',
+    'city.denhaag': 'Discover The Hague: from the Binnenhof and Hofvijver to the lively shopping streets. The card is under development!',
+    'city.new.title': 'New City',
+    'city.new.body': 'Want Bingo-GO in your city? Let us know and we\'ll get to work!',
+    'btn.order': 'Order Now',
+    'btn.suggest': 'Suggest it!',
+    'preview.title': 'EXAMPLE BINGO CARD',
+    'preview.sub': 'This is what a Bingo-GO card looks like — 25 unique challenges across the city',
+    'contact.hero.h1': 'CONTACT',
+    'contact.hero.sub': 'Questions, orders or a collaboration? We\'d love to hear from you!',
+    'contact.info.h2': 'LET\'S GET IN TOUCH',
+    'contact.email.label': 'Email',
+    'contact.response.label': 'Response Time',
+    'contact.response.body': 'We respond to every message within 48 hours.',
+    'contact.newcity.title': 'Request a New City?',
+    'contact.newcity.body': 'Want Bingo-GO in your city? Send us a message via the form and we\'ll see if we can make it happen.',
+    'form.title': 'SEND US A MESSAGE',
+    'form.firstname': 'First Name',
+    'form.firstname.ph': 'John',
+    'form.lastname': 'Last Name',
+    'form.lastname.ph': 'Smith',
+    'form.email': 'Email address',
+    'form.email.ph': 'john@example.com',
+    'form.subject': 'Subject',
+    'form.subject.pick': 'Select a subject',
+    'form.subject.order': 'Place an order',
+    'form.subject.question': 'Question about the game',
+    'form.subject.collab': 'Business collaboration',
+    'form.subject.newcity': 'Request a new city',
+    'form.subject.other': 'Other',
+    'form.message': 'Message',
+    'form.message.ph': 'Write your message here...',
+    'form.submit': 'Send Message →',
+    'form.success.title': 'Message Sent!',
+    'form.success.body': 'Thanks for your message. We\'ll respond as soon as possible, within 24 hours.',
+    'form.validation': 'Please fill in at least your name, email address and message.',
   }
+};
 
-  // Zet de beginpagina in de history zodat back ook daar naartoe werkt
-  history.replaceState({ page: 'home' }, '', '#home');
+let currentLang = 'nl';
 
-  // Luister naar de browser back/forward knoppen
-  window.addEventListener('popstate', (e) => {
-    const id = (e.state && e.state.page) ? e.state.page : 'home';
-    showPage(id, false); // false = niet nogmaals pushen
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  const t = translations[lang];
+
+  // Plain text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
   });
 
-  /* ── HAMBURGER ── */
-  const hamburger   = document.getElementById('hamburger');
-  const mobileMenu  = document.getElementById('mobileMenu');
-
-  hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+  // HTML content (for the hero h1 with spans)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
 
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  // Placeholder attributes
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
 
-  /* ── PHONE GRIDS ── */
-  const cells = [
+  // Update active state on all lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isNL = btn.id && btn.id.startsWith('btn-nl');
+    const isEN = btn.id && btn.id.startsWith('btn-en');
+    btn.classList.toggle('active', (lang === 'nl' && isNL) || (lang === 'en' && isEN));
+  });
+
+  // Rebuild translatable grids
+  buildGrid('gridRood', lang);
+  buildGrid('gridBlauw', lang);
+  buildPreviewGrid(lang);
+}
+
+/* ── PAGE NAVIGATION ── */
+function showPage(id, pushToHistory = true) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  closeMobileMenu();
+  if (pushToHistory) {
+    history.pushState({ page: id }, '', '#' + id);
+  }
+}
+
+history.replaceState({ page: 'home' }, '', '#home');
+
+window.addEventListener('popstate', (e) => {
+  const id = (e.state && e.state.page) ? e.state.page : 'home';
+  showPage(id, false);
+});
+
+/* ── HAMBURGER ── */
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── PHONE GRIDS ── */
+/* Phone grid cell data — labels per lang, colours fixed */
+const cellData = {
+  nl: [
     { label: 'Selfie bij monument',   cls: 'p-blue'  },
     { label: 'Lokale snack proeven',  cls: 'p-empty' },
     { label: 'Vintage winkel vinden', cls: 'p-red'   },
@@ -1057,50 +1479,97 @@
     { label: 'Lokale kunst',          cls: 'p-blue'  },
     { label: 'Markt vondst',          cls: 'p-empty' },
     { label: 'Zonsondergang',         cls: 'p-red'   },
-  ];
+  ],
+  en: [
+    { label: 'Selfie at monument',    cls: 'p-blue'  },
+    { label: 'Try local snack',       cls: 'p-empty' },
+    { label: 'Find vintage shop',     cls: 'p-red'   },
+    { label: 'Street musician photo', cls: 'p-empty' },
+    { label: 'Canal view',            cls: 'p-blue'  },
+    { label: 'Spot graffiti',         cls: 'p-empty' },
+    { label: 'Café terrace',          cls: 'p-red'   },
+    { label: 'Historic building',     cls: 'p-blue'  },
+    { label: 'Local market',          cls: 'p-empty' },
+    { label: 'City animal photo',     cls: 'p-empty' },
+    { label: 'Find highest point',    cls: 'p-blue'  },
+    { label: 'Find street art',       cls: 'p-empty' },
+    { label: 'Local hero',            cls: 'p-empty' },
+    { label: 'Panorama shot',         cls: 'p-empty' },
+    { label: 'Bridge photo',          cls: 'p-red'   },
+    { label: 'Park bench moment',     cls: 'p-empty' },
+    { label: 'Water reflection',      cls: 'p-red'   },
+    { label: 'Old building',          cls: 'p-blue'  },
+    { label: 'Spot a bicycle',        cls: 'p-empty' },
+    { label: 'Local pub',             cls: 'p-empty' },
+    { label: 'Church or temple',      cls: 'p-red'   },
+    { label: 'Panorama shot',         cls: 'p-empty' },
+    { label: 'Local art',             cls: 'p-blue'  },
+    { label: 'Market find',           cls: 'p-empty' },
+    { label: 'Sunset',                cls: 'p-red'   },
+  ]
+};
 
-  function buildGrid(id) {
-    const c = document.getElementById(id);
-    if (!c) return;
-    cells.forEach(item => {
-      const d = document.createElement('div');
-      d.className = 'phone-cell ' + item.cls;
-      d.textContent = item.label;
-      c.appendChild(d);
-    });
-  }
-  buildGrid('gridRood');
-  buildGrid('gridBlauw');
-
-  /* ── PREVIEW BINGO GRID ── */
-  const previewItems = [
+const previewData = {
+  nl: [
     'Selfie monument','Lokale snack','Vintage winkel','Muzikant foto','Grachtenfoto',
     'Graffiti spot','Café terrasse','Historisch pand','Lokale markt','Stadsdier',
     'Hoogste punt','Straatart','VRIJ 🌟','Lokale held','Brugfoto',
     'Parkmoment','Water reflex','Oud gebouw','Fietsvondst','Bruin café',
     'Kerk/Tempel','Stadspanorama','Lokale kunst','Marktvondst','Zonsondergang',
-  ];
+  ],
+  en: [
+    'Selfie monument','Local snack','Vintage shop','Musician photo','Canal photo',
+    'Graffiti spot','Café terrace','Historic building','Local market','City animal',
+    'Highest point','Street art','FREE 🌟','Local hero','Bridge photo',
+    'Park moment','Water reflex','Old building','Bicycle find','Local pub',
+    'Church/Temple','City panorama','Local art','Market find','Sunset',
+  ]
+};
+
+function buildGrid(id, lang) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  c.innerHTML = '';
+  cellData[lang].forEach(item => {
+    const d = document.createElement('div');
+    d.className = 'phone-cell ' + item.cls;
+    d.textContent = item.label;
+    c.appendChild(d);
+  });
+}
+
+function buildPreviewGrid(lang) {
   const previewGrid = document.getElementById('previewGrid');
-  previewItems.forEach((label, i) => {
+  if (!previewGrid) return;
+  previewGrid.innerHTML = '';
+  previewData[lang].forEach((label, i) => {
     const cell = document.createElement('div');
     cell.className = 'mini-cell' +
       (i === 12 ? ' free-center' : [0,2,4,7,11,13,17,20,22,24].includes(i) ? ' marked' : '');
     cell.textContent = label;
     previewGrid.appendChild(cell);
   });
+}
 
-  /* ── CONTACT FORM ── */
-  function submitForm() {
-    const firstName = document.getElementById('firstName').value.trim();
-    const email     = document.getElementById('email').value.trim();
-    const message   = document.getElementById('message').value.trim();
-    if (!firstName || !email || !message) {
-      alert('Vul alstublieft minimaal je naam, e-mailadres en bericht in.');
-      return;
-    }
-    document.getElementById('contactFormWrap').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+buildGrid('gridRood', 'nl');
+buildGrid('gridBlauw', 'nl');
+buildPreviewGrid('nl');
+
+/* ── CONTACT FORM ── */
+function submitForm() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const message   = document.getElementById('message').value.trim();
+  if (!firstName || !email || !message) {
+    alert(translations[currentLang]['form.validation']);
+    return;
   }
+  document.getElementById('contactFormWrap').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// Set NL as default active on load
+setLang('nl');
 </script>
 </body>
 </html>
