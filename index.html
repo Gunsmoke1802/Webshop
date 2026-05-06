@@ -384,12 +384,12 @@
   /* ── BINGOKAARTEN ── */
   #bingokaarten { padding-top: 70px; background: var(--off-white); }
   .cards-hero {
-    background: linear-gradient(135deg, #b02020 0%, #c93535 100%);
+    background: linear-gradient(170deg, #6e1212 0%, #AE1C28 100%);
     padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden;
   }
   .cards-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
     background-size: 24px 24px;
   }
   .cards-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; position: relative; }
@@ -424,6 +424,8 @@
   .mini-cell.mini-battle  { background: transparent; padding: 0; overflow: hidden; box-shadow: 0 3px 10px rgba(245,158,11,0.4); border-radius: 10px; }
   .mini-cell.marked       { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
   .mini-cell.free-center  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
+  /* Smaller font for cells with longer text so they stay inside the box */
+  .mini-cell.long-text    { font-size: clamp(0.36rem, 1.0vw, 0.50rem); line-height: 1.15; }
 
   /* ── CONTACT ── */
   #contact { background: var(--off-white); padding-top: 70px; }
@@ -667,6 +669,44 @@
   }
   .av-modal-close:hover { background: #d1d9f0; }
   .av-modal iframe { flex: 1; border: none; width: 100%; }
+
+  /* ── MOBILE AV MODAL ── */
+  /* PDF iframes are unusable on mobile; show open-in-new-tab buttons instead */
+  .av-mobile-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 36px 28px;
+    flex: 1;
+    text-align: center;
+  }
+  .av-mobile-icon { font-size: 3rem; line-height: 1; }
+  .av-mobile-hint {
+    color: var(--gray); font-weight: 600; line-height: 1.7;
+    max-width: 300px; font-size: 0.95rem;
+  }
+  .av-mobile-btn {
+    display: block; width: 100%; padding: 16px 20px;
+    background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
+    color: white; border-radius: 14px; text-decoration: none;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(26,91,191,0.3); transition: all 0.2s;
+    text-align: center;
+  }
+  .av-mobile-btn:hover { transform: translateY(-2px); }
+  @media (max-width: 768px) {
+    .av-modal-overlay { padding: 0; align-items: flex-end; }
+    .av-modal {
+      border-radius: 20px 20px 0 0;
+      height: 75vh;
+      max-width: 100%;
+      width: 100%;
+    }
+    .av-mobile-content { display: flex; }
+    .av-modal iframe { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -1088,7 +1128,7 @@
 <div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
 <div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
 <div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-blue" data-cell="the_pub_crawl">DE KROEGENTOCHT</div>
+<div class="mini-cell mini-blue long-text" data-cell="the_pub_crawl">DE KROEGENTOCHT</div>
 </div>
     </div>
 
@@ -1586,6 +1626,21 @@ function setLang(lang) {
       enFrame.style.display = 'none';
     }
   }
+  // Switch mobile PDF buttons and hint text
+  const mobileBtnNL = document.getElementById('avMobileBtnNL');
+  const mobileBtnEN = document.getElementById('avMobileBtnEN');
+  const mobileHint  = document.getElementById('avMobileHint');
+  if (mobileBtnNL && mobileBtnEN) {
+    if (lang === 'en') {
+      mobileBtnNL.style.display = 'none';
+      mobileBtnEN.style.display = 'block';
+      if (mobileHint) mobileHint.textContent = 'Open the terms in a new tab to read them on your phone.';
+    } else {
+      mobileBtnNL.style.display = 'block';
+      mobileBtnEN.style.display = 'none';
+      if (mobileHint) mobileHint.textContent = 'Open de voorwaarden in een nieuw tabblad om ze te lezen op jouw telefoon.';
+    }
+  }
 }
 
 /* ── PAGE NAVIGATION ── */
@@ -1739,8 +1794,16 @@ setLang('nl');
   <div class="av-modal">
     <div class="av-modal-header">
       <h3 id="avModalTitle">ALGEMENE VOORWAARDEN</h3>
-      <button class="av-modal-close" onclick="document.getElementById('avModal').classList.remove('open')" aria-label="Sluiten">✕</button>
+      <button class="av-modal-close" onclick="closeAVModalDirect()" aria-label="Sluiten">✕</button>
     </div>
+    <!-- Mobile: open PDF in new tab (iframes capture touch and don't zoom properly) -->
+    <div class="av-mobile-content" id="avMobileContent">
+      <div class="av-mobile-icon">📄</div>
+      <p class="av-mobile-hint" id="avMobileHint">Open de voorwaarden in een nieuw tabblad om ze te lezen op jouw telefoon.</p>
+      <a href="algemene_voorwaarden.pdf" target="_blank" class="av-mobile-btn" id="avMobileBtnNL">Algemene Voorwaarden (NL) →</a>
+      <a href="Terms_and_Conditions.pdf" target="_blank" class="av-mobile-btn" id="avMobileBtnEN" style="display:none;">Terms &amp; Conditions (EN) →</a>
+    </div>
+    <!-- Desktop: embedded PDF viewer -->
     <iframe id="avENFrame" src="Terms_and_Conditions.pdf" style="display:none;flex:1;border:none;width:100%;"></iframe>
     <iframe id="avPDFFrame" src="algemene_voorwaarden.pdf" type="application/pdf"></iframe>
   </div>
@@ -1750,19 +1813,17 @@ setLang('nl');
     document.getElementById('avModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+  // Called when clicking the overlay backdrop
   function closeAVModal(e) {
     if (e.target === document.getElementById('avModal')) {
-      document.getElementById('avModal').classList.remove('open');
-      document.body.style.overflow = '';
+      closeAVModalDirect();
     }
   }
-  // Also close on X button
-  document.getElementById('avModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-      this.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
+  // Called by the X button — always restores scrolling
+  function closeAVModalDirect() {
+    document.getElementById('avModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 </script>
 </body>
 </html>
