@@ -384,7 +384,7 @@
   /* ── BINGOKAARTEN ── */
   #bingokaarten { padding-top: 70px; background: var(--off-white); }
   .cards-hero {
-    background: linear-gradient(135deg, var(--bingo-red) 0%, #e84a4a 100%);
+    background: linear-gradient(135deg, #b02020 0%, #c93535 100%);
     padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden;
   }
   .cards-hero::before {
@@ -411,11 +411,17 @@
   .btn-card.active   { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; box-shadow: 0 4px 16px rgba(26,91,191,0.35); }
   .btn-card.active:hover { transform: translateY(-2px); }
   .btn-card.inactive { background: var(--light-gray); color: var(--gray); cursor: not-allowed; }
-  .mini-bingo { max-width: 800px; margin: 60px auto 0; background: white; border-radius: 24px; padding: 28px 20px; box-shadow: var(--shadow); text-align: center; }
+  .mini-bingo { max-width: 800px; margin: 60px auto 80px; background: white; border-radius: 24px; padding: 28px 20px; box-shadow: var(--shadow); text-align: center; }
   .mini-bingo h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--dark); }
   .mini-bingo p  { color: var(--gray); font-weight: 600; margin-bottom: 20px; font-size: 0.95rem; }
   .mini-bingo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(3px, 1.2vw, 8px); width: 100%; max-width: 460px; margin: 0 auto; }
-  .mini-cell { aspect-ratio: 1; border-radius: 8px; background: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: clamp(0.42rem, 1.5vw, 0.65rem); font-weight: 800; text-align: center; padding: 3px; color: var(--dark); line-height: 1.2; overflow: hidden; }
+  .mini-cell { aspect-ratio: 1; border-radius: 10px; background: #f1f4fb; display: flex; align-items: center; justify-content: center; font-size: clamp(0.5rem, 1.6vw, 0.72rem); font-weight: 800; text-align: center; padding: 4px; color: var(--dark); line-height: 1.25; overflow: hidden; }
+  .mini-cell.mini-locked  { background: #edf0f7; }
+  .mini-cell.mini-locked svg { opacity: 0.55; }
+  .mini-cell.mini-blue    { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; box-shadow: 0 3px 10px rgba(26,91,191,0.3); }
+  .mini-cell.mini-red     { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); color: white; box-shadow: 0 3px 10px rgba(212,43,43,0.3); }
+  .mini-cell.mini-free    { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; box-shadow: 0 3px 10px rgba(245,158,11,0.3); }
+  .mini-cell.mini-battle  { background: transparent; padding: 0; overflow: hidden; box-shadow: 0 3px 10px rgba(245,158,11,0.4); border-radius: 10px; }
   .mini-cell.marked       { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
   .mini-cell.free-center  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
 
@@ -632,6 +638,35 @@
     .stat-item p { font-size: 0.75rem; }
     .mini-cell { font-size: 0.38rem; padding: 2px; }
   }
+
+  /* ── ALGEMENE VOORWAARDEN MODAL ── */
+  .av-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(15,23,42,0.75); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .av-modal-overlay.open { display: flex; }
+  .av-modal {
+    background: white; border-radius: 20px; width: 100%; max-width: 860px;
+    height: 90vh; display: flex; flex-direction: column;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35); overflow: hidden;
+  }
+  .av-modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 28px; border-bottom: 2px solid var(--light-gray); flex-shrink: 0;
+  }
+  .av-modal-header h3 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+    letter-spacing: 0.06em; color: var(--dark); margin: 0;
+  }
+  .av-modal-close {
+    width: 36px; height: 36px; border-radius: 50%; border: none;
+    background: var(--light-gray); cursor: pointer; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--dark); transition: background 0.2s;
+  }
+  .av-modal-close:hover { background: #d1d9f0; }
+  .av-modal iframe { flex: 1; border: none; width: 100%; }
 </style>
 </head>
 <body>
@@ -752,8 +787,12 @@
       <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
       <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
       <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
+      <a onclick="openAVModal()" style="cursor:pointer" data-i18n="footer.av">Algemene Voorwaarden</a>
     </div>
-    <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="footer-bottom">
+      © 2026 Bingo-GO &nbsp;|&nbsp; Stichting Jonge Honden &nbsp;|&nbsp; Kleiwerd 42, 9746 CV Groningen<br>
+      BTW: NL821517338B01 &nbsp;|&nbsp; KvK: 01166796
+    </div>
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-nl-1" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
@@ -816,8 +855,12 @@
       <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
       <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
       <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
+      <a onclick="openAVModal()" style="cursor:pointer" data-i18n="footer.av">Algemene Voorwaarden</a>
     </div>
-    <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="footer-bottom">
+      © 2026 Bingo-GO &nbsp;|&nbsp; Stichting Jonge Honden &nbsp;|&nbsp; Kleiwerd 42, 9746 CV Groningen<br>
+      BTW: NL821517338B01 &nbsp;|&nbsp; KvK: 01166796
+    </div>
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-2" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
@@ -909,8 +952,12 @@
       <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
       <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
       <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
+      <a onclick="openAVModal()" style="cursor:pointer" data-i18n="footer.av">Algemene Voorwaarden</a>
     </div>
-    <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="footer-bottom">
+      © 2026 Bingo-GO &nbsp;|&nbsp; Stichting Jonge Honden &nbsp;|&nbsp; Kleiwerd 42, 9746 CV Groningen<br>
+      BTW: NL821517338B01 &nbsp;|&nbsp; KvK: 01166796
+    </div>
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-3" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
@@ -961,13 +1008,91 @@
       </div>
     </div>
 
-    <div class="mini-bingo">
+        <div class="mini-bingo">
       <h3 data-i18n="preview.title">VOORBEELD BINGOKAART</h3>
       <p data-i18n="preview.sub">Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad</p>
-      <div class="mini-bingo-grid" id="previewGrid"></div>
+      <div class="mini-bingo-grid" id="previewGrid">
+<div class="mini-cell mini-blue" data-cell="the_hotdog">DE HOTDOG</div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-blue" data-cell="nature">DE NATUUR</div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-red" data-cell="the_guide">DE GIDS</div>
+<div class="mini-cell mini-red" data-cell="the_good_samaritan">DE GOEDE SAMARITAAN</div>
+<div class="mini-cell mini-battle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="100%" height="100%">
+  <!-- Orange/gold background burst -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </radialGradient>
+  </defs>
+  <rect width="80" height="80" rx="10" fill="url(#bg)"/>
+  <!-- Burst rays -->
+  <g stroke="#fcd34d" stroke-width="1.5" opacity="0.7">
+    <line x1="40" y1="4" x2="40" y2="12"/>
+    <line x1="40" y1="68" x2="40" y2="76"/>
+    <line x1="4" y1="40" x2="12" y2="40"/>
+    <line x1="68" y1="40" x2="76" y2="40"/>
+    <line x1="11" y1="11" x2="17" y2="17"/>
+    <line x1="63" y1="11" x2="57" y2="17"/>
+    <line x1="11" y1="69" x2="17" y2="63"/>
+    <line x1="69" y1="69" x2="63" y2="63"/>
+  </g>
+  <!-- Star in center -->
+  <polygon points="40,28 42.5,36 51,36 44.5,41 47,49 40,44 33,49 35.5,41 29,36 37.5,36" fill="white" opacity="0.95"/>
+  <!-- Checkered flag -->
+  <g transform="translate(36,14)">
+    <line x1="0" y1="0" x2="0" y2="16" stroke="#1e293b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="3" height="3" fill="#1e293b"/>
+    <rect x="3" y="0" width="3" height="3" fill="white"/>
+    <rect x="0" y="3" width="3" height="3" fill="white"/>
+    <rect x="3" y="3" width="3" height="3" fill="#1e293b"/>
+    <rect x="0" y="6" width="3" height="3" fill="#1e293b"/>
+    <rect x="3" y="6" width="3" height="3" fill="white"/>
+  </g>
+  <!-- Blue runner (left, running right) -->
+  <g fill="#1a5bbf">
+    <circle cx="18" cy="38" r="4"/>
+    <path d="M18 42 L15 54 L19 54 L20 48 L23 52 L26 52 L22 45 Z"/>
+    <line x1="18" y1="44" x2="14" y2="50" stroke="#1a5bbf" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="44" x2="24" y2="49" stroke="#1a5bbf" stroke-width="2" stroke-linecap="round"/>
+    <!-- Arrow direction -->
+    <polygon points="27,46 31,44 27,42" fill="#1a5bbf" opacity="0.6"/>
+  </g>
+  <!-- Red runner (right, running left) -->
+  <g fill="#d42b2b">
+    <circle cx="62" cy="38" r="4"/>
+    <path d="M62 42 L65 54 L61 54 L60 48 L57 52 L54 52 L58 45 Z"/>
+    <line x1="62" y1="44" x2="66" y2="50" stroke="#d42b2b" stroke-width="2" stroke-linecap="round"/>
+    <line x1="60" y1="44" x2="56" y2="49" stroke="#d42b2b" stroke-width="2" stroke-linecap="round"/>
+    <!-- Arrow direction -->
+    <polygon points="53,46 49,44 53,42" fill="#d42b2b" opacity="0.6"/>
+  </g>
+  <!-- VS text -->
+  <text x="40" y="58" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="7" font-weight="900" fill="white" opacity="0.9">VS</text>
+</svg></div>
+<div class="mini-cell mini-red" data-cell="willem">WILLEM</div>
+<div class="mini-cell mini-red" data-cell="the_blaffer">DE BLAFFER</div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-blue" data-cell="the_church">DE KERK</div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-blue" data-cell="the_pub_crawl">DE KROEGENTOCHT</div>
+</div>
     </div>
-  </div>
 
+</div>
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-GO"></div>
     <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -977,8 +1102,12 @@
       <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
       <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
       <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
+      <a onclick="openAVModal()" style="cursor:pointer" data-i18n="footer.av">Algemene Voorwaarden</a>
     </div>
-    <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="footer-bottom">
+      © 2026 Bingo-GO &nbsp;|&nbsp; Stichting Jonge Honden &nbsp;|&nbsp; Kleiwerd 42, 9746 CV Groningen<br>
+      BTW: NL821517338B01 &nbsp;|&nbsp; KvK: 01166796
+    </div>
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-4" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
@@ -1052,8 +1181,12 @@
       <a onclick="showPage('hoe-werkt-het')" data-i18n="nav.howto">Hoe Werkt Het</a>
       <a onclick="showPage('bingokaarten')" data-i18n="nav.cards">Bingokaarten</a>
       <a onclick="showPage('contact')" data-i18n="nav.contact">Contact</a>
+      <a onclick="openAVModal()" style="cursor:pointer" data-i18n="footer.av">Algemene Voorwaarden</a>
     </div>
-    <div class="footer-bottom">© 2026 Bingo-GO</div>
+    <div class="footer-bottom">
+      © 2026 Bingo-GO &nbsp;|&nbsp; Stichting Jonge Honden &nbsp;|&nbsp; Kleiwerd 42, 9746 CV Groningen<br>
+      BTW: NL821517338B01 &nbsp;|&nbsp; KvK: 01166796
+    </div>
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-5" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
@@ -1219,6 +1352,15 @@ const translations = {
     'form.submit': 'Verstuur Bericht →',
     'form.success.title': 'Bericht Verstuurd!',
     'form.success.body': 'Bedankt voor je bericht. We reageren zo snel mogelijk, binnen 24 uur.',
+    'footer.av': 'Algemene Voorwaarden',
+    'cell.the_hotdog': 'DE HOTDOG',
+    'cell.nature': 'DE NATUUR',
+    'cell.the_guide': 'DE GIDS',
+    'cell.the_good_samaritan': 'DE GOEDE SAMARITAAN',
+    'cell.willem': 'WILLEM',
+    'cell.the_blaffer': 'DE BLAFFER',
+    'cell.the_church': 'DE KERK',
+    'cell.the_pub_crawl': 'DE KROEGENTOCHT',
     'form.validation': 'Vul alstublieft minimaal je naam, e-mailadres en bericht in.',
   },
   en: {
@@ -1373,6 +1515,16 @@ const translations = {
     'form.submit': 'Send Message →',
     'form.success.title': 'Message Sent!',
     'form.success.body': 'Thanks for your message. We\'ll respond as soon as possible, within 24 hours.',
+    'footer.av': 'Algemene Voorwaarden',
+    'footer.av': 'General Terms & Conditions',
+    'cell.the_hotdog': 'THE HOTDOG',
+    'cell.nature': 'NATURE',
+    'cell.the_guide': 'THE GUIDE',
+    'cell.the_good_samaritan': 'THE GOOD SAMARITAN',
+    'cell.willem': 'WILLEM',
+    'cell.the_blaffer': 'THE BLAFFER',
+    'cell.the_church': 'THE CHURCH',
+    'cell.the_pub_crawl': 'THE PUB CRAWL',
     'form.validation': 'Please fill in at least your name, email address and message.',
   }
 };
@@ -1413,7 +1565,27 @@ function setLang(lang) {
   // Rebuild translatable grids
   buildGrid('gridRood', lang);
   buildGrid('gridBlauw', lang);
-  buildPreviewGrid(lang);
+
+  // Update preview grid cell labels
+  document.querySelectorAll('[data-cell]').forEach(el => {
+    const key = 'cell.' + el.getAttribute('data-cell');
+    if (t[key]) el.textContent = t[key];
+  });
+
+  // Update AV modal language
+  const titleEl = document.getElementById('avModalTitle');
+  const pdfFrame = document.getElementById('avPDFFrame');
+  if (titleEl) titleEl.textContent = lang === 'en' ? 'GENERAL TERMS & CONDITIONS' : 'ALGEMENE VOORWAARDEN';
+  const enFrame = document.getElementById('avENFrame');
+  if (pdfFrame && enFrame) {
+    if (lang === 'en') {
+      pdfFrame.style.display = 'none';
+      enFrame.style.display = 'block';
+    } else {
+      pdfFrame.style.display = 'block';
+      enFrame.style.display = 'none';
+    }
+  }
 }
 
 /* ── PAGE NAVIGATION ── */
@@ -1539,21 +1711,11 @@ function buildGrid(id, lang) {
 }
 
 function buildPreviewGrid(lang) {
-  const previewGrid = document.getElementById('previewGrid');
-  if (!previewGrid) return;
-  previewGrid.innerHTML = '';
-  previewData[lang].forEach((label, i) => {
-    const cell = document.createElement('div');
-    cell.className = 'mini-cell' +
-      (i === 12 ? ' free-center' : [0,2,4,7,11,13,17,20,22,24].includes(i) ? ' marked' : '');
-    cell.textContent = label;
-    previewGrid.appendChild(cell);
-  });
+  // Preview grid is now static HTML — no rebuild needed
 }
 
 buildGrid('gridRood', 'nl');
 buildGrid('gridBlauw', 'nl');
-buildPreviewGrid('nl');
 
 /* ── CONTACT FORM ── */
 function submitForm() {
@@ -1570,6 +1732,37 @@ function submitForm() {
 
 // Set NL as default active on load
 setLang('nl');
+</script>
+
+<!-- ── ALGEMENE VOORWAARDEN MODAL ── -->
+<div class="av-modal-overlay" id="avModal" onclick="closeAVModal(event)">
+  <div class="av-modal">
+    <div class="av-modal-header">
+      <h3 id="avModalTitle">ALGEMENE VOORWAARDEN</h3>
+      <button class="av-modal-close" onclick="document.getElementById('avModal').classList.remove('open')" aria-label="Sluiten">✕</button>
+    </div>
+    <iframe id="avENFrame" src="Terms_and_Conditions.pdf" style="display:none;flex:1;border:none;width:100%;"></iframe>
+    <iframe id="avPDFFrame" src="algemene_voorwaarden.pdf" type="application/pdf"></iframe>
+  </div>
+</div>
+<script>
+  function openAVModal() {
+    document.getElementById('avModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeAVModal(e) {
+    if (e.target === document.getElementById('avModal')) {
+      document.getElementById('avModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  // Also close on X button
+  document.getElementById('avModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
 </script>
 </body>
 </html>
