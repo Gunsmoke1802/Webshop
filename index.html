@@ -384,12 +384,12 @@
   /* ── BINGOKAARTEN ── */
   #bingokaarten { padding-top: 70px; background: var(--off-white); }
   .cards-hero {
-    background: linear-gradient(135deg, #b02020 0%, #c93535 100%);
+    background: linear-gradient(170deg, #6e1212 0%, #AE1C28 100%);
     padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden;
   }
   .cards-hero::before {
     content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
     background-size: 24px 24px;
   }
   .cards-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; position: relative; }
@@ -424,6 +424,106 @@
   .mini-cell.mini-battle  { background: transparent; padding: 0; overflow: hidden; box-shadow: 0 3px 10px rgba(245,158,11,0.4); border-radius: 10px; }
   .mini-cell.marked       { background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light)); color: white; }
   .mini-cell.free-center  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
+  /* Smaller font for cells with longer text so they stay inside the box */
+  .mini-cell.long-text    { font-size: clamp(0.36rem, 1.0vw, 0.50rem); line-height: 1.15; }
+
+  /* ── LOCKED CELL INTERACTIVITY ── */
+  .mini-cell.mini-locked {
+    cursor: pointer;
+    transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  }
+  .mini-cell.mini-locked:hover {
+    background: #cbd5e1;
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    z-index: 2;
+  }
+  @keyframes lockShake {
+    0%,100% { transform: translateX(0) rotate(0deg); }
+    12%     { transform: translateX(-6px) rotate(-4deg); }
+    24%     { transform: translateX(6px)  rotate(4deg); }
+    36%     { transform: translateX(-5px) rotate(-2deg); }
+    48%     { transform: translateX(5px)  rotate(2deg); }
+    60%     { transform: translateX(-3px) rotate(-1deg); }
+    72%     { transform: translateX(3px)  rotate(1deg); }
+    84%     { transform: translateX(-1px); }
+  }
+  /* Colored cells: subtle hover life */
+  .mini-cell.mini-blue,
+  .mini-cell.mini-red,
+  .mini-cell.mini-free,
+  .mini-cell.mini-battle {
+    transition: transform 0.18s, filter 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+  }
+  .mini-cell.mini-blue:hover,
+  .mini-cell.mini-red:hover,
+  .mini-cell.mini-free:hover,
+  .mini-cell.mini-battle:hover {
+    transform: scale(1.1);
+    filter: brightness(1.12) saturate(1.1);
+    box-shadow: 0 5px 16px rgba(0,0,0,0.22);
+    z-index: 2;
+  }
+  .mini-cell.mini-locked.lock-shaking { animation: lockShake 0.55s ease; }
+
+  /* 4 chaos variants for the battle-cell all-shake */
+  @keyframes lockShakeA {
+    0%,100% { transform: translateX(0) rotate(0deg); }
+    12%     { transform: translateX(-8px) rotate(-5deg); }
+    26%     { transform: translateX(6px)  rotate(4deg); }
+    40%     { transform: translateX(-5px) rotate(-3deg); }
+    54%     { transform: translateX(5px)  rotate(3deg); }
+    68%     { transform: translateX(-3px) rotate(-2deg); }
+    82%     { transform: translateX(2px)  rotate(1deg); }
+  }
+  @keyframes lockShakeB {
+    0%,100% { transform: translateX(0) rotate(0deg); }
+    12%     { transform: translateX(8px)  rotate(5deg); }
+    26%     { transform: translateX(-6px) rotate(-4deg); }
+    40%     { transform: translateX(5px)  rotate(3deg); }
+    54%     { transform: translateX(-5px) rotate(-3deg); }
+    68%     { transform: translateX(3px)  rotate(2deg); }
+    82%     { transform: translateX(-2px) rotate(-1deg); }
+  }
+  @keyframes lockShakeC {
+    0%,100% { transform: translateX(0) rotate(0deg); }
+    10%     { transform: translateX(-10px) rotate(-6deg); }
+    24%     { transform: translateX(5px)   rotate(3deg); }
+    38%     { transform: translateX(-7px)  rotate(-5deg); }
+    52%     { transform: translateX(8px)   rotate(5deg); }
+    66%     { transform: translateX(-4px)  rotate(-2deg); }
+    80%     { transform: translateX(3px)   rotate(2deg); }
+  }
+  @keyframes lockShakeD {
+    0%,100% { transform: translateX(0) rotate(0deg); }
+    10%     { transform: translateX(10px)  rotate(6deg); }
+    24%     { transform: translateX(-5px)  rotate(-3deg); }
+    38%     { transform: translateX(7px)   rotate(5deg); }
+    52%     { transform: translateX(-8px)  rotate(-5deg); }
+    66%     { transform: translateX(4px)   rotate(2deg); }
+    80%     { transform: translateX(-3px)  rotate(-2deg); }
+  }
+  .lock-tooltip {
+    position: absolute;
+    background: #1e293b; color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.7rem; font-weight: 700; line-height: 1.45;
+    padding: 8px 12px; border-radius: 9px;
+    max-width: 160px; text-align: center;
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.32); z-index: 200;
+  }
+  .lock-tooltip::after {
+    content: ''; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: #1e293b;
+  }
+  .lock-tooltip.visible { opacity: 1; }
+  @media (max-width: 480px) {
+    .lock-tooltip { font-size: 0.62rem; padding: 6px 9px; max-width: 110px; }
+  }
 
   /* ── CONTACT ── */
   #contact { background: var(--off-white); padding-top: 70px; }
@@ -667,6 +767,44 @@
   }
   .av-modal-close:hover { background: #d1d9f0; }
   .av-modal iframe { flex: 1; border: none; width: 100%; }
+
+  /* ── MOBILE AV MODAL ── */
+  /* PDF iframes are unusable on mobile; show open-in-new-tab buttons instead */
+  .av-mobile-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 36px 28px;
+    flex: 1;
+    text-align: center;
+  }
+  .av-mobile-icon { font-size: 3rem; line-height: 1; }
+  .av-mobile-hint {
+    color: var(--gray); font-weight: 600; line-height: 1.7;
+    max-width: 300px; font-size: 0.95rem;
+  }
+  .av-mobile-btn {
+    display: block; width: 100%; padding: 16px 20px;
+    background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
+    color: white; border-radius: 14px; text-decoration: none;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(26,91,191,0.3); transition: all 0.2s;
+    text-align: center;
+  }
+  .av-mobile-btn:hover { transform: translateY(-2px); }
+  @media (max-width: 768px) {
+    .av-modal-overlay { padding: 0; align-items: flex-end; }
+    .av-modal {
+      border-radius: 20px 20px 0 0;
+      height: 75vh;
+      max-width: 100%;
+      width: 100%;
+    }
+    .av-mobile-content { display: flex; }
+    .av-modal iframe { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -796,7 +934,7 @@
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-nl-1" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
-      <button class="lang-btn" id="btn-en-1" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+      <button class="lang-btn" id="btn-en-1" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 6,0 50,20 94,0 100,0 100,6 54,50 100,94 100,100 94,100 50,80 6,100 0,100 0,94 46,50 0,6" fill="#C8102E"/><rect x="40" y="0" width="20" height="100" fill="#fff"/><rect x="0" y="40" width="100" height="20" fill="#fff"/><rect x="43" y="0" width="14" height="100" fill="#C8102E"/><rect x="0" y="43" width="100" height="14" fill="#C8102E"/></g></svg></button>
     </div>
   </footer>
 </section>
@@ -864,7 +1002,7 @@
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-2" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
-      <button class="lang-btn" id="btn-en-2" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+      <button class="lang-btn" id="btn-en-2" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 6,0 50,20 94,0 100,0 100,6 54,50 100,94 100,100 94,100 50,80 6,100 0,100 0,94 46,50 0,6" fill="#C8102E"/><rect x="40" y="0" width="20" height="100" fill="#fff"/><rect x="0" y="40" width="100" height="20" fill="#fff"/><rect x="43" y="0" width="14" height="100" fill="#C8102E"/><rect x="0" y="43" width="100" height="14" fill="#C8102E"/></g></svg></button>
     </div>
   </footer>
 </section>
@@ -961,7 +1099,7 @@
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-3" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
-      <button class="lang-btn" id="btn-en-3" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+      <button class="lang-btn" id="btn-en-3" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 6,0 50,20 94,0 100,0 100,6 54,50 100,94 100,100 94,100 50,80 6,100 0,100 0,94 46,50 0,6" fill="#C8102E"/><rect x="40" y="0" width="20" height="100" fill="#fff"/><rect x="0" y="40" width="100" height="20" fill="#fff"/><rect x="43" y="0" width="14" height="100" fill="#C8102E"/><rect x="0" y="43" width="100" height="14" fill="#C8102E"/></g></svg></button>
     </div>
   </footer>
 </section>
@@ -1010,18 +1148,18 @@
 
         <div class="mini-bingo">
       <h3 data-i18n="preview.title">VOORBEELD BINGOKAART</h3>
-      <p data-i18n="preview.sub">Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad</p>
+      <p data-i18n-html="preview.sub">Zo ziet een Bingo-GO-kaart eruit: 25 unieke opdrachten verspreid door de stad.<br>In dit voorbeeld hebben we alvast hints gegeven voor een aantal opdrachten in Delft.</p>
       <div class="mini-bingo-grid" id="previewGrid">
 <div class="mini-cell mini-blue" data-cell="the_hotdog">DE HOTDOG</div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
 <div class="mini-cell mini-blue" data-cell="nature">DE NATUUR</div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
 <div class="mini-cell mini-red" data-cell="the_guide">DE GIDS</div>
 <div class="mini-cell mini-red" data-cell="the_good_samaritan">DE GOEDE SAMARITAAN</div>
 <div class="mini-cell mini-battle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="100%" height="100%">
@@ -1079,16 +1217,16 @@
 </svg></div>
 <div class="mini-cell mini-red" data-cell="willem">WILLEM</div>
 <div class="mini-cell mini-red" data-cell="the_blaffer">DE BLAFFER</div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
 <div class="mini-cell mini-blue" data-cell="the_church">DE KERK</div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-<div class="mini-cell mini-blue" data-cell="the_pub_crawl">DE KROEGENTOCHT</div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-locked"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round"/><rect x="3" y="11" width="18" height="11" rx="2.5" fill="#4b5563"/><circle cx="12" cy="15" r="2" fill="#9ca3af"/><rect x="11" y="16.5" width="2" height="2.5" fill="#9ca3af"/></svg></div>
+<div class="mini-cell mini-blue long-text" data-cell="the_pub_crawl">DE KROEGENTOCHT</div>
 </div>
     </div>
 
@@ -1111,7 +1249,7 @@
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-4" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
-      <button class="lang-btn" id="btn-en-4" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+      <button class="lang-btn" id="btn-en-4" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 6,0 50,20 94,0 100,0 100,6 54,50 100,94 100,100 94,100 50,80 6,100 0,100 0,94 46,50 0,6" fill="#C8102E"/><rect x="40" y="0" width="20" height="100" fill="#fff"/><rect x="0" y="40" width="100" height="20" fill="#fff"/><rect x="43" y="0" width="14" height="100" fill="#C8102E"/><rect x="0" y="43" width="100" height="14" fill="#C8102E"/></g></svg></button>
     </div>
   </footer>
 </section>
@@ -1190,7 +1328,7 @@
     <div class="lang-switcher">
       <button class="lang-btn" id="btn-nl-5" onclick="setLang('nl')" aria-label="Nederlands"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cnl"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cnl)"><rect width="100" height="33" fill="#AE1C28"/><rect y="33" width="100" height="34" fill="#fff"/><rect y="67" width="100" height="33" fill="#21468B"/></g></svg></button>
       <div class="lang-divider"></div>
-      <button class="lang-btn" id="btn-en-5" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 12,0 50,22 88,0 100,0 100,12 58,50 100,88 100,100 88,100 50,78 12,100 0,100 0,88 42,50 0,12" fill="#C8102E"/><rect x="43" y="0" width="14" height="100" fill="#fff"/><rect x="0" y="43" width="100" height="14" fill="#fff"/><rect x="45" y="0" width="10" height="100" fill="#C8102E"/><rect x="0" y="45" width="100" height="10" fill="#C8102E"/></g></svg></button>
+      <button class="lang-btn" id="btn-en-5" onclick="setLang('en')" aria-label="English"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="36" height="36" style="display:block"><defs><clipPath id="cuk"><circle cx="50" cy="50" r="49"/></clipPath></defs><g clip-path="url(#cuk)"><rect width="100" height="100" fill="#012169"/><polygon points="0,0 18,0 50,18 82,0 100,0 100,18 68,50 100,82 100,100 82,100 50,82 18,100 0,100 0,82 32,50 0,18" fill="#fff"/><polygon points="0,0 6,0 50,20 94,0 100,0 100,6 54,50 100,94 100,100 94,100 50,80 6,100 0,100 0,94 46,50 0,6" fill="#C8102E"/><rect x="40" y="0" width="20" height="100" fill="#fff"/><rect x="0" y="40" width="100" height="20" fill="#fff"/><rect x="43" y="0" width="14" height="100" fill="#C8102E"/><rect x="0" y="43" width="100" height="14" fill="#C8102E"/></g></svg></button>
     </div>
   </footer>
 </section>
@@ -1324,7 +1462,10 @@ const translations = {
     'btn.order': 'Bestel Nu',
     'btn.suggest': 'Stel voor!',
     'preview.title': 'VOORBEELD BINGOKAART',
-    'preview.sub': 'Zo ziet een Bingo-GO kaart eruit — 25 unieke opdrachten door de stad',
+    'preview.sub': 'Zo ziet een Bingo-GO-kaart eruit: 25 unieke opdrachten verspreid door de stad.<br>In dit voorbeeld hebben we alvast hints gegeven voor een aantal opdrachten in Delft.',
+    'claim.blue': 'Geclaimed door team Blauw',
+    'claim.red':  'Geclaimed door team Rood',
+    'battle.tip': 'Beide teams racen om het vakje te winnen. Wie zal er gaan winnen!?',
     'contact.hero.h1': 'CONTACT',
     'contact.hero.sub': 'Vragen, bestellingen of een samenwerking? We horen graag van je!',
     'contact.info.h2': 'LATEN WE IN CONTACT KOMEN',
@@ -1361,6 +1502,7 @@ const translations = {
     'cell.the_blaffer': 'DE BLAFFER',
     'cell.the_church': 'DE KERK',
     'cell.the_pub_crawl': 'DE KROEGENTOCHT',
+    'lock.tooltip': 'Ontgrendel meer na aankoop van de Delft bingokaart',
     'form.validation': 'Vul alstublieft minimaal je naam, e-mailadres en bericht in.',
   },
   en: {
@@ -1487,7 +1629,10 @@ const translations = {
     'btn.order': 'Order Now',
     'btn.suggest': 'Suggest it!',
     'preview.title': 'EXAMPLE BINGO CARD',
-    'preview.sub': 'This is what a Bingo-GO card looks like — 25 unique challenges across the city',
+    'preview.sub': 'This is what a Bingo-GO card looks like: 25 unique challenges spread across the city.<br>In this example we\'ve already given hints for some challenges in Delft.',
+    'claim.blue': 'Claimed by team Blue',
+    'claim.red':  'Claimed by team Red',
+    'battle.tip': 'Both teams are racing to win this square. Who will win!?',
     'contact.hero.h1': 'CONTACT',
     'contact.hero.sub': 'Questions, orders or a collaboration? We\'d love to hear from you!',
     'contact.info.h2': 'LET\'S GET IN TOUCH',
@@ -1525,6 +1670,7 @@ const translations = {
     'cell.the_blaffer': 'THE BLAFFER',
     'cell.the_church': 'THE CHURCH',
     'cell.the_pub_crawl': 'THE PUB CRAWL',
+    'lock.tooltip': 'Unlock more after buying the Delft bingo card',
     'form.validation': 'Please fill in at least your name, email address and message.',
   }
 };
@@ -1584,6 +1730,21 @@ function setLang(lang) {
     } else {
       pdfFrame.style.display = 'block';
       enFrame.style.display = 'none';
+    }
+  }
+  // Switch mobile PDF buttons and hint text
+  const mobileBtnNL = document.getElementById('avMobileBtnNL');
+  const mobileBtnEN = document.getElementById('avMobileBtnEN');
+  const mobileHint  = document.getElementById('avMobileHint');
+  if (mobileBtnNL && mobileBtnEN) {
+    if (lang === 'en') {
+      mobileBtnNL.style.display = 'none';
+      mobileBtnEN.style.display = 'block';
+      if (mobileHint) mobileHint.textContent = 'Open the terms in a new tab to read them on your phone.';
+    } else {
+      mobileBtnNL.style.display = 'block';
+      mobileBtnEN.style.display = 'none';
+      if (mobileHint) mobileHint.textContent = 'Open de voorwaarden in een nieuw tabblad om ze te lezen op jouw telefoon.';
     }
   }
 }
@@ -1732,6 +1893,97 @@ function submitForm() {
 
 // Set NL as default active on load
 setLang('nl');
+
+/* ── LOCKED CELL INTERACTIVITY ── */
+(function() {
+  var grid = document.getElementById('previewGrid');
+  if (!grid) return;
+  var container = grid.closest('.mini-bingo');
+  if (!container) return;
+  container.style.position = 'relative';
+
+  // One shared tooltip appended to the card container (not inside cells)
+  var tip = document.createElement('div');
+  tip.className = 'lock-tooltip';
+  tip.setAttribute('data-i18n', 'lock.tooltip');
+  container.appendChild(tip);
+
+  var tipTimer = null;
+
+  // ── shared helper: show tooltip above a cell ──
+  function showTip(text, targetCell) {
+    tip.textContent = text;
+    var cRect = targetCell.getBoundingClientRect();
+    var pRect = container.getBoundingClientRect();
+    tip.style.left      = (cRect.left - pRect.left + cRect.width / 2) + 'px';
+    tip.style.top       = (cRect.top  - pRect.top) + 'px';
+    tip.style.transform = 'translate(-50%, calc(-100% - 8px))';
+    tip.classList.add('visible');
+    clearTimeout(tipTimer);
+    tipTimer = setTimeout(function() { tip.classList.remove('visible'); }, 2800);
+  }
+
+  // ── shake helper ──
+  function shakeCell(c) {
+    c.classList.remove('lock-shaking');
+    void c.offsetWidth;
+    c.classList.add('lock-shaking');
+    c.addEventListener('animationend', function() {
+      c.classList.remove('lock-shaking');
+    }, { once: true });
+  }
+
+  // ── Locked cells ──
+  grid.querySelectorAll('.mini-locked').forEach(function(cell) {
+    cell.addEventListener('click', function(e) {
+      e.stopPropagation();
+      shakeCell(cell);
+      showTip(translations[currentLang]['lock.tooltip'], cell);
+    });
+  });
+
+  // ── Blue cells: 'Geclaimed door team Blauw' ──
+  grid.querySelectorAll('.mini-blue').forEach(function(cell) {
+    cell.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showTip(translations[currentLang]['claim.blue'], cell);
+    });
+  });
+
+  // ── Red cells: 'Geclaimed door team Rood' ──
+  grid.querySelectorAll('.mini-red').forEach(function(cell) {
+    cell.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showTip(translations[currentLang]['claim.red'], cell);
+    });
+  });
+
+  // ── Battle/VS cell: tooltip + ALL cells chaos-shake ──
+  var battleCell = grid.querySelector('.mini-battle');
+  if (battleCell) {
+    battleCell.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showTip(translations[currentLang]['battle.tip'], battleCell);
+      var variants = ['lockShakeA','lockShakeB','lockShakeC','lockShakeD'];
+      grid.querySelectorAll('.mini-cell').forEach(function(c) {
+        // random variant, delay and duration per cell
+        var v   = variants[Math.floor(Math.random() * variants.length)];
+        var del = Math.floor(Math.random() * 160);   // 0-160 ms offset
+        var dur = 460 + Math.floor(Math.random() * 240); // 460-700 ms
+        c.style.animation = 'none';
+        void c.offsetWidth;
+        c.style.animation = v + ' ' + dur + 'ms ' + del + 'ms ease both';
+        setTimeout(function() { c.style.animation = ''; }, del + dur + 60);
+      });
+    });
+  }
+
+  // ── Dismiss on outside click ──
+  document.addEventListener('click', function() {
+    tip.classList.remove('visible');
+    clearTimeout(tipTimer);
+  });
+})();
 </script>
 
 <!-- ── ALGEMENE VOORWAARDEN MODAL ── -->
@@ -1739,8 +1991,16 @@ setLang('nl');
   <div class="av-modal">
     <div class="av-modal-header">
       <h3 id="avModalTitle">ALGEMENE VOORWAARDEN</h3>
-      <button class="av-modal-close" onclick="document.getElementById('avModal').classList.remove('open')" aria-label="Sluiten">✕</button>
+      <button class="av-modal-close" onclick="closeAVModalDirect()" aria-label="Sluiten">✕</button>
     </div>
+    <!-- Mobile: open PDF in new tab (iframes capture touch and don't zoom properly) -->
+    <div class="av-mobile-content" id="avMobileContent">
+      <div class="av-mobile-icon">📄</div>
+      <p class="av-mobile-hint" id="avMobileHint">Open de voorwaarden in een nieuw tabblad om ze te lezen op jouw telefoon.</p>
+      <a href="algemene_voorwaarden.pdf" target="_blank" class="av-mobile-btn" id="avMobileBtnNL">Algemene Voorwaarden (NL) →</a>
+      <a href="Terms_and_Conditions.pdf" target="_blank" class="av-mobile-btn" id="avMobileBtnEN" style="display:none;">Terms &amp; Conditions (EN) →</a>
+    </div>
+    <!-- Desktop: embedded PDF viewer -->
     <iframe id="avENFrame" src="Terms_and_Conditions.pdf" style="display:none;flex:1;border:none;width:100%;"></iframe>
     <iframe id="avPDFFrame" src="algemene_voorwaarden.pdf" type="application/pdf"></iframe>
   </div>
@@ -1750,19 +2010,17 @@ setLang('nl');
     document.getElementById('avModal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+  // Called when clicking the overlay backdrop
   function closeAVModal(e) {
     if (e.target === document.getElementById('avModal')) {
-      document.getElementById('avModal').classList.remove('open');
-      document.body.style.overflow = '';
+      closeAVModalDirect();
     }
   }
-  // Also close on X button
-  document.getElementById('avModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-      this.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
+  // Called by the X button — always restores scrolling
+  function closeAVModalDirect() {
+    document.getElementById('avModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 </script>
 </body>
 </html>
