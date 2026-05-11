@@ -2507,8 +2507,8 @@ setLang('nl');
     flashBackText.textContent   = tipText;
     // Update hint text based on current lang
     flashFrontHint.textContent = (typeof currentLang !== 'undefined' && currentLang === 'en')
-      ? '\u21bb flip card'
-      : '\u21bb klik om te draaien';
+      ? '\u21bb '
+      : '\u21bb ';
 
     flashCard.style.transition = 'none';
     flashCard.style.transform  = 'rotateY(0deg)';
