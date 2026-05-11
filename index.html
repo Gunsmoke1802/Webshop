@@ -2479,7 +2479,7 @@ setLang('nl');
   flashFrontTitle.style.cssText = 'font-size:clamp(1rem,4vw,1.5rem);line-height:1.25;letter-spacing:0.04em;';
   var flashFrontHint = document.createElement('span');
   flashFrontHint.style.cssText = 'font-size:clamp(0.6rem,2vw,0.78rem);opacity:0.7;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;';
-  flashFrontHint.textContent = '↻ klik om te draaien';
+  flashFrontHint.textContent = '';
   flashFront.appendChild(flashFrontTitle);
   flashFront.appendChild(flashFrontHint);
 
@@ -2507,8 +2507,8 @@ setLang('nl');
     flashBackText.textContent   = tipText;
     // Update hint text based on current lang
     flashFrontHint.textContent = (typeof currentLang !== 'undefined' && currentLang === 'en')
-      ? '\u21bb flip card'
-      : '\u21bb klik om te draaien';
+      ? '\u21bb '
+      : '\u21bb ';
 
     flashCard.style.transition = 'none';
     flashCard.style.transform  = 'rotateY(0deg)';
