@@ -2534,18 +2534,15 @@ setLang('nl');
 
   flashOverlay.addEventListener('click', function(){ closeFlash(); });
 
-  // ── Blue cells: flashcard ──
-  grid.querySelectorAll('.mini-blue').forEach(function(cell) {
+  // ── Blue + Red cells: numbered flashcards (1, 2, 3 …) ──
+  // Each coloured cell gets a fixed number in DOM order so you can
+  // find it back in the HTML and replace the number with your own text.
+  var coloredCells = Array.from(grid.querySelectorAll('.mini-blue, .mini-red'));
+  coloredCells.forEach(function(cell, idx) {
+    var isBlue = cell.classList.contains('mini-blue');
     cell.addEventListener('click', function(e) {
       e.stopPropagation();
-      openFlash(cell.textContent.trim(), translations[currentLang]['claim.blue'], true);
-    });
-  });
-  // ── Red cells: flashcard ──
-  grid.querySelectorAll('.mini-red').forEach(function(cell) {
-    cell.addEventListener('click', function(e) {
-      e.stopPropagation();
-      openFlash(cell.textContent.trim(), translations[currentLang]['claim.red'], false);
+      openFlash(cell.textContent.trim(), String(idx + 1), isBlue);
     });
   });
   // ── Battle/VS cell: tooltip + ALL cells chaos-shake ──
