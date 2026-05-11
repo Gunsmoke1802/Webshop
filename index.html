@@ -23,7 +23,6 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Nunito', sans-serif; background: var(--off-white); color: var(--dark); overflow-x: hidden; }
-
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -50,7 +49,6 @@
     transition: transform 0.2s, box-shadow 0.2s !important;
   }
   .nav-cta:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(212,43,43,0.45) !important; }
-
   /* Hamburger */
   .hamburger {
     display: none; flex-direction: column; gap: 5px;
@@ -66,7 +64,6 @@
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
   /* Mobile menu drawer */
   .mobile-menu {
     display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
@@ -86,11 +83,9 @@
     color: white !important; text-align: center; margin-top: 8px;
     box-shadow: 0 4px 16px rgba(212,43,43,0.35);
   }
-
   /* ── SECTIONS ── */
   section { display: none; }
   section.active { display: block; }
-
   /* ── HERO ── */
   #home { min-height: 100vh; padding-top: 70px; }
   .hero-bg {
@@ -143,7 +138,6 @@
     text-decoration: none; display: inline-block; transition: all 0.25s;
   }
   .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-
   /* ── VS PHONE SCENE ── */
   .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
   .vs-scene {
@@ -201,12 +195,10 @@
   .phone-btn-vol-up { position: absolute; left: -3px; top: 90px;  width: 3px; height: 28px; background: #3a3a3e; border-radius: 2px 0 0 2px; }
   .phone-btn-vol-dn { position: absolute; left: -3px; top: 126px; width: 3px; height: 28px; background: #3a3a3e; border-radius: 2px 0 0 2px; }
   .phone-btn-power  { position: absolute; right: -3px; top: 105px; width: 3px; height: 40px; background: #3a3a3e; border-radius: 0 2px 2px 0; }
-
   @keyframes floatScene { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .hero-text   { animation: fadeUp 0.7s ease both; }
   .hero-visual { animation: fadeUp 0.7s ease 0.2s both; }
-
   /* ── STATS ── */
   .stats-bar { background: #dce8f8; padding: 40px; }
   .stats-inner {
@@ -220,7 +212,6 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .stat-item p { color: var(--gray); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
-
   /* ── FEATURES ── */
   .features-section { max-width: 1200px; margin: 0 auto; padding: 100px 40px; }
   .section-header { text-align: center; margin-bottom: 60px; }
@@ -265,7 +256,6 @@
   .feature-icon.yellow { background: rgba(245,158,11,0.12); }
   .feature-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); }
   .feature-card p  { color: var(--gray); line-height: 1.7; font-size: 0.95rem; font-weight: 600; }
-
   /* ── CTA BANNER ── */
   .cta-banner {
     background: linear-gradient(135deg, var(--bingo-blue) 0%, var(--bingo-blue-light) 100%);
@@ -279,7 +269,6 @@
   .cta-banner-inner { position: relative; max-width: 600px; margin: 0 auto; }
   .cta-banner h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; }
   .cta-banner p { color: rgba(255,255,255,0.8); font-weight: 600; font-size: 1.05rem; line-height: 1.7; margin-bottom: 32px; }
-
   /* ── OVER ONS ── */
   #over-ons { background: #dce8f8; padding-top: 70px; }
   .over-ons-hero {
@@ -305,7 +294,6 @@
   .mission-card.red-accent { border-left-color: var(--bingo-red); }
   .mission-card h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; color: var(--dark); display: flex; align-items: center; gap: 7px; } .mission-card h4 svg { stroke: var(--bingo-blue); flex-shrink: 0; } .mission-card.red-accent h4 svg { stroke: var(--bingo-red); }
   .mission-card p  { font-size: 0.88rem; color: var(--gray); font-weight: 600; line-height: 1.6; }
-
   /* Onderscheidt grid */
   .onderscheidt-section { background: #c8ddf5; padding: 80px 40px; }
   .onderscheidt-grid {
@@ -326,7 +314,6 @@
   .onderscheidt-item:hover::before { opacity: 1; }
   .onderscheidt-item h3 { font-weight: 800; margin-bottom: 10px; color: var(--dark); font-size: 1.15rem; }
   .onderscheidt-item p  { color: var(--gray); font-weight: 600; font-size: 0.95rem; line-height: 1.7; }
-
   /* ── HOE WERKT HET ── */
   #hoe-werkt-het { background: var(--off-white); padding-top: 70px; }
   .howto-hero {
@@ -360,7 +347,6 @@
   .step-content h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); }
   .step-content p  { color: var(--gray); line-height: 1.7; font-weight: 600; font-size: 0.95rem; }
   .step-content .tip { margin-top: 16px; background: var(--light-gray); border-radius: 10px; padding: 12px 16px; font-size: 0.88rem; color: var(--bingo-blue); font-weight: 700; }
-
   /* Pauze & Stop */
   .game-controls { max-width: 900px; margin: 0 auto 60px; padding: 0 40px; }
   .game-controls-inner { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 8px 40px rgba(26,91,191,0.1); border: 1px solid var(--light-gray); }
@@ -374,13 +360,11 @@
   .ctrl-card .ctrl-sub   { font-size: 0.82rem; font-weight: 600; opacity: 0.85; }
   .ctrl-card.pause-card { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; box-shadow: 0 6px 24px rgba(245,158,11,0.35); }
   .ctrl-card.stop-card  { background: linear-gradient(135deg, var(--bingo-red), var(--bingo-red-light)); color: white; box-shadow: 0 6px 24px rgba(212,43,43,0.35); }
-
   /* Spelregels */
   .spelregels-section { background: var(--dark); padding: 80px 40px; }
   .spelregels-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 48px auto 0; }
   .spelregel-card { background: rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; border: 1px solid rgba(255,255,255,0.1); }
   .spelregel-card ul { list-style: none; color: rgba(255,255,255,0.65); font-weight: 600; font-size: 0.92rem; line-height: 2; }
-
   /* ── BINGOKAARTEN ── */
   #bingokaarten { padding-top: 70px; background: var(--off-white); }
   .cards-hero {background: linear-gradient(170deg, #B82226 0%, #C8282B 100%);
@@ -424,7 +408,6 @@
   .mini-cell.free-center  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
   /* Smaller font for cells with longer text so they stay inside the box */
   .mini-cell.long-text    { font-size: clamp(0.36rem, 1.0vw, 0.50rem); line-height: 1.15; }
-
   /* ── LOCKED CELL INTERACTIVITY ── */
   .mini-cell.mini-locked {
     cursor: pointer;
@@ -464,7 +447,6 @@
     z-index: 2;
   }
   .mini-cell.mini-locked.lock-shaking { animation: lockShake 0.55s ease; }
-
   /* 4 chaos variants for the battle-cell all-shake */
   @keyframes lockShakeA {
     0%,100% { transform: translateX(0) rotate(0deg); }
@@ -522,7 +504,6 @@
   @media (max-width: 480px) {
     .lock-tooltip { font-size: 0.62rem; padding: 6px 9px; max-width: 110px; }
   }
-
   /* ── CONTACT ── */
   #contact { background: var(--off-white); padding-top: 70px; }
   .contact-hero {
@@ -573,7 +554,6 @@
   .form-success .big-check { font-size: 3rem; display: block; margin-bottom: 16px; }
   .form-success h3 { font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
   .form-success p  { color: var(--gray); font-weight: 600; }
-
   /* ── FOOTER ── */
   footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 60px 40px 32px; text-align: center; }
   .footer-logo img { height: 70px; margin-bottom: 16px; opacity: 0.95; }
@@ -582,13 +562,11 @@
   .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: color 0.2s; }
   .footer-links a:hover { color: white; }
   .footer-bottom { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; }
-
   /* ── SVG ICON STYLES ── */
   .feature-icon svg { display: block; }
   .feature-icon.blue svg  { stroke: var(--bingo-blue); }
   .feature-icon.red svg   { stroke: var(--bingo-red); }
   .feature-icon.yellow svg { stroke: #d97706; }
-
   .onderscheidt-item .icon {
     margin-bottom: 20px; display: flex; justify-content: center;
   }
@@ -604,25 +582,18 @@
     transform: scale(1.08);
   }
   .onderscheidt-item .icon-box svg { stroke: var(--bingo-blue); width: 36px; height: 36px; }
-
   .ctrl-icon svg { stroke: white; width: 36px; height: 36px; display: block; }
-
   .contact-icon svg { stroke: var(--bingo-blue); width: 24px; height: 24px; display: block; }
-
   .big-emoji svg { stroke: var(--bingo-blue); display: block; margin: 0 auto 20px; }
   .big-check { display: flex; justify-content: center; margin-bottom: 16px; }
   .big-check svg { stroke: #22c55e; }
-
   .city-header-icon { display: flex; align-items: center; justify-content: center; }
   .city-header-icon svg { stroke: white; width: 52px; height: 52px; stroke-width: 1.5; }
   .city-card-header.soon .city-header-icon svg { opacity: 0.7; }
-
   .step-content h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--dark); display: flex; align-items: center; gap: 10px; }
   .step-content h3 svg { stroke: var(--bingo-blue); flex-shrink: 0; width: 22px; height: 22px; }
-
   .spelregel-card h4 { color: white; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .spelregel-card h4 svg { stroke: white; opacity: 0.9; flex-shrink: 0; }
-
   /* Rules section - add inline icons for ✅ ❌ */
   .rule-icon-allow { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; background: rgba(34,197,94,0.25); border-radius: 50%; flex-shrink: 0; }
   .rule-icon-deny  { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; background: rgba(212,43,43,0.25); border-radius: 50%; flex-shrink: 0; }
@@ -665,7 +636,6 @@
     width: 1px; height: 22px;
     background: rgba(255,255,255,0.2);
   }
-
   /* ═══════════════════════════════════════════
      RESPONSIVE — tablet: ≤ 900px
   ═══════════════════════════════════════════ */
@@ -675,7 +645,6 @@
     .onderscheidt-grid { grid-template-columns: 1fr 1fr; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   }
-
   /* ═══════════════════════════════════════════
      RESPONSIVE — mobile: ≤ 768px
   ═══════════════════════════════════════════ */
@@ -726,7 +695,6 @@
     footer { padding: 40px 20px 24px; }
     .footer-links { gap: 12px; }
   }
-
   @media (max-width: 420px) {
     .phone-wrap { width: 120px; }
     .vs-scene { gap: 0; }
@@ -736,7 +704,6 @@
     .stat-item p { font-size: 0.75rem; }
     .mini-cell { font-size: 0.38rem; padding: 2px; }
   }
-
   /* ── ALGEMENE VOORWAARDEN MODAL ── */
   .av-modal-overlay {
     display: none; position: fixed; inset: 0; z-index: 9999;
@@ -765,7 +732,6 @@
   }
   .av-modal-close:hover { background: #d1d9f0; }
   .av-modal iframe { flex: 1; border: none; width: 100%; }
-
   /* ── MOBILE AV MODAL ── */
   /* PDF iframes are unusable on mobile; show open-in-new-tab buttons instead */
   .av-mobile-content {
@@ -803,7 +769,6 @@
     .av-mobile-content { display: flex; }
     .av-modal iframe { display: none !important; }
   }
-
   /* ── FAQ ── */
   #faq { background: var(--off-white); padding-top: 70px; }
   .faq-hero {
@@ -821,9 +786,7 @@
   }
   .faq-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: white; letter-spacing: 0.05em; margin-bottom: 16px; position: relative; z-index: 1; }
   .faq-hero p  { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 600; max-width: 560px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 1; }
-
   .faq-container { max-width: 860px; margin: 0 auto; padding: 80px 40px 60px; }
-
   .faq-category { margin-bottom: 52px; }
   .faq-category-title {
     font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em;
@@ -836,7 +799,6 @@
     background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
   }
   .faq-category-title span.faq-cat-icon svg { stroke: white; }
-
   .faq-item {
     background: white; border-radius: 14px; margin-bottom: 10px;
     border: 1px solid var(--light-gray); overflow: hidden;
@@ -844,7 +806,6 @@
     transition: box-shadow 0.25s;
   }
   .faq-item:hover { box-shadow: 0 6px 28px rgba(26,91,191,0.10); }
-
   .faq-question {
     width: 100%; background: none; border: none; padding: 20px 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -854,7 +815,6 @@
   }
   .faq-question:hover { background: var(--off-white); }
   .faq-item.open .faq-question { color: var(--bingo-blue); background: var(--off-white); }
-
   .faq-chevron {
     flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
     background: var(--light-gray); display: flex; align-items: center; justify-content: center;
@@ -863,7 +823,6 @@
   .faq-chevron svg { stroke: var(--gray); transition: stroke 0.2s; }
   .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--bingo-blue); }
   .faq-item.open .faq-chevron svg { stroke: white; }
-
   .faq-answer {
     max-height: 0; overflow: hidden;
     transition: max-height 0.35s ease, padding 0.25s ease;
@@ -875,7 +834,6 @@
     border-top: 1px solid var(--light-gray);
     padding-top: 16px;
   }
-
   .faq-cta-box {
     background: linear-gradient(135deg, var(--bingo-blue), var(--bingo-blue-light));
     border-radius: 20px; padding: 48px 40px; text-align: center;
@@ -888,7 +846,6 @@
   }
   .faq-cta-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: white; letter-spacing: 0.05em; margin-bottom: 12px; position: relative; }
   .faq-cta-box p  { color: rgba(255,255,255,0.85); font-weight: 600; margin-bottom: 24px; position: relative; line-height: 1.7; }
-
   @media (max-width: 768px) {
     .faq-hero { padding: 70px 20px 60px; }
     .faq-container { padding: 48px 16px 40px; }
@@ -899,7 +856,6 @@
 </style>
 </head>
 <body>
-
 <!-- ── NAV ── -->
 <nav>
   <a class="nav-logo" href="javascript:void(0)" onclick="showPage('home')">
@@ -917,7 +873,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()" data-i18n="mob.home">Home</a>
@@ -927,7 +882,6 @@
   <a href="javascript:void(0)" onclick="showPage('faq');closeMobileMenu()" data-i18n="mob.faq">FAQ</a>
   <a href="#" class="mob-cta" onclick="showPage('contact');closeMobileMenu()" data-i18n="mob.contact">Contact</a>
 </div>
-
 <!-- ══════════════════════════════════
      HOME
 ══════════════════════════════════ -->
@@ -974,7 +928,6 @@
       </div>
     </div>
   </div>
-
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="stat-item"><h3>4-12</h3><p data-i18n="stats.players">Aantal spelers</p></div>
@@ -983,7 +936,6 @@
       <div class="stat-item"><h3>3 uur</h3><p data-i18n="stats.duration">Gemiddelde speelduur</p></div>
     </div>
   </div>
-
   <div class="features-section">
     <div class="section-header">
       <span class="section-label" data-i18n="features.label">Waarom Bingo-Go?</span>
@@ -999,7 +951,6 @@
       <div class="feature-card"><div class="feature-icon yellow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><h3 data-i18n="feat6.title">Groeiend steden netwerk</h3><p data-i18n="feat6.body">We breiden continu uit met nieuwe steden. Elk stad heeft zijn eigen unieke opdrachten en locaties afgestemd op de omgeving.</p></div>
     </div>
   </div>
-
   <div class="cta-banner">
     <div class="cta-banner-dots"></div>
     <div class="cta-banner-inner">
@@ -1008,7 +959,6 @@
       <a class="btn-primary" href="javascript:void(0)" onclick="showPage('bingokaarten')" style="font-size:1.05rem;padding:18px 48px;" data-i18n="cta.btn">Bekijk Bingokaarten →</a>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-Go"></div>
     <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1032,7 +982,6 @@
     </div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════
      OVER ONS
 ══════════════════════════════════ -->
@@ -1041,7 +990,6 @@
     <h1 data-i18n="about.hero.h1">OVER ONS</h1>
     <p data-i18n="about.hero.sub">Wie zijn wij en waarom hebben we Bingo-Go bedacht?</p>
   </div>
-
   <div class="over-ons-content">
     <div class="over-ons-text">
       <h2 data-i18n="about.story.h2">HET VERHAAL ACHTER BINGO-GO</h2>
@@ -1065,7 +1013,6 @@
       </div>
     </div>
   </div>
-
   <div class="onderscheidt-section">
     <div style="max-width:900px;margin:0 auto;text-align:center;">
       <span class="section-label" data-i18n="distinguish.label">Waarom Kiezen Voor Ons</span>
@@ -1077,7 +1024,6 @@
       <div class="onderscheidt-item"><div class="icon"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div></div><h3 data-i18n="dist3.title">Persoonlijk Contact</h3><p data-i18n="dist3.body">Vragen? Ons team staat altijd klaar om je te helpen en mee te denken over het ideale spel voor jou.</p></div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-Go"></div>
     <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1101,7 +1047,6 @@
     </div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════
      HOE WERKT HET
 ══════════════════════════════════ -->
@@ -1110,7 +1055,6 @@
     <h1 data-i18n="howto.hero.h1">HOE WERKT HET?</h1>
     <p data-i18n="howto.hero.sub">Binnen een paar simpele stappen start jouw ultieme stadsspel.</p>
   </div>
-
   <div class="steps-container">
     <div class="step"><div class="step-number blue">1</div><div class="step-content"><h3 data-i18n-html="step1.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Bestel je bingokaart</h3><p data-i18n="step1.p">Kies een stad en ontvang direct de digitale bingokaart met 25 unieke opdrachten verspreid over de stad.</p><div class="tip" data-i18n="step1.tip">Let op: Na bestellen is de kaart 72 uur geldig!</div></div></div>
     <div class="step"><div class="step-number red">2</div><div class="step-content"><h3 data-i18n-html="step2.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg> Verdeel de Teams</h3><p data-i18n="step2.p">Verdeel je groep in twee teams en speel tegen elkaar op dezelfde kaart. Bepaal samen de speeltijd (2-6 uur).</p></div></div>
@@ -1119,7 +1063,6 @@
     <div class="step"><div class="step-number blue">5</div><div class="step-content"><h3 data-i18n-html="step5.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Bewijs goedkeuren</h3><p data-i18n="step5.p">Het andere team beoordeelt jullie ingestuurde bewijs. Bij goedkeuring wordt het vakje geclaimd en krijgt het jullie teamkleur. Bij afkeuring moet de opdracht opnieuw uitgevoerd worden.</p></div></div>
     <div class="step"><div class="step-number red">6</div><div class="step-content"><h3 data-i18n-html="step6.h3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Win op twee manieren</h3><p data-i18n="step6.p">Het eerste team dat een volledige rij vult heeft BINGO en wint het spel! Geen BINGO binnen de tijd? Dan wint het team met de meeste vakjes.</p><div class="tip" data-i18n="step6.tip">Spannend tot het einde!</div></div></div>
   </div>
-
   <div class="game-controls">
     <div class="game-controls-inner">
       <div class="game-controls-header">
@@ -1140,7 +1083,6 @@
       </div>
     </div>
   </div>
-
   <div class="spelregels-section">
     <div style="max-width:900px;margin:0 auto;">
       <div class="section-header" style="margin-bottom:0;">
@@ -1175,7 +1117,6 @@
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-Go"></div>
     <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1199,7 +1140,6 @@
     </div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════
      BINGOKAARTEN
 ══════════════════════════════════ -->
@@ -1208,7 +1148,6 @@
     <h1 data-i18n="bingo.hero.h1">BINGOKAARTEN</h1>
     <p data-i18n="bingo.hero.sub">Kies jouw stad en start het avontuur. Elke kaart is uniek samengesteld voor de omgeving.</p>
   </div>
-
   <div class="cards-container">
     <div style="text-align:center;margin-bottom:48px;">
       <span class="section-label" data-i18n="bingo.label">Beschikbare Steden</span>
@@ -1241,7 +1180,6 @@
         <div class="city-card-body"><h3 data-i18n="city.new.title">Nieuwe Stad</h3><p data-i18n="city.new.body">Wil jij Bingo-Go in jouw stad? Laat het ons weten en wij gaan aan de slag!</p><button class="btn-card active" style="background:linear-gradient(135deg,#1a3a6b,#2a5a9b);" onclick="showPage('contact')" data-i18n="btn.suggest">Stel voor!</button></div>
       </div>
     </div>
-
         <div class="mini-bingo">
       <h3 data-i18n="preview.title">VOORBEELD BINGOKAART</h3>
       <p data-i18n-html="preview.sub">Zo ziet een Bingo-Go-kaart eruit: 25 unieke opdrachten verspreid door de stad.<br>In dit voorbeeld hebben we alvast hints gegeven voor een aantal opdrachten in Delft.</p>
@@ -1325,7 +1263,6 @@
 <div class="mini-cell mini-blue long-text" data-cell="the_pub_crawl">DE KROEGENTOCHT</div>
 </div>
     </div>
-
 </div>
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-Go"></div>
@@ -1350,8 +1287,6 @@
     </div>
   </footer>
 </section>
-
-
 <!-- ══════════════════════════════════
      FAQ
 ══════════════════════════════════ -->
@@ -1360,16 +1295,13 @@
     <h1 data-i18n="faq.hero.h1">VEELGESTELDE VRAGEN</h1>
     <p data-i18n="faq.hero.sub">Alles wat je wilt weten over Bingo-Go, op één plek.</p>
   </div>
-
   <div class="faq-container">
-
     <!-- CATEGORIE: ALGEMEEN -->
     <div class="faq-category">
       <div class="faq-category-title">
         <span class="faq-cat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <span data-i18n="faq.cat.general">Algemeen</span>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q1">Zijn er extra kosten na het aanschaffen van de Bingo-Go kaart of tijdens het spel?</span>
@@ -1377,7 +1309,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a1">Ja, bij sommige opdrachten kan het nodig zijn om extra geld uit te geven. Denk bijvoorbeeld aan het kopen van lokale biertjes, een kleine snack of een kort bezoek aan een bezienswaardigheid.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q2">Met hoeveel extra kosten moet ik rekening houden?</span>
@@ -1385,7 +1316,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a2">Voor een volledige kaart kun je gemiddeld rekenen op ongeveer €50 aan extra kosten. Dit bedrag geldt voor alle opdrachten samen en wordt verdeeld over de twee teams. De kosten kunnen hoger uitvallen als jullie er zelf voor kiezen om opdrachten uitgebreider uit te voeren, bijvoorbeeld door met het hele team iets te drinken.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q3">Kan ik de game ook op een andere plek openen?</span>
@@ -1393,7 +1323,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a3">Ja, je kunt het spel al eerder openen op een andere locatie. Het spel is echter alleen speelbaar in de stad waarvoor de bingokaart is gekocht, omdat de challenges specifiek voor die stad zijn gemaakt.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q4">Moet ik per se starten op de aangegeven startlocatie?</span>
@@ -1401,7 +1330,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a4">Voor een zo leuk mogelijke spelervaring is dit zeker aan te raden.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q5">Moet ik thuis al inloggen voor Bingo-Go?</span>
@@ -1409,7 +1337,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a5">Nee, dit kan op elk moment gedaan worden.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q6">Kan ik de game op elk moment van de dag spelen?</span>
@@ -1417,7 +1344,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a6">Nee, het wordt aangeraden om het spel overdag te spelen omdat niet alle benodigde faciliteiten open zijn laat in de avond of heel vroeg in de ochtend.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q7">Is deze game ook geschikt om de stad te verkennen?</span>
@@ -1425,7 +1351,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a7">Ja, dit spel is zeker aan te raden om de stad te verkennen. Daarnaast wordt er ook nog een strategische, competitieve en sociale factor aan toegevoegd.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q8">Is Bingo-Go geschikt voor alle leeftijden?</span>
@@ -1433,7 +1358,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a8">Nee, Bingo-Go is officieel 18+, omdat sommige challenges alcohol bevatten. Via de alcoholfilter kun je wel kiezen voor een versie met of zonder alcohol.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q9">Is Bingo-Go rolstoelvriendelijk?</span>
@@ -1441,7 +1365,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a9">Ja, maar houd er rekening mee dat sommige challenges lastig kunnen zijn voor rolstoelgebruikers. Daarnaast vraagt het spel om veel beweging.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q10">Kan je Bingo-Go ook in het weekend, op een feestdag of in de avonduren spelen?</span>
@@ -1449,7 +1372,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a10">Ja, Bingo-Go is zeker goed speelbaar in het weekend. Houd er wel rekening mee dat openingstijden kunnen afwijken, waardoor het spel het best in de middag gespeeld kan worden. Op feestdagen en in de avonduren is Bingo-Go minder goed speelbaar, omdat sommige benodigde faciliteiten dan gesloten kunnen zijn.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q11">Wij zijn al bekend in de stad, is een Bingo-Go dan nog leuk?</span>
@@ -1457,7 +1379,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a11">Ja, dit spel blijft zeker leuk om te spelen. Door de strategische, competitieve en sociale elementen is het veel meer dan alleen een stad verkennen.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q12">Wat voor vragen en opdrachten kan ik verwachten?</span>
@@ -1465,8 +1386,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a12">Dit kun je bekijken in het voorbeeldspel in de webshop. De voorbeeldkaart vind je onderaan de webshop bij het tabblad 'Bingokaarten'.</div></div>
       </div>
-
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q34"></span>
@@ -1481,7 +1400,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a13">Ja, het spel kan gepauzeerd worden. Hierbij moeten beide teams akkoord gaan.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q14">Hoe lang is de Bingo-Go kaart geldig?</span>
@@ -1489,7 +1407,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a14">Na aankoop van het spel is de link 72 uur geldig.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q15">Kan ik de Bingo-Go ook op de fiets doen?</span>
@@ -1505,14 +1422,12 @@
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a35"></div></div>
       </div>
     </div>
-
     <!-- CATEGORIE: TECHNISCH -->
     <div class="faq-category">
       <div class="faq-category-title">
         <span class="faq-cat-icon" style="background:linear-gradient(135deg,var(--bingo-red),var(--bingo-red-light))"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
         <span data-i18n="faq.cat.tech">Technisch</span>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q16">Kan de Bingo-Go op alle soorten smartphones gespeeld worden?</span>
@@ -1520,7 +1435,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a16">Ja, het spel is speelbaar op alle moderne smartphones.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q17">Heb ik continu WiFi of 4G/5G nodig?</span>
@@ -1528,7 +1442,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a17">Ja, je hebt bij dit spel data nodig. Je moet foto's en video's uploaden, waarvoor een actieve internetverbinding vereist is.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q18">Moet ik een powerbank gebruiken voor Bingo-Go?</span>
@@ -1536,7 +1449,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a18">Dat is niet verplicht. Omdat je met meerdere telefoons kunt inloggen, kun je het gebruik verdelen binnen je team. Gaat je telefoon snel leeg? Dan kan een powerbank wel handig zijn tijdens het spelen.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q19">Kan een Bingo-Go op meerdere telefoons gespeeld worden?</span>
@@ -1544,7 +1456,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a19">Ja, dat kan. Je kunt met meerdere telefoons inloggen in hetzelfde spel, zodat iedereen binnen het team mee kan spelen.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q20">Kan ik de foto's en video's die tijdens het spel zijn gemaakt opslaan?</span>
@@ -1552,7 +1463,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a20">Ja, als je de foto's en video's eerst met je eigen telefoon maakt en daarna uploadt, blijven ze automatisch op je telefoon staan. Wij bieden achteraf geen mogelijkheid om alle geüploade bestanden opnieuw te downloaden.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q21">Wat gebeurt er met de foto's en video's na het spel?</span>
@@ -1568,14 +1478,12 @@
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a36"></div></div>
       </div>
     </div>
-
     <!-- CATEGORIE: RESERVEREN -->
     <div class="faq-category">
       <div class="faq-category-title">
         <span class="faq-cat-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
         <span data-i18n="faq.cat.booking">Reserveren</span>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q22">Met welke betaalmiddelen kan ik betalen?</span>
@@ -1583,7 +1491,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a22">Je kunt alleen online betalen. Dit gaat via Mollie.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q23">Moet ik op voorhand al een datum en/of tijdstip reserveren?</span>
@@ -1591,7 +1498,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a23">Nee, reserveren is niet nodig. Na aankoop ontvang je direct een speellink. Deze link is vervolgens 72 uur geldig.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q24">Hoe hoog zijn de transactiekosten?</span>
@@ -1599,7 +1505,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a24">De transactiekosten zijn inbegrepen bij de prijs.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q25">Is het mogelijk om te annuleren?</span>
@@ -1608,14 +1513,12 @@
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a25">Nee, dat kan niet. Zodra je een kaart hebt gekocht ontvang je een unieke inlogcode voor het spel die je kunt gebruiken. Deze inlog is 72 uur geldig.</div></div>
       </div>
     </div>
-
     <!-- CATEGORIE: PROBLEMEN -->
     <div class="faq-category">
       <div class="faq-category-title">
         <span class="faq-cat-icon" style="background:linear-gradient(135deg,#ef4444,#f87171)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
         <span data-i18n="faq.cat.problems">Problemen</span>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q26">Ik heb geen inloggegevens ontvangen, wat moet ik doen?</span>
@@ -1623,7 +1526,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a26">Check je mail en ook je spam inbox: het kan zijn dat de mail hier terecht is gekomen. Is dit allemaal niet het geval, doordat er een verkeerd e-mailadres is ingevuld? Of heb je de e-mail verwijderd? Neem dan contact met ons op.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q27">Mijn inloggegevens doen het niet, wat moet ik doen?</span>
@@ -1631,7 +1533,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a27">Controleer eerst of je de juiste inloggegevens hebt ingevuld. Werkt het daarna nog steeds niet? Neem dan gerust contact met ons op, dan helpen we je zo snel mogelijk verder.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q28">De game doet het niet. Waar kan dit aan liggen?</span>
@@ -1639,7 +1540,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a28">Hebben jullie alle stappen doorlopen, zoals het invoeren van de inlogcode en het verdelen van de teams? Dan start de game pas zodra iemand op de startknop drukt. Werkt de game daarna nog steeds niet? Neem dan gerust contact met ons op.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q29">Wat moet ik doen als de batterij van mijn telefoon leeg is tijdens de game?</span>
@@ -1648,14 +1548,12 @@
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a29">Geen probleem. Een teamgenoot kan met dezelfde inloggegevens inloggen op dezelfde spelkaart, zodat jullie gewoon verder kunnen spelen. Wij raden echter aan om een powerbank mee te nemen om complicaties te voorkomen.</div></div>
       </div>
     </div>
-
     <!-- CATEGORIE: GROEP -->
     <div class="faq-category">
       <div class="faq-category-title">
         <span class="faq-cat-icon" style="background:linear-gradient(135deg,#10b981,#34d399)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
         <span data-i18n="faq.cat.group">Groep</span>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q30">Is er een wedstrijdelement?</span>
@@ -1663,7 +1561,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a30">Ja, er zit zeker een wedstrijdelement in. Je speelt met twee teams tegen elkaar en moet tijdens het spel strategisch nadenken over welke vakjes je kiest. Daardoor ontstaat er een spannende race tegen de klok én tegen het andere team.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q31">Ik wil met een hele grote groep (20 of meer personen) spelen. Kan dat?</span>
@@ -1672,14 +1569,12 @@
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a31">Ja, dit is mogelijk. Wel raden we aan om het spel dan twee keer aan te schaffen en de groep op te splitsen in vier teams, zodat je bijvoorbeeld 2 keer een 5-tegen-5 speelt.</div></div>
       </div>
     </div>
-
     <!-- CATEGORIE: SAMENWERKEN -->
     <div class="faq-category">
       <div class="faq-category-title">
         <span class="faq-cat-icon" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
         <span data-i18n="faq.cat.collab">Samenwerken</span>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q32">Ik ben een horeca-ondernemer. Mag ik de game ook verkopen aan mijn klanten?</span>
@@ -1687,7 +1582,6 @@
         </button>
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a32">Wanneer je met je horeca-bedrijf midden in de stad zit, dan is het slim om Bingo-Go aan te bieden aan je gasten. Je kunt dat zelf combineren met bijvoorbeeld koffie/thee vooraf en naderhand een biertje of diner. Neem gerust contact met ons op voor de mogelijkheden.</div></div>
       </div>
-
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span data-i18n="faq.q33">Als ik de Bingo-Go via mijn eigen online kanalen wil aanbieden, mag dit?</span>
@@ -1703,16 +1597,13 @@
         <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a37"></div></div>
       </div>
     </div>
-
     <!-- CTA -->
     <div class="faq-cta-box">
       <h3 data-i18n="faq.cta.title">NOG VRAGEN?</h3>
       <p data-i18n="faq.cta.body">Staat jouw vraag er niet bij? Neem dan gerust contact met ons op. We helpen je graag verder!</p>
       <a class="btn-primary" href="javascript:void(0)" onclick="showPage('contact')" style="background:white;color:var(--bingo-blue);box-shadow:0 8px 30px rgba(0,0,0,0.2);font-size:1rem;padding:16px 40px;" data-i18n="faq.cta.btn">Neem Contact Op →</a>
     </div>
-
   </div>
-
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-Go"></div>
     <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1736,7 +1627,6 @@
     </div>
   </footer>
 </section>
-
 <!-- ══════════════════════════════════
      CONTACT
 ══════════════════════════════════ -->
@@ -1745,7 +1635,6 @@
     <h1 data-i18n="contact.hero.h1">CONTACT</h1>
     <p data-i18n="contact.hero.sub">Vragen of een samenwerking? We horen graag van je!</p>
   </div>
-
   <div class="contact-grid">
     <div class="contact-info">
       <h2 data-i18n="contact.info.h2">LATEN WE IN CONTACT KOMEN</h2>
@@ -1762,7 +1651,6 @@
         <p style="color:var(--gray);font-weight:600;font-size:0.92rem;line-height:1.7;" data-i18n="contact.newcity.body">Wil je Bingo-Go in jouw stad? Stuur ons een berichtje via het formulier en we kijken of we het kunnen realiseren.</p>
       </div>
     </div>
-
     <div class="contact-form">
       <h3 data-i18n="form.title">STUUR ONS EEN BERICHT</h3>
       <div id="contactFormWrap">
@@ -1793,7 +1681,6 @@
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="Bingo-GO_logo.png" alt="Bingo-Go"></div>
     <p data-i18n="footer.tagline">Het sociale en competitieve stadsspel voor iedereen.</p>
@@ -1817,7 +1704,6 @@
     </div>
   </footer>
 </section>
-
 <script>
 /* ═══════════════════════════════════════════
    TRANSLATIONS
@@ -2067,7 +1953,6 @@ const translations = {
     'faq.a33': 'Dat mag zeker! Neem even contact met ons op voor een mogelijke samenwerking.',
     'faq.cta.title': 'NOG VRAGEN?',
     'faq.cta.body': 'Staat jouw vraag er niet bij? Neem dan gerust contact met ons op. We helpen je graag verder!',
-
     'faq.q34': 'Lijken de opdrachten in de verschillende steden op elkaar?',
     'faq.a34': "Nee. De opdrachten hebben wel vergelijkbare thema's, maar zijn altijd aangepast aan de stad die je kiest. Zo krijgt elke stad een unieke spelervaring.",
     'faq.q35': 'Is Bingo-Go alleen verkrijgbaar in het Nederlands?',
@@ -2324,7 +2209,6 @@ const translations = {
     'faq.a33': 'Absolutely! Just get in touch with us about a possible collaboration.',
     'faq.cta.title': 'STILL HAVE QUESTIONS?',
     'faq.cta.body': "Can't find your question? Feel free to contact us. We're happy to help!",
-
     'faq.q34': 'Do the challenges in different cities resemble each other?',
     'faq.a34': "No. The challenges share similar themes, but are always tailored to the city you choose. This gives every city a unique game experience.",
     'faq.q35': 'Is Bingo-Go only available in Dutch?',
@@ -2336,50 +2220,40 @@ const translations = {
     'faq.cta.btn': 'Get In Touch →',
   }
 };
-
 let currentLang = 'nl';
-
 function setLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
-
   const t = translations[lang];
-
   // Plain text nodes
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.textContent = t[key];
   });
-
   // HTML content (for the hero h1 with spans)
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-
   // Placeholder attributes
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     if (t[key] !== undefined) el.placeholder = t[key];
   });
-
   // Update active state on all lang buttons
   document.querySelectorAll('.lang-btn').forEach(btn => {
     const isNL = btn.id && btn.id.startsWith('btn-nl');
     const isEN = btn.id && btn.id.startsWith('btn-en');
     btn.classList.toggle('active', (lang === 'nl' && isNL) || (lang === 'en' && isEN));
   });
-
   // Rebuild translatable grids
   buildGrid('gridRood', lang);
   buildGrid('gridBlauw', lang);
-
   // Update preview grid cell labels
   document.querySelectorAll('[data-cell]').forEach(el => {
     const key = 'cell.' + el.getAttribute('data-cell');
     if (t[key]) el.textContent = t[key];
   });
-
   // Update AV modal language
   const titleEl = document.getElementById('avModalTitle');
   const pdfFrame = document.getElementById('avPDFFrame');
@@ -2410,7 +2284,6 @@ function setLang(lang) {
     }
   }
 }
-
 /* ── PAGE NAVIGATION ── */
 function showPage(id, pushToHistory = true) {
   document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
@@ -2421,30 +2294,24 @@ function showPage(id, pushToHistory = true) {
     history.pushState({ page: id }, '', '#' + id);
   }
 }
-
 history.replaceState({ page: 'home' }, '', '#home');
-
 window.addEventListener('popstate', (e) => {
   const id = (e.state && e.state.page) ? e.state.page : 'home';
   showPage(id, false);
 });
-
 /* ── HAMBURGER ── */
 const hamburger  = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-
 hamburger.addEventListener('click', () => {
   const open = mobileMenu.classList.toggle('open');
   hamburger.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
-
 function closeMobileMenu() {
   mobileMenu.classList.remove('open');
   hamburger.classList.remove('open');
   document.body.style.overflow = '';
 }
-
 /* ── PHONE GRIDS ── */
 /* Phone grid cell data — labels per lang, colours fixed */
 const cellData = {
@@ -2503,7 +2370,6 @@ const cellData = {
     { label: '',                cls: 'p-red'   },
   ]
 };
-
 const previewData = {
   nl: [
     'Selfie monument','Lokale snack','Vintage winkel','Muzikant foto','Grachtenfoto',
@@ -2520,7 +2386,6 @@ const previewData = {
     'Church/Temple','City panorama','Local art','Market find','Sunset',
   ]
 };
-
 function buildGrid(id, lang) {
   const c = document.getElementById(id);
   if (!c) return;
@@ -2532,14 +2397,11 @@ function buildGrid(id, lang) {
     c.appendChild(d);
   });
 }
-
 function buildPreviewGrid(lang) {
   // Preview grid is now static HTML — no rebuild needed
 }
-
 buildGrid('gridRood', 'nl');
 buildGrid('gridBlauw', 'nl');
-
 /* ── CONTACT FORM ── */
 function submitForm() {
   const firstName = document.getElementById('firstName').value.trim();
@@ -2552,10 +2414,8 @@ function submitForm() {
   document.getElementById('contactFormWrap').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
 }
-
 // Set NL as default active on load
 setLang('nl');
-
 /* ── LOCKED CELL INTERACTIVITY ── */
 (function() {
   var grid = document.getElementById('previewGrid');
@@ -2563,15 +2423,12 @@ setLang('nl');
   var container = grid.closest('.mini-bingo');
   if (!container) return;
   container.style.position = 'relative';
-
   // One shared tooltip appended to the card container (not inside cells)
   var tip = document.createElement('div');
   tip.className = 'lock-tooltip';
   tip.setAttribute('data-i18n', 'lock.tooltip');
   container.appendChild(tip);
-
   var tipTimer = null;
-
   // ── shared helper: show tooltip above a cell ──
   function showTip(text, targetCell) {
     tip.textContent = text;
@@ -2584,7 +2441,6 @@ setLang('nl');
     clearTimeout(tipTimer);
     tipTimer = setTimeout(function() { tip.classList.remove('visible'); }, 2800);
   }
-
   // ── shake helper ──
   function shakeCell(c) {
     c.classList.remove('lock-shaking');
@@ -2594,7 +2450,6 @@ setLang('nl');
       c.classList.remove('lock-shaking');
     }, { once: true });
   }
-
   // ── Locked cells ──
   grid.querySelectorAll('.mini-locked').forEach(function(cell) {
     cell.addEventListener('click', function(e) {
@@ -2603,23 +2458,96 @@ setLang('nl');
       showTip(translations[currentLang]['lock.tooltip'], cell);
     });
   });
+  // ── Flashcard overlay for blue / red cells ──
+  var flashOverlay = document.createElement('div');
+  flashOverlay.style.cssText = 'display:none;position:absolute;inset:0;background:rgba(15,23,42,0.62);z-index:50;align-items:center;justify-content:center;border-radius:10px;cursor:pointer;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);';
 
-  // ── Blue cells: 'Geclaimed door team Blauw' ──
+  var flashScene = document.createElement('div');
+  flashScene.style.cssText = 'width:80%;max-width:260px;aspect-ratio:1/1;perspective:900px;cursor:default;';
+  flashScene.addEventListener('click', function(e){ e.stopPropagation(); });
+
+  var flashCard = document.createElement('div');
+  flashCard.style.cssText = 'width:100%;height:100%;position:relative;transform-style:preserve-3d;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.4);';
+
+  var flashFront = document.createElement('div');
+  var flashBack  = document.createElement('div');
+  var faceBase = 'position:absolute;width:100%;height:100%;border-radius:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;padding:24px;color:white;font-family:Nunito,sans-serif;font-weight:800;backface-visibility:hidden;-webkit-backface-visibility:hidden;';
+  flashFront.style.cssText = faceBase;
+  flashBack.style.cssText  = faceBase + 'transform:rotateY(180deg);';
+
+  var flashFrontTitle = document.createElement('span');
+  flashFrontTitle.style.cssText = 'font-size:clamp(1rem,4vw,1.5rem);line-height:1.25;letter-spacing:0.04em;';
+  var flashFrontHint = document.createElement('span');
+  flashFrontHint.style.cssText = 'font-size:clamp(0.6rem,2vw,0.78rem);opacity:0.7;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;';
+  flashFrontHint.textContent = '↻ klik om te draaien';
+  flashFront.appendChild(flashFrontTitle);
+  flashFront.appendChild(flashFrontHint);
+
+  var flashBackText = document.createElement('span');
+  flashBackText.style.cssText = 'font-size:clamp(0.88rem,3vw,1.15rem);line-height:1.55;font-weight:700;';
+  flashBack.appendChild(flashBackText);
+
+  flashCard.appendChild(flashFront);
+  flashCard.appendChild(flashBack);
+  flashScene.appendChild(flashCard);
+  flashOverlay.appendChild(flashScene);
+  container.appendChild(flashOverlay);
+
+  var flashOpen = false;
+  var flashCloseTimer = null;
+
+  function openFlash(titleText, tipText, isBlue) {
+    clearTimeout(flashCloseTimer);
+    var grad = isBlue
+      ? 'linear-gradient(135deg,#1a5bbf,#3a7fe8)'
+      : 'linear-gradient(135deg,#d42b2b,#f04444)';
+    flashFront.style.background = grad;
+    flashBack.style.background  = grad;
+    flashFrontTitle.textContent = titleText;
+    flashBackText.textContent   = tipText;
+    // Update hint text based on current lang
+    flashFrontHint.textContent = (typeof currentLang !== 'undefined' && currentLang === 'en')
+      ? '\u21bb flip card'
+      : '\u21bb klik om te draaien';
+
+    flashCard.style.transition = 'none';
+    flashCard.style.transform  = 'rotateY(0deg)';
+    flashOverlay.style.display = 'flex';
+    flashOpen = true;
+
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        flashCard.style.transition = 'transform 0.55s cubic-bezier(.4,0,.2,1)';
+        flashCard.style.transform  = 'rotateY(180deg)';
+      });
+    });
+  }
+
+  function closeFlash() {
+    if (!flashOpen) return;
+    flashOpen = false;
+    flashCard.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
+    flashCard.style.transform  = 'rotateY(0deg)';
+    clearTimeout(flashCloseTimer);
+    flashCloseTimer = setTimeout(function(){ flashOverlay.style.display = 'none'; }, 520);
+  }
+
+  flashOverlay.addEventListener('click', function(){ closeFlash(); });
+
+  // ── Blue cells: flashcard ──
   grid.querySelectorAll('.mini-blue').forEach(function(cell) {
     cell.addEventListener('click', function(e) {
       e.stopPropagation();
-      showTip(translations[currentLang]['claim.blue'], cell);
+      openFlash(cell.textContent.trim(), translations[currentLang]['claim.blue'], true);
     });
   });
-
-  // ── Red cells: 'Geclaimed door team Rood' ──
+  // ── Red cells: flashcard ──
   grid.querySelectorAll('.mini-red').forEach(function(cell) {
     cell.addEventListener('click', function(e) {
       e.stopPropagation();
-      showTip(translations[currentLang]['claim.red'], cell);
+      openFlash(cell.textContent.trim(), translations[currentLang]['claim.red'], false);
     });
   });
-
   // ── Battle/VS cell: tooltip + ALL cells chaos-shake ──
   var battleCell = grid.querySelector('.mini-battle');
   if (battleCell) {
@@ -2639,14 +2567,13 @@ setLang('nl');
       });
     });
   }
-
   // ── Dismiss on outside click ──
   document.addEventListener('click', function() {
     tip.classList.remove('visible');
     clearTimeout(tipTimer);
+    if (typeof closeFlash === 'function') closeFlash();
   });
 })();
-
 /* ── FAQ ACCORDION ── */
 function toggleFaq(btn) {
   var item = btn.closest('.faq-item');
@@ -2661,7 +2588,6 @@ function toggleFaq(btn) {
   }
 }
 </script>
-
 <!-- ── ALGEMENE VOORWAARDEN MODAL ── -->
 <div class="av-modal-overlay" id="avModal" onclick="closeAVModal(event)">
   <div class="av-modal">
