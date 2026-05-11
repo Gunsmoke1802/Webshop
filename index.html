@@ -2479,7 +2479,7 @@ setLang('nl');
   flashFrontTitle.style.cssText = 'font-size:clamp(1rem,4vw,1.5rem);line-height:1.25;letter-spacing:0.04em;';
   var flashFrontHint = document.createElement('span');
   flashFrontHint.style.cssText = 'font-size:clamp(0.6rem,2vw,0.78rem);opacity:0.7;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;';
-  flashFrontHint.textContent = '';
+  flashFrontHint.textContent = '↻ klik om te draaien';
   flashFront.appendChild(flashFrontTitle);
   flashFront.appendChild(flashFrontHint);
 
@@ -2507,8 +2507,8 @@ setLang('nl');
     flashBackText.textContent   = tipText;
     // Update hint text based on current lang
     flashFrontHint.textContent = (typeof currentLang !== 'undefined' && currentLang === 'en')
-      ? '\u21bb '
-      : '\u21bb ';
+      ? '\u21bb flip card'
+      : '\u21bb klik om te draaien';
 
     flashCard.style.transition = 'none';
     flashCard.style.transform  = 'rotateY(0deg)';
@@ -2534,26 +2534,36 @@ setLang('nl');
 
   flashOverlay.addEventListener('click', function(){ closeFlash(); });
 
-  // ── Blue + Red cells: numbered flashcards (1, 2, 3 …) ──
-  // Each coloured cell gets a fixed number in DOM order so you can
-  // find it back in the HTML and replace the number with your own text.
+  // ── Blue + Red cells: tweetalige flashcard-teksten ──
+  var backTexts = {
+    nl: [
+      'Haal een hotdog bij de IKEA en eet deze binnen één minuut op.',
+      'Ga naar het Delftse Hout en geniet even van de natuur.',
+      'Doe alsof je een gids bent bij de Oude Jan.',
+      'Voeg iets aan de maatschappij toe in Delft en zet dit op film (wees creatief).',
+      'Speel de sterfscène van Willem van Oranje na in het Prinsenhof.',
+      "Bestel een blaffer bij Luna's en drink hem op (Succes!).",
+      'Sta voor de Oude Kerk en biecht een zonde uit je verleden op camera + sta voor de Nieuwe Kerk en vraag om vergiffenis.',
+      'Drink vijf soorten biertjes of wijntjes in vijf verschillende barren.',
+    ],
+    en: [
+      'Get a hotdog from IKEA and eat it within one minute.',
+      'Head to the Delftse Hout and enjoy the nature for a moment.',
+      'Pretend to be a tour guide at the Oude Jan (Old Church).',
+      'Contribute something to society in Delft and film it (be creative).',
+      'Re-enact the death scene of William of Orange at the Prinsenhof.',
+      "Order a 'blaffer' at Luna's and drink it up (Good luck!).",
+      'Stand in front of the Old Church and confess a past sin on camera + stand in front of the New Church and ask for forgiveness.',
+      'Drink five types of beer or wine in five different bars.',
+    ]
+  };
   var coloredCells = Array.from(grid.querySelectorAll('.mini-blue, .mini-red'));
   coloredCells.forEach(function(cell, idx) {
     var isBlue = cell.classList.contains('mini-blue');
     cell.addEventListener('click', function(e) {
       e.stopPropagation();
-      var backTexts = [
-  'Haal een hotdog bij de IKEA en eet deze binnen één minuut op.',
-  'Ga naar het Delftse Hout en geniet even van de natuur',
-  'Doe alsof je een gids bent bij de oude jan',
-  'Voeg iets aan de maatschappij toe in delft en zet dit op film (wees creatief)',
-  'Speel de sterfscène van Willem van oranje na in het prinsenhof',
-  'Bestel een blaffer bij luna’s en drink hem op (Succes!)',
-  'Sta voor de oude kerk en biecht een zonde uit je verleden op camera + sta voor de nieuwe kerk en vraag om vergiffenis',
-  'Drink vijf soorten biertjes of wijntjes in vijf verschillende barren',
-  // … enzovoort
-];
-openFlash(cell.textContent.trim(), backTexts[idx] || String(idx + 1), isBlue);
+      var texts = backTexts[currentLang] || backTexts.nl;
+      openFlash(cell.textContent.trim(), texts[idx] || String(idx + 1), isBlue);
     });
   });
   // ── Battle/VS cell: tooltip + ALL cells chaos-shake ──
