@@ -2542,7 +2542,13 @@ setLang('nl');
     var isBlue = cell.classList.contains('mini-blue');
     cell.addEventListener('click', function(e) {
       e.stopPropagation();
-      openFlash(cell.textContent.trim(), String(idx + 1), isBlue);
+      var backTexts = [
+  'Jouw tekst voor vakje 1',
+  'Jouw tekst voor vakje 2',
+  'Jouw tekst voor vakje 3',
+  // … enzovoort
+];
+openFlash(cell.textContent.trim(), backTexts[idx] || String(idx + 1), isBlue);
     });
   });
   // ── Battle/VS cell: tooltip + ALL cells chaos-shake ──
