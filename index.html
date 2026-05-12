@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("L3s4ke2xIu6huThMC");
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bingo-Go | Het Ultieme Stadsspel</title>
@@ -2405,14 +2409,38 @@ buildGrid('gridBlauw', 'nl');
 /* ── CONTACT FORM ── */
 function submitForm() {
   const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
   const email     = document.getElementById('email').value.trim();
+  const subjectEl = document.getElementById('subject');
+  const subject   = subjectEl.options[subjectEl.selectedIndex].text;
   const message   = document.getElementById('message').value.trim();
+
   if (!firstName || !email || !message) {
     alert(translations[currentLang]['form.validation']);
     return;
   }
-  document.getElementById('contactFormWrap').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+
+  const submitBtn = document.querySelector('.form-submit');
+  submitBtn.textContent = '⏳ Versturen...';
+  submitBtn.disabled = true;
+
+  emailjs.send("service_btnh3o8", "template_ck7es5y", {
+    name:     firstName + ' ' + lastName,
+    reply_to: email,
+    subject:  subject,
+    message:  message,
+  })
+  .then(function() {
+    document.getElementById('contactFormWrap').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  })
+  .catch(function(error) {
+    submitBtn.textContent = currentLang === 'en' ? 'Send Message →' : 'Verstuur Bericht →';
+    submitBtn.disabled = false;
+    alert(currentLang === 'en'
+      ? 'Something went wrong. Please try again or email us directly at BingoGo015@gmail.com'
+      : 'Er is iets misgegaan. Probeer het opnieuw of mail ons direct op BingoGo015@gmail.com');
+  });
 }
 // Set NL as default active on load
 setLang('nl');
