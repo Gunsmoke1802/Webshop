@@ -1,4 +1,3 @@
-✗ submitForm NIET gevonden – controleer whitespace
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -855,39 +854,6 @@
     .faq-cta-box { padding: 36px 24px; }
   }
 </style>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  /* ── EMAILJS SETUP ──────────────────────────────────────────────────────────
-     Stap 1: Maak een gratis account op https://www.emailjs.com
-     Stap 2: Voeg een 'Email Service' toe → kies Gmail → verbind BingoGo015@gmail.com
-     Stap 3: Maak een 'Email Template' aan met onderstaande variabelen:
-             - {{from_name}}   → naam van de invuller
-             - {{from_email}}  → e-mailadres van de invuller
-             - {{subject}}     → gekozen onderwerp
-             - {{message}}     → het bericht
-
-             Aanbevolen template-inhoud:
-             ─────────────────────────────
-             Onderwerp (Subject line in EmailJS):
-               [Bingo-Go] {{from_name}} — {{subject}}
-
-             Body:
-               Naam:      {{from_name}}
-               E-mail:    {{from_email}}
-               Onderwerp: {{subject}}
-
-               ────────────────────────
-               {{message}}
-             ─────────────────────────────
-             Zet 'Reply To' in EmailJS op: {{from_email}}
-             Zo kun je direct antwoorden naar de invuller.
-
-     Stap 4: Kopieer jouw gegevens en plak ze hieronder:
-  ── */
-  (function(){
-    emailjs.init({ publicKey: "JOUW_PUBLIC_KEY" }); // ← vervang dit
-  })();
-</script>
 </head>
 <body>
 <!-- ── NAV ── -->
@@ -2439,53 +2405,14 @@ buildGrid('gridBlauw', 'nl');
 /* ── CONTACT FORM ── */
 function submitForm() {
   const firstName = document.getElementById('firstName').value.trim();
-  const lastName  = document.getElementById('lastName').value.trim();
   const email     = document.getElementById('email').value.trim();
-  const subjectEl = document.getElementById('subject');
-  const subjectText = subjectEl.options[subjectEl.selectedIndex]
-                        ? subjectEl.options[subjectEl.selectedIndex].text
-                        : '';
   const message   = document.getElementById('message').value.trim();
-
   if (!firstName || !email || !message) {
     alert(translations[currentLang]['form.validation']);
     return;
   }
-  if (!subjectText || subjectEl.selectedIndex === 0) {
-    alert(currentLang === 'en'
-      ? 'Please select a subject.'
-      : 'Kies alstublieft een onderwerp.');
-    return;
-  }
-
-  const btn = document.querySelector('.form-submit');
-  const origText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = currentLang === 'en' ? 'Sending…' : 'Bezig met verzenden…';
-
-  emailjs.send(
-    'JOUW_SERVICE_ID',    // ← vervang: Service ID uit EmailJS dashboard
-    'JOUW_TEMPLATE_ID',   // ← vervang: Template ID uit EmailJS dashboard
-    {
-      from_name:  firstName + (lastName ? ' ' + lastName : ''),
-      from_email: email,
-      subject:    subjectText,
-      message:    message,
-      reply_to:   email,
-    }
-  )
-  .then(function() {
-    document.getElementById('contactFormWrap').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  })
-  .catch(function(err) {
-    btn.disabled = false;
-    btn.textContent = origText;
-    alert(currentLang === 'en'
-      ? 'Something went wrong. Please try again or email us directly at BingoGo015@gmail.com'
-      : 'Er is iets misgegaan. Probeer het opnieuw of mail ons direct op BingoGo015@gmail.com');
-    console.error('EmailJS fout:', err);
-  });
+  document.getElementById('contactFormWrap').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
 }
 // Set NL as default active on load
 setLang('nl');
